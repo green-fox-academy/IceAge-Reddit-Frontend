@@ -3,13 +3,14 @@ orbs:
         
 version: 2.1
 
+jobs:
+  build:
+    docker: 
+      - image:  circleci/node:10
+       environment: CHROME_BIN=/usr/bin/google-chrome
+
 workflows:
   app-tests:
     jobs:
-      build:
-        docker: 
-          - image:  circleci/node:10
-          environment:
-              - CHROME_BIN=/usr/bin/google-chrome
-        steps:
-          - node/test
+      - build
+      - node/test
