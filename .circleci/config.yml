@@ -10,8 +10,7 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - run: npm test
-      - run: echo "this is the build job"
+      - run: npm test --no-watch
         
 version: 2.1
 
