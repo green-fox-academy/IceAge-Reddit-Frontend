@@ -8,9 +8,13 @@ jobs:
     docker: 
       - image:  circleci/node:10
        environment: CHROME_BIN=/usr/bin/google-chrome
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm test
 
 workflows:
   app-tests:
     jobs:
       - build
-      - node/test
+      # - node/test
