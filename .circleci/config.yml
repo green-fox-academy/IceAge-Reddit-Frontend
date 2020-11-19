@@ -1,21 +1,15 @@
 orbs:
   node: circleci/node@4.1.0
-  browser-tools: circleci/browser-tools@1.1.0
-jobs:
-  build:
-    docker:
-      - image: cimg/node:15.0.1-browsers
-    steps:
-      - browser-tools/install-browsers
-      - checkout
-      - run: |
-          node --version
-          java --version
-          google-chome --version
         
 version: 2.1
 
 workflows:
   app-tests:
     jobs:
-      - node/test
+      build:
+        docker: 
+          - image:  circleci/node:10
+          environment:
+              - CHROME_BIN=/usr/bin/google-chrome
+        steps:
+          - node/test
