@@ -1,9 +1,17 @@
-orbs:
-  node: circleci/node@4.1.0
-
 version: 2.1
 
-workflows:
-  app-tests:
-    jobs:
-      - node/test
+orbs:
+  node: circleci/node@4.1.0
+  browser-tools: circleci/browser-tools@1.1.0
+  my-orb:
+    executors:
+      default:
+        docker:
+          - image: circleci/node:lates-browser
+        steps:
+          - checkout
+          - run:
+            - checkout
+            command:
+              npm install
+              npm run test
