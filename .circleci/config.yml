@@ -6,8 +6,8 @@ version: 2.1
 workflows:
   app-tests:
     jobs:
-      - node/test
       build:
         docker: 
-          environment:
-              - CHROME_BIN=/usr/bin/google-chrome
+          environment: 
+            CHROME_BIN=/usr/bin/google-chrome
+      - node/test
