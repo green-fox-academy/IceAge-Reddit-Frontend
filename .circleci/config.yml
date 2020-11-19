@@ -1,20 +1,17 @@
 orbs:
+  browser-tools: circleci/browser-tools@1.1.0
   node: circleci/node@4.1.0
         
 version: 2.1
 
 jobs:
-  build:
-    docker: 
-      - image:  circleci/node:10
-       environment: CHROME_BIN=/usr/bin/google-chrome
-    steps:
-      - checkout
-      - run: npm install
-      - run: npm test
+  test:
+      docker:
+        - image: 'cimg/node:13.12-browser'
+      steps:
+        - browser-tools/install-browser-tools
 
 workflows:
   app-tests:
     jobs:
-      - build
-      # - node/test
+      - node/test
