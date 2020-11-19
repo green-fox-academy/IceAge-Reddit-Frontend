@@ -5,13 +5,8 @@ jobs:
   build:
     docker:
       - image: cimg/node:15.0.1-browsers
-    steps:
-      - browser-tools/install-browsers
-      - checkout
-      - run: |
-          node --version
-          java --version
-          google-chome --version
+      environment:
+        CHROME_BIN: /usr/bin/google-chrome
 
 version: 2.1
 
