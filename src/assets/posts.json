@@ -1,0 +1,25 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "title": "První post",
+            "date_created": "25.11.2020",
+            "subbredit": "Subreddit1",
+            "author": "Pepin",
+            "commentCount": 2,
+            "post_type": "text",
+            "description": "Post o ničem"
+        },
+        {
+            "id": 2,
+            "title": "Druhý post",
+            "date_created": "24.11.2020",
+            "subbredit": "Subreddit2",
+            "author": "Pepinovič",
+            "commentCount": 3,
+            "post_type": "url",
+            "posted_url": "https://seznam.cz",
+            "description": "Post úplně o ničem"
+        }
+    ]
+}

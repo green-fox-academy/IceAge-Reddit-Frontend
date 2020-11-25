@@ -1,0 +1,69 @@
+@use '../colors';
+
+
+// /* COLORS */
+
+// $primaryColor: #f4f9fd;
+// $secondaryColor:#9fd7ff;
+// $shadow: gray;
+// $basicTextColor: black;
+// $lightTextColor: #e8f4ff;
+
+/* MIXINS */
+
+@mixin button {};
+
+/* BODY AND MAIN WRAPPER*/
+
+body {
+    background-color: colors.$primaryColor;
+    color: colors.$secondaryColor;
+}
+
+.gridWrapper {
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+    grid-template-rows: 1fr 10fr;
+    grid-row-gap: 1em;
+    grid-template-areas: 
+        "navigationBar navigationBar navigationBar"
+        ". mainContent .";
+}
+
+/* NAVIGATION */
+
+.navigationBar {
+    grid-area: navigationBar;
+    display: grid;
+    grid-template-columns: 1fr 8fr 3fr;
+    grid-template-areas: 
+        "logo subreddits logReg";
+    color: colors.$lightTextColor;
+    background-color: colors.$secondaryColor;
+    align-items: center;
+
+    > div {
+        padding: 1em;
+    };
+}
+
+.logReg {
+    grid-area: logReg;
+}
+
+.logo {
+    grid-area: logo;
+}
+
+.subreddits {
+    grid-area: subreddits;
+}
+
+/* POSTS */
+
+.mainContent {
+    grid-area: mainContent;
+    background-color: colors.$primaryColor;
+    color: colors.$basicTextColor;
+}
+
