@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "IceAge-Reddit-Frontend"
+    }
+  },
+  "defaultProject": "IceAge-Reddit-Frontend",
+  "cli": {
+    "analytics": "15ff5fb7-e9fb-46e6-89d9-3b2ac5e3f5b1"
+  }
 }
