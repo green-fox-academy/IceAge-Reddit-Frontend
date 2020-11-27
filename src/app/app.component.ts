@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { GatewayService } from 'src/app/services/gateway.service';
-import { StateService } from 'src/app/services/state.service';
+import { PostService } from './services/post.service';
 
 @Component({
     selector: 'app-root',
@@ -12,11 +12,11 @@ export class AppComponent {
 
     constructor(
         private _gateway: GatewayService,
-        private _stateService: StateService
+        private _postService: PostService
     ) {
         this._gateway.fetchPosts()
             .subscribe(response => {
-                this._stateService.setPosts(response.posts);
+                this._postService.setPosts(response.posts);
             })
     }
 }

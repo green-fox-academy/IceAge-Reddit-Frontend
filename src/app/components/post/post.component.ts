@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { StateService } from 'src/app/services/state.service';
+import { PostService } from 'src/app/services/post.service';
 import { Post } from 'src/types/posts';
 
 @Component({
@@ -19,17 +19,15 @@ export class PostComponent implements OnInit {
   postSubreddit: string;
   postCommentCount: number;
 
-  constructor(
-    private _stateService: StateService
-  ) { }
+  constructor(private _postService: PostService) { }
 
   ngOnInit(): void {
-    this.post = this._stateService.getPost(this.postId);
+    this.post = this._postService.getPost(this.postId);
     this.setPropertiesFromPosts();
   }
 
   private setPropertiesFromPosts(): void {
-    this.post = this._stateService.getPost(this.postId);
+    this.post = this._postService.getPost(this.postId);
     this.postTitle = this.post.title;
     this.postDateCreated = this.post.date_created;
     this.postAuthor = this.post.author;

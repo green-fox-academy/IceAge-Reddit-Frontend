@@ -9,7 +9,6 @@ import { SubredditsComponent } from './components/subreddits/subreddits.componen
 import { PostComponent } from './components/post/post.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { GatewayService } from './services/gateway.service';
-import { StateService } from './services/state.service';
 
 @NgModule({
     declarations: [AppComponent, SubredditsComponent, FeedComponent, PostComponent],
@@ -21,8 +20,7 @@ import { StateService } from './services/state.service';
     providers: [
         PostService,
         SubredditService,
-        GatewayService,
-        StateService
+        GatewayService
     ],
     bootstrap: [AppComponent],
 })

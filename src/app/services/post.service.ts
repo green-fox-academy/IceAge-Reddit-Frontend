@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Post, PostResponse } from 'src/types/posts';
 
 @Injectable({
@@ -10,14 +10,23 @@ export class PostService {
 
   private _posts: Post[];
 
+  posts$: BehaviorSubject<Post[]> = new BehaviorSubject(null);
+
   constructor() { }
 
-  setPosts(post: Post[]): void {
-    this._posts = post;
+  setPosts(posts: Post[]): void {
+    this._posts = posts;
+    this.posts$.next(posts);
   }
 
-  getAllPosts(): Post[] {
-    return this._posts;
+  getAllPosts(): Observable<Post[]> {
+    // return this._posts;
+    return this.posts$;
+  }
+
+  getPost(postId: number): Post {
+    const result = this._posts.find(post => post.id === postId);
+    return result;
   }
 
 }
