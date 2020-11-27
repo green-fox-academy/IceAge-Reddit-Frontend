@@ -15,7 +15,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 10fr 1fr;
     grid-template-rows: 1fr 10fr;
-    grid-row-gap: 1em;
+    grid-row-gap: 1rem;
     grid-template-areas: 
         "navigationBar navigationBar navigationBar"
         ". mainContent .";
@@ -34,7 +34,7 @@ body {
     align-items: center;
 
     > div {
-        padding: 1em;
+        padding: 1rem;
     };
 }
 
