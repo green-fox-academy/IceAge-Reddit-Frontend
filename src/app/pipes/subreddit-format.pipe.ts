@@ -1,12 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'subredditFormat'
+    name: 'subredditFormat',
 })
 export class SubredditFormatPipe implements PipeTransform {
-
-  transform(value: string): string {
-    return '/r/' + value;
-  }
-
+    transform(value: string): string {
+        return `/r/${value}`;
+    }
 }

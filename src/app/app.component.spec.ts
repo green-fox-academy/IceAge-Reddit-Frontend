@@ -10,16 +10,8 @@ import { SubredditService } from './services/subreddit.service';
 describe('AppComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [
-                BrowserModule, 
-                AppRoutingModule,
-                HttpClientModule
-            ],
-            providers: [
-                PostService,
-                SubredditService,
-                GatewayService
-            ],
+            imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+            providers: [PostService, SubredditService, GatewayService],
             declarations: [AppComponent],
         }).compileComponents();
     });
