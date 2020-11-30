@@ -1,48 +1,27 @@
-import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 import { PostService } from 'src/app/services/post.service';
 import { Post } from 'src/types/posts';
 
 import { PostComponent } from './post.component';
 
-// @Component({
-//   selector: 'app-post',
-//   template: `
-//     <h2>{{postTitle}}</h2> <br> 
-//     <div>Posted at {{postDateCreated}} by {{postAuthor}} to //{{postSubreddit}}</div> 
-//     <div>{{postCommentCount}} Comments - <a href="">share</a></div>`
-// })
-
-// export class TestPostComponent {
-
-  
-// }
-
 class MockPostService {
-  posts: Post[] = [
+  _posts: Post[] = [
     {
       id: 1,
-      title: "První post",
+      title: "PFirst Post",
       date_created: new Date(),
       subreddit: "Subreddit1",
-      author: "Pepin",
+      author: "Author1",
       commentCount: 2,
       post_type: "text",
-      description: "Post o ničem"
-    },
-    {
-      id: 2,
-      title: "Druhý post",
-      date_created: new Date(),
-      subreddit: "Subreddit2",
-      author: "Pepinovič",
-      commentCount: 3,
-      post_type: "url",
-      posted_url: "https://seznam.cz",
-      description: "Post úplně o ničem"
+      description: "Describing this first post."
     }
-];
+  ];
+
+  getPost(postId: number): Post {
+    const result = this._posts.find(post => post.id === postId);
+    return result;
+  }
 
 }
 
@@ -58,13 +37,12 @@ describe('PostComponent', () => {
     })
     .compileComponents();
 
-    component = TestBed.inject(PostComponent);
-
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PostComponent);
     component = fixture.componentInstance;
+    component.postId = 1;
     fixture.detectChanges();
   });
 
