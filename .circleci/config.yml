@@ -10,7 +10,7 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - run: npm run test -- --no-watch --no-progress
+      - run: npm run test -- --no-watch
         
 version: 2.1
 
