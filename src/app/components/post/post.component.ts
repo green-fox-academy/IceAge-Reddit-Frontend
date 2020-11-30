@@ -29,7 +29,7 @@ export class PostComponent implements OnInit {
   private setPropertiesFromPosts(): void {
     this.post = this._postService.getPost(this.postId);
     this.postTitle = this.post.title;
-    this.postDateCreated = this.post.date_created;
+    this.postDateCreated = new Date(this.post.date_created);
     this.postAuthor = this.post.author;
     this.postSubreddit = this.post.subreddit;
     this.postCommentCount = this.post.commentCount;

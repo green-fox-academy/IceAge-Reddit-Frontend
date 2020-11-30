@@ -9,9 +9,11 @@ import { SubredditsComponent } from './components/subreddits/subreddits.componen
 import { PostComponent } from './components/post/post.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { GatewayService } from './services/gateway.service';
+import { DateAgoPipe } from 'src/app/pipes/date-ago.pipe';
+import { SubredditFormatPipe } from 'src/app/pipes/subreddit-format.pipe';
 
 @NgModule({
-    declarations: [AppComponent, SubredditsComponent, FeedComponent, PostComponent],
+    declarations: [AppComponent, SubredditsComponent, FeedComponent, PostComponent, DateAgoPipe, SubredditFormatPipe],
     imports: [
         BrowserModule, 
         AppRoutingModule,

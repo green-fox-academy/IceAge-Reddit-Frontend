@@ -1,15 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { DateAgoPipe } from 'src/app/pipes/date-ago.pipe';
 import { PostService } from 'src/app/services/post.service';
 import { Post } from 'src/types/posts';
-
 import { PostComponent } from './post.component';
 
 class MockPostService {
   _posts: Post[] = [
     {
       id: 1,
-      title: "PFirst Post",
-      date_created: new Date(),
+      title: "First Post",
+      date_created: new Date('2020-11-11T23:28:56.782Z'),
       subreddit: "Subreddit1",
       author: "Author1",
       commentCount: 2,
@@ -31,9 +31,11 @@ describe('PostComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      declarations: [DateAgoPipe],
       providers: [ 
         PostComponent,
-        {provide: PostService, useClass: MockPostService} ]
+        {provide: PostService, useClass: MockPostService}
+      ]
     })
     .compileComponents();
 

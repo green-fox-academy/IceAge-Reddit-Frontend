@@ -3,8 +3,8 @@
         {
             "id": 1,
             "title": "První post",
-            "date_created": "25.11.2020",
-            "subbredit": "Subreddit1",
+            "date_created": "2014-01-01T23:28:56.782Z",
+            "subreddit": "Subreddit1",
             "author": "Pepin",
             "commentCount": 2,
             "post_type": "text",
@@ -13,8 +13,8 @@
         {
             "id": 2,
             "title": "Druhý post",
-            "date_created": "24.11.2020",
-            "subbredit": "Subreddit2",
+            "date_created": "2020-11-30T17:10:56.782Z",
+            "subreddit": "Subreddit2",
             "author": "Pepinovič",
             "commentCount": 3,
             "post_type": "url",
