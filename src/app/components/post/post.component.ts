@@ -31,7 +31,7 @@ export class PostComponent implements OnInit {
     this.postTitle = this.post.title;
     this.postDateCreated = this.post.date_created;
     this.postAuthor = this.post.author;
-    this.postSubreddit = this.post.subbredit;
+    this.postSubreddit = this.post.subreddit;
     this.postCommentCount = this.post.commentCount;
   }
 

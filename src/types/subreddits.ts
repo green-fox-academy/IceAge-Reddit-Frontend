@@ -7,6 +7,6 @@ export interface Subreddit {
     title: string,
     date_created: Date,
     description: string,
-    userCount: string,
+    userCount: number,
     author: string
 }

@@ -6,7 +6,7 @@ export interface Post {
     id: number,
     title: string,
     date_created: Date,
-    subbredit: string,
+    subreddit: string,
     author: string,
     commentCount: number,
     post_type: string,
