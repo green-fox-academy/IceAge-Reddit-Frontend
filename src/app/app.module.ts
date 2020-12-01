@@ -6,11 +6,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
-import { ForbiddenPasswordDirective } from './shared/forbidden-password.directive';
+import { ForbiddenUsernameDirective } from './shared/forbidden-username.directive';
+import { ValidatePasswordDirective } from './shared/validate-password.directive';
 
 
 @NgModule({
-    declarations: [AppComponent, RegistrationFormComponent, ForbiddenPasswordDirective],
+    declarations: [AppComponent, RegistrationFormComponent, ForbiddenUsernameDirective, ValidatePasswordDirective],
     imports: [
         BrowserModule, 
         AppRoutingModule, 

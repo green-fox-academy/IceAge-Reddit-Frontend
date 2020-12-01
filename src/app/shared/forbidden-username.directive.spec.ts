@@ -1,8 +1,8 @@
-import { ForbiddenPasswordDirective } from './forbidden-password.directive';
+import { ForbiddenUsernameDirective } from './forbidden-username.directive';
 
 describe('ForbiddenPasswordDirective', () => {
   it('should create an instance', () => {
-    const directive = new ForbiddenPasswordDirective();
+    const directive = new ForbiddenUsernameDirective();
     expect(directive).toBeTruthy();
   });
 });
