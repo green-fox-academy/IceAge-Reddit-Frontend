@@ -4,8 +4,8 @@
     <div class="info">
         <h2>{{postTitle}}</h2>
         <br>
-        <div>Posted  {{postDateCreated | dateAgo}} by <a href="">{{postAuthor}}</a> to <a href="">{{postSubreddit | subredditFormat}}</a></div>
-        <div>{{postCommentCount}} Comments - <a href="">share</a></div>
+        <div class="postDateCreated">Posted  {{postDateCreated | dateAgo}} by <a class="postAuthor" href="">{{postAuthor}}</a> to <a class="postSubreddit" href="">{{postSubreddit | subredditFormat}}</a></div>
+        <div class="postCommentCount">{{postCommentCount}} Comments - <a href="">share</a></div>
     </div>
 </div>
 

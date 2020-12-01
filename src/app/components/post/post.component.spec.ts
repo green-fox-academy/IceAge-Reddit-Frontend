@@ -28,6 +28,11 @@ class MockPostService {
 describe('PostComponent', () => {
     let component: PostComponent;
     let fixture: ComponentFixture<PostComponent>;
+    let h2PostTitle: HTMLElement;
+    let divPostDateCreated: HTMLElement;
+    let aPostAuthor: HTMLElement;
+    let aPostSubreddit: HTMLElement;
+    let divPostCommentCount: HTMLElement;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
@@ -40,10 +45,39 @@ describe('PostComponent', () => {
         fixture = TestBed.createComponent(PostComponent);
         component = fixture.componentInstance;
         component.postId = 1;
+        h2PostTitle = fixture.nativeElement.querySelector('h2');
+        divPostDateCreated = fixture.nativeElement.querySelector('.postDateCreated');
+        aPostAuthor = fixture.nativeElement.querySelector('.postAuthor');
+        aPostSubreddit = fixture.nativeElement.querySelector('.postSubreddit');
+        divPostCommentCount = fixture.nativeElement.querySelector('.postCommentCount');
+
         fixture.detectChanges();
     });
 
     it('should create', () => {
         expect(component).toBeTruthy();
+    });
+
+    it('Should display post title', () => {
+        expect(h2PostTitle.textContent).toContain(component.postTitle);
+    });
+
+    it('Should display post dateCreated', () => {
+        const datePipe = new DateAgoPipe();
+        expect(divPostDateCreated.textContent).toContain(
+            datePipe.transform(component.postDateCreated.toString()),
+        );
+    });
+
+    it('Should display post author', () => {
+        expect(aPostAuthor.textContent).toContain(component.postAuthor);
+    });
+
+    it('Should display post subreddit', () => {
+        expect(aPostSubreddit.textContent).toContain(component.postSubreddit);
+    });
+
+    it('Should display post commentCount', () => {
+        expect(divPostCommentCount.textContent).toContain(component.postCommentCount.toString());
     });
 });
