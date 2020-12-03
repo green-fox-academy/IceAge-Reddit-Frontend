@@ -1,5 +1,5 @@
 
-<div class="centered-container">
+<div>
 <h1>Register for Iced Reddit</h1>
 
 <form #registrationform="ngForm" (ngSubmit)="onSubmit(registrationform)" appForbiddenUsername>
@@ -8,26 +8,31 @@
         placeholder="Your username"
         name="username"
         required
-        #username
+        #username="ngModel"
         appForbiddenUsername=" "
-       [(ngModel)] ="user.username" >
-       <!--<div *ngIf="username"  >Bad username</div>-->
+       [(ngModel)] ="user.username">
+       <div [hidden]="username.untouched || username.valid" class="form-error">
+        Username must be filled in and can't have whitespace</div>
 <input type="email"
         placeholder="Your email"
         name="email"
-        id="email"
+        #email="ngModel"
+        appValidateEmail="^[^\s@]+@[^\s@]+\.[^\s@]+$"
         required
         [(ngModel)] ="user.email">
+        <div [hidden]="email.untouched || email.valid" class="form-error">
+                Please enter valid email</div>
 <input type="password"
         placeholder="password"
-        #password
+        #password="ngModel"
         minlength="6"
         maxlength="20"
         name="password"
-        appValidatePassword
+        required
+        appValidatePassword="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$"
         [(ngModel)] ="user.password">
-<button [disabled]="!registrationform.valid">Register</button>
+        <div [hidden]="password.untouched || password.valid" class="form-error">
+                Your password must have upper case, lower case and number and must be 6-20 characters long</div>
+<button >Register</button>
 </form>
 <a>Already registered?</a>
- {{ registrationform.value | json }}
-</div>
