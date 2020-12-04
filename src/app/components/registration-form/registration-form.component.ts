@@ -17,6 +17,7 @@ export class RegistrationFormComponent implements OnInit {
 
     constructor(private dataService: DataService) {}
 
+    // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
     ngOnInit(): void {}
 
     onSubmit(registrationform: NgForm) {
