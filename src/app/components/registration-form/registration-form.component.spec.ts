@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DataService } from 'src/app/data/data.service';
 
@@ -10,7 +11,7 @@ describe('RegistrationFormComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [RegistrationFormComponent],
-            providers: [DataService],
+            providers: [DataService, HttpClient],
         }).compileComponents();
     });
 
