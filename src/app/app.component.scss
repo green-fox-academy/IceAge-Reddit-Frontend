@@ -4,12 +4,7 @@
 
 @mixin button {};
 
-/* BODY AND MAIN WRAPPER*/
-
-body {
-    // background-color: colors.$primaryColor;
-    color: $secondaryColor;
-}
+/* MAIN WRAPPER */
 
 .gridWrapper {
     display: grid;

@@ -17,7 +17,6 @@ export class PostService {
     }
 
     getAllPosts(): Observable<Post[]> {
-        // return this._posts;
         return this.posts$;
     }
 

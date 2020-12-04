@@ -45,6 +45,3 @@ debug.log
 # System Files
 .DS_Store
 Thumbs.db
-
-# Mock data
-/src/types

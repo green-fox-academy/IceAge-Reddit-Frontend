@@ -11,15 +11,10 @@ export class PostComponent implements OnInit {
     @Input() postId: number;
 
     post: Post;
-
     postTitle: string;
-
     postDateCreated: Date;
-
     postAuthor: string;
-
     postSubreddit: string;
-
     postCommentCount: number;
 
     constructor(private _postService: PostService) {}
