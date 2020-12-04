@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "circleci": "npm run test -- --no-watch",
+    "test:circleci": "ng test --watch=false",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
