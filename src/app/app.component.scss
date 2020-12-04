@@ -1,4 +1,4 @@
-@use '../colors';
+@import '../colors';
 
 /* MIXINS */
 
@@ -8,7 +8,7 @@
 
 body {
     // background-color: colors.$primaryColor;
-    color: colors.$secondaryColor;
+    color: $secondaryColor;
 }
 
 .gridWrapper {
@@ -29,9 +29,9 @@ body {
     grid-template-columns: 1fr 8fr 3fr;
     grid-template-areas: 
         "logo subreddits logReg";
-    color: colors.$darkBlue;
-    background: rgb(191,226,241);
-    background: linear-gradient(90deg, rgba(191,226,241,1) 0%, rgba(255,255,255,1) 100%);
+    color: $lightTextColor;
+    background: rgb(31, 31, 31);
+    // background: linear-gradient(90deg, rgba(191,226,241,1) 0%, rgba(255,255,255,1) 100%);
     align-items: center;
 
     > div {
@@ -55,6 +55,6 @@ body {
 
 .mainContent {
     grid-area: mainContent;
-    color: colors.$basicTextColor;
+    color: $basicTextColor;
 }
 
