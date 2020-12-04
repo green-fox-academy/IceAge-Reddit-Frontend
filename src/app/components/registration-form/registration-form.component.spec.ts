@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { DataService } from 'src/app/data/data.service';
 
 import { RegistrationFormComponent } from './registration-form.component';
 
@@ -9,6 +10,7 @@ describe('RegistrationFormComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [RegistrationFormComponent],
+            providers: [DataService],
         }).compileComponents();
     });
 
