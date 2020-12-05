@@ -58,6 +58,10 @@ describe('PostComponent', () => {
         expect(component).toBeTruthy();
     });
 
+    it('component.postId should be 1', () => {
+        expect(component.postId).toBe(1);
+    });
+
     it('Should display post title', () => {
         expect(h2PostTitle.textContent).toContain(component.postTitle);
     });

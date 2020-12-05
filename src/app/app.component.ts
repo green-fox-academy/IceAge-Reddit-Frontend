@@ -15,8 +15,8 @@ export class AppComponent {
         private _postService: PostService
     ) {
         this._gateway.fetchPosts()
-            .subscribe(response => {
-                this._postService.setPosts(response.posts);
+            .subscribe((response) => {
+                this._postService.setPosts(response);
             })
     }
 }
