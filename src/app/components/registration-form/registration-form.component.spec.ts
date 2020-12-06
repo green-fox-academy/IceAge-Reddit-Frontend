@@ -1,17 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { DataService } from 'src/app/data/data.service';
 
 import { RegistrationFormComponent } from './registration-form.component';
 
-describe('RegistrationFormComponent', () => {
+class MockDataService {}
+
+fdescribe('RegistrationFormComponent', () => {
     let component: RegistrationFormComponent;
     let fixture: ComponentFixture<RegistrationFormComponent>;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
+            imports: [FormsModule],
             declarations: [RegistrationFormComponent],
-            providers: [DataService, HttpClient],
+            providers: [HttpClient, { provide: DataService, useClass: MockDataService }],
         }).compileComponents();
     });
 
