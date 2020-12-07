@@ -1,11 +1,17 @@
+import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { GatewayService } from './services/gateway.service';
+import { PostService } from './services/post.service';
+import { SubredditService } from './services/subreddit.service';
 
 describe('AppComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [RouterTestingModule],
+            imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+            providers: [PostService, SubredditService, GatewayService],
             declarations: [AppComponent],
         }).compileComponents();
     });
@@ -20,14 +26,5 @@ describe('AppComponent', () => {
         const fixture = TestBed.createComponent(AppComponent);
         const app = fixture.componentInstance;
         expect(app.title).toEqual('IceAge-Reddit-Frontend');
-    });
-
-    it('should render title', () => {
-        const fixture = TestBed.createComponent(AppComponent);
-        fixture.detectChanges();
-        const compiled = fixture.nativeElement;
-        expect(compiled.querySelector('.content span').textContent).toContain(
-            'IceAge-Reddit-Frontend app is running!',
-        );
     });
 });

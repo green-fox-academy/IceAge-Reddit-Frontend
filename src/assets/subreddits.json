@@ -1,0 +1,20 @@
+{
+    "posts": [
+        {
+            "name": "Subreddit1",
+            "title": "Subreddit1 title",
+            "date_created": "25.11.2020",
+            "description": "Subreddit1 o ničem",
+            "userCount": "User1",
+            "author": "Pepinovič"
+        },
+        {
+            "name": "Subreddit2",
+            "title": "Subreddit2 title",
+            "date_created": "21.11.2020",
+            "description": "Subreddit2 o ničem",
+            "userCount": "User2",
+            "author": "Pepinovičák"
+        }
+    ]
+}
