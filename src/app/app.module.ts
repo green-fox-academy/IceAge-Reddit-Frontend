@@ -11,6 +11,7 @@ import { SubredditsComponent } from './components/subreddits/subreddits.componen
 import { PostComponent } from './components/post/post.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { GatewayService } from './services/gateway.service';
+import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 
 @NgModule({
     declarations: [
@@ -20,6 +21,7 @@ import { GatewayService } from './services/gateway.service';
         PostComponent,
         DateAgoPipe,
         SubredditFormatPipe,
+        WelcomePageComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, HttpClientModule],
     providers: [PostService, SubredditService, GatewayService],

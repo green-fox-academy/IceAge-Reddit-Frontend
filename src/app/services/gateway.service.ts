@@ -7,13 +7,13 @@ import { Post } from 'src/types/posts';
     providedIn: 'root',
 })
 export class GatewayService {
-    private _data = 'assets/posts.json';
+    private _mockedData = 'assets/posts.json';
 
-    private _backendData = 'http://localhost:3000/api/v1/feed';
+    private _feedData = 'http://localhost:3000/api/v1/feed';
 
     constructor(private _httpClient: HttpClient) {}
 
     fetchPosts(): Observable<Post[]> {
-        return this._httpClient.get<Post[]>(this._data);
+        return this._httpClient.get<Post[]>(this._feedData);
     }
 }

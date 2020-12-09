@@ -18,23 +18,24 @@ export interface Post {
 const data: Post[] = [
     {
         id: 1,
-        title: 'First Post',
-        date_created: new Date('2020-11-11T23:28:56.782Z'),
+        title: 'First post',
+        date_created: new Date('2014-01-01T23:28:56.782Z'),
         subreddit: 'Subreddit1',
         author: 'Author1',
         commentCount: 2,
         post_type: 'text',
-        description: 'Describing this first post.',
+        description: 'Post about something',
     },
     {
-        id: 1,
-        title: 'First Post',
-        date_created: new Date('2020-11-11T23:28:56.782Z'),
-        subreddit: 'Subreddit1',
-        author: 'Author1',
-        commentCount: 2,
-        post_type: 'text',
-        description: 'Describing this first post.',
+        id: 2,
+        title: 'Second post',
+        date_created: new Date('2020-11-30T17:10:56.782Z'),
+        subreddit: 'Subreddit2',
+        author: 'Author2',
+        commentCount: 3,
+        post_type: 'url',
+        posted_url: 'https://seznam.cz',
+        description: 'Post about anything',
     },
 ];
 
@@ -42,7 +43,7 @@ class MockPostService {
     posts$: BehaviorSubject<Post[]> = new BehaviorSubject(data);
 }
 
-fdescribe('FeedComponent', () => {
+describe('FeedComponent', () => {
     let component: FeedComponent;
     let fixture: ComponentFixture<FeedComponent>;
 
@@ -63,7 +64,7 @@ fdescribe('FeedComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('component _posts should contain data from MockPostService', () => {
+    it('component _posts should equal to data from MockPostService', () => {
         expect(component._posts).toEqual(data);
     });
 });
