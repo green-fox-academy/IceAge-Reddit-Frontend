@@ -2,11 +2,21 @@
 
 @mixin button {  
     background-color: $darkBlue;
-    color: $lightTextColor;
+    color: $orange;
     padding: 8px;
     letter-spacing: 2px;
     font-weight: bold;
     border: 1px solid $darkBlue;
     border-radius: 10px;
     text-transform: uppercase;
-    box-shadow: 5px 5px 5px $shadow};
+    @include boxshadow();
+    &:hover {
+        background-color:$orange;
+        border: none;
+        color: $darkBlue;
+    };
+};
+
+@mixin boxshadow {
+    box-shadow: 4px 4px 5px $shadow;
+};

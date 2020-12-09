@@ -7,9 +7,8 @@ import { Post } from 'src/types/posts';
 })
 export class PostService {
     private _posts: Post[];
-    posts$: BehaviorSubject<Post[]> = new BehaviorSubject(null);
 
-    constructor() {}
+    posts$: BehaviorSubject<Post[]> = new BehaviorSubject(null);
 
     setPosts(posts: Post[]): void {
         this._posts = posts;
