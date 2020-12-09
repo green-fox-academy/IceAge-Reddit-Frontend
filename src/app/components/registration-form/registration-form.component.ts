@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChanges } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DataService } from 'src/app/data/data.service';
 import { User } from 'src/app/data/user';
@@ -8,7 +8,7 @@ import { User } from 'src/app/data/user';
     templateUrl: './registration-form.component.html',
     styleUrls: ['./registration-form.component.scss'],
 })
-export class RegistrationFormComponent implements OnChanges {
+export class RegistrationFormComponent {
     user: User = {
         username: '',
         email: '',
@@ -16,9 +16,6 @@ export class RegistrationFormComponent implements OnChanges {
     };
 
     constructor(private dataService: DataService) {}
-    ngOnChanges(changes: SimpleChanges): void {
-        console.log('menime sracky');
-    }
 
     onSubmit(registrationform: NgForm) {
         console.log('in onSubmit: ', registrationform.valid);

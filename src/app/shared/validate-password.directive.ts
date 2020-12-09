@@ -1,4 +1,4 @@
-import { Directive, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Directive, Input } from '@angular/core';
 import { AbstractControl, NG_VALIDATORS, Validator, ValidatorFn } from '@angular/forms';
 
 @Directive({
