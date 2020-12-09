@@ -59,6 +59,7 @@ describe('GatewayService', () => {
 
         expect(request.cancelled).toBeFalsy();
         expect(request.request.responseType).toEqual('json');
+        expect(request.request.method).toBe('GET');
 
         request.flush(testPosts);
     });
