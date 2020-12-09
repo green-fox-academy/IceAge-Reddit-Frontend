@@ -9,8 +9,10 @@ import { User } from './user';
 export class DataService {
     constructor(private http: HttpClient) {}
 
-    postRegistrationForm(user: User): Observable<any> {
+    postRegistrationForm(user: User): Observable<User> {
         // return of(user);
-        return this.http.post('http://localhost:3000/api/v1/auth/sign-in', user);
+        return this.http.post('http://localhost:3000/api/v1/auth/sign-in', user) as Observable<
+            User
+        >;
     }
 }
