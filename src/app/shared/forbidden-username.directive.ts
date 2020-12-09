@@ -23,6 +23,6 @@ If input value contains forbiddenRegExp, function returns validation error objec
 export function forbiddenNameValidator(forbiddenRegExp: RegExp): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } | null => {
         const forbidden = forbiddenRegExp.test(control.value);
-        return forbidden ? { forbiddenusername: { value: control.value } } : null;
+        return forbidden ? { forbiddenusername: 'Username contains forbidden character(s)' } : null;
     };
 }
