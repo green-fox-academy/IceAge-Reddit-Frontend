@@ -1,0 +1,75 @@
+@import '../../../colors.scss';
+@import '../../../mixins.scss';
+
+main {
+  display: grid;
+  grid-template-columns: 2.5fr 3.5fr 3.5fr 2.5fr;
+  grid-template-rows: 3fr 6fr 3fr;
+  grid-template-areas: 
+    ". . . ." 
+    ". header-panel side-panel ." 
+    ". . . .";
+}
+
+.header-panel {
+  grid-area: header-panel;
+  display: grid;
+  grid-template-columns: 2fr 8fr 2fr;
+  grid-template-rows: 4fr 4fr 4fr;
+  grid-template-areas: 
+    ". . ."
+    ". welcome-sign ."
+    ". . .";
+  background-color: $darkBlue;
+  color: $lightTextColor;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.welcome-sign {
+  grid-area: welcome-sign;
+  font-size: 30px;
+  letter-spacing: 10px;
+}
+
+.side-panel{
+  grid-area: side-panel;
+  background-color: $lightTextColor;
+  color: $darkBlue;
+  padding: 5%;
+  display: grid;
+  align-items: center;
+  > div {
+    > h2 {
+        grid-area: side-panel-message;
+    };
+    > button {
+        grid-area: subBtn;
+        @include button;
+    };
+    display: grid;
+    grid-template-columns: 8fr 1fr 3fr;
+    grid-template-rows: 1fr 10fr 1fr;
+    grid-template-areas: 
+        ". . ." 
+        "side-panel-message . subBtn" 
+        ". . .";
+  };
+}
+
+// .loginContainer, .registrationContainer{
+//   display: grid;
+//   grid-template-columns: 8fr 1fr 3fr;
+//   grid-template-rows: 1fr 10fr 1fr;
+//   > h2 {
+//     grid-area: side-panel-message;
+//   }
+//   > button {
+//     grid-area: subBtn;
+//     @include button;
+//   grid-template-areas: 
+//     ". . ." 
+//     "side-panel-message . subBtn" 
+//     ". . .";
+//   }
+// }
