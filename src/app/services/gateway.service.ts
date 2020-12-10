@@ -7,9 +7,11 @@ import { Post } from 'src/types/posts';
     providedIn: 'root',
 })
 export class GatewayService {
-    private _mockedData = 'assets/posts.json';
+    // private _mockData = 'assets/posts.json';
 
-    private _feedData = 'http://localhost:3000/api/v1/feed';
+    private _baseUrl = 'http://localhost:3000/api/v1/';
+
+    private _feedData = `${this._baseUrl}feed`;
 
     constructor(private _httpClient: HttpClient) {}
 

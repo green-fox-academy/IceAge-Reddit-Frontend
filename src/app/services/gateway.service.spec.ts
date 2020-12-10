@@ -6,7 +6,7 @@ import { GatewayService } from './gateway.service';
 
 describe('GatewayService', () => {
     let service: GatewayService;
-    let httpTestController: HttpTestingController;
+    let mockHttp: HttpTestingController;
     const feedData = 'http://localhost:3000/api/v1/feed';
 
     beforeEach(() => {
@@ -15,18 +15,18 @@ describe('GatewayService', () => {
             providers: [GatewayService],
         });
         service = TestBed.inject(GatewayService);
-        httpTestController = TestBed.inject(HttpTestingController);
+        mockHttp = TestBed.inject(HttpTestingController);
     });
 
     afterEach(() => {
-        httpTestController.verify();
+        mockHttp.verify();
     });
 
     it('should be created', () => {
         expect(service).toBeTruthy();
     });
 
-    it('should test HttpClient.get', () => {
+    it('should retrieve posts from the API via HttpClient.get method', () => {
         const testPosts: Post[] = [
             {
                 id: 1,
@@ -52,10 +52,11 @@ describe('GatewayService', () => {
         ];
 
         service.fetchPosts().subscribe((posts) => {
-            expect(testPosts).toBe(posts);
+            expect(posts).toEqual(testPosts);
+            expect(posts.length).toBe(2);
         });
 
-        const request = httpTestController.expectOne(feedData);
+        const request = mockHttp.expectOne(feedData);
 
         expect(request.cancelled).toBeFalsy();
         expect(request.request.responseType).toEqual('json');
