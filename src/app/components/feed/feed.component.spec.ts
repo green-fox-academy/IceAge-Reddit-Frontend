@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BehaviorSubject } from 'rxjs';
 import { PostService } from 'src/app/services/post.service';
@@ -51,6 +52,7 @@ describe('FeedComponent', () => {
         await TestBed.configureTestingModule({
             declarations: [FeedComponent],
             providers: [{ provide: PostService, useClass: MockPostService }],
+            schemas: [CUSTOM_ELEMENTS_SCHEMA],
         }).compileComponents();
     });
 

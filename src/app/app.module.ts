@@ -5,6 +5,7 @@ import { PostService } from 'src/app/services/post.service';
 import { SubredditService } from 'src/app/services/subreddit.service';
 import { DateAgoPipe } from 'src/app/pipes/date-ago.pipe';
 import { SubredditFormatPipe } from 'src/app/pipes/subreddit-format.pipe';
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SubredditsComponent } from './components/subreddits/subreddits.component';
@@ -23,7 +24,7 @@ import { WelcomePageComponent } from './components/welcome-page/welcome-page.com
         SubredditFormatPipe,
         WelcomePageComponent,
     ],
-    imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+    imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
     providers: [PostService, SubredditService, GatewayService],
     bootstrap: [AppComponent],
 })
