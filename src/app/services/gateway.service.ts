@@ -11,6 +11,8 @@ export class GatewayService {
 
     private _baseUrl = 'http://localhost:3000/api/v1/';
 
+    // FEED
+
     private _feedData = `${this._baseUrl}feed`;
 
     constructor(private _httpClient: HttpClient) {}

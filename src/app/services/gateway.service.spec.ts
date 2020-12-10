@@ -7,7 +7,8 @@ import { GatewayService } from './gateway.service';
 describe('GatewayService', () => {
     let service: GatewayService;
     let mockHttp: HttpTestingController;
-    const feedData = 'http://localhost:3000/api/v1/feed';
+    const baseUrl = 'http://localhost:3000/api/v1/';
+    const feedData = `${baseUrl}feed`;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -58,9 +59,9 @@ describe('GatewayService', () => {
 
         const request = mockHttp.expectOne(feedData);
 
+        expect(request.request.method).toBe('GET');
         expect(request.cancelled).toBeFalsy();
         expect(request.request.responseType).toEqual('json');
-        expect(request.request.method).toBe('GET');
 
         request.flush(testPosts);
     });
