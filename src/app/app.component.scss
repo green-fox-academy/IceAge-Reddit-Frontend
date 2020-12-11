@@ -5,9 +5,9 @@
 
 .gridWrapper {
     display: grid;
-    grid-template-columns: 2fr 10fr 2fr;
-    grid-template-rows: 2fr 10fr;
-    grid-row-gap: 1em;
+    grid-template-columns: 3fr auto 3fr;
+    grid-template-rows: 1fr auto;
+    grid-row-gap: 2em;
     grid-template-areas: 
         "navigationBar navigationBar navigationBar"
         ". mainContent .";

@@ -7,7 +7,7 @@ import { Post } from 'src/types/posts';
     providedIn: 'root',
 })
 export class GatewayService {
-    // private _mockData = 'assets/posts.json';
+    private _mockData = 'assets/posts.json';
 
     private _baseUrl = 'http://localhost:3000/api/v1/';
 

@@ -3,20 +3,19 @@
 @mixin button {  
     background-color: $darkBlue;
     color: $orange;
-    padding: 8px;
+    padding: 1rem;
     letter-spacing: 2px;
     font-weight: bold;
-    border: 1px solid $darkBlue;
-    border-radius: 10px;
+    border-radius: 0.5rem;
+    border: none;
     text-transform: uppercase;
     @include boxshadow();
     &:hover {
         background-color:$orange;
-        border: none;
         color: $darkBlue;
     };
 };
 
 @mixin boxshadow {
-    box-shadow: 4px 4px 5px $shadow;
+    box-shadow: 0px 0px 5px $shadow;
 };
