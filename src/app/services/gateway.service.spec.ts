@@ -8,7 +8,9 @@ import { GatewayService } from './gateway.service';
 describe('GatewayService', () => {
     let service: GatewayService;
     let mockHttp: HttpTestingController;
+
     const baseUrl = 'http://localhost:3000/api/v1/';
+
     const feedData = `${baseUrl}feed`;
     const subredditData = `${baseUrl}subreddits`;
 
@@ -71,6 +73,7 @@ describe('GatewayService', () => {
     });
 
     // SUBREDDITS
+
     it('should retrieve subreddits from the API via HttpClient.get method', () => {
         const testSubreddits: Subreddit[] = [
             {

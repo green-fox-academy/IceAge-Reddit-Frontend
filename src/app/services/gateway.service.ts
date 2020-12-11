@@ -13,7 +13,7 @@ export class GatewayService {
 
     private _baseUrl = 'http://localhost:3000/api/v1/';
 
-    // API
+    // APIS
 
     private _feedData = `${this._baseUrl}feed`;
     private _subredditsData = `${this._baseUrl}subreddits`;
