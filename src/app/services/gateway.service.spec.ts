@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { Post } from 'src/types/posts';
 
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { Subreddit } from 'src/types/subreddits';
 import { GatewayService } from './gateway.service';
 
 describe('GatewayService', () => {
@@ -9,6 +10,7 @@ describe('GatewayService', () => {
     let mockHttp: HttpTestingController;
     const baseUrl = 'http://localhost:3000/api/v1/';
     const feedData = `${baseUrl}feed`;
+    const subredditData = `${baseUrl}subreddits`;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -26,6 +28,8 @@ describe('GatewayService', () => {
     it('should be created', () => {
         expect(service).toBeTruthy();
     });
+
+    // FEED
 
     it('should retrieve posts from the API via HttpClient.get method', () => {
         const testPosts: Post[] = [
@@ -64,5 +68,40 @@ describe('GatewayService', () => {
         expect(request.request.responseType).toEqual('json');
 
         request.flush(testPosts);
+    });
+
+    // SUBREDDITS
+    it('should retrieve subreddits from the API via HttpClient.get method', () => {
+        const testSubreddits: Subreddit[] = [
+            {
+                name: 'Subreddit1',
+                title: 'Subreddit1 title',
+                date_created: new Date('2014-01-01T23:28:56.782Z'),
+                description: 'Subreddit1 about something',
+                userCount: 10,
+                author: 'Author1',
+            },
+            {
+                name: 'Subreddit2',
+                title: 'Subreddit2 title',
+                date_created: new Date('2020-11-30T17:10:56.782Z'),
+                description: 'Subreddit2 obout anything',
+                userCount: 20,
+                author: 'Author2',
+            },
+        ];
+
+        service.fetchSubreddits().subscribe((subreddits) => {
+            expect(subreddits).toEqual(testSubreddits);
+            expect(subreddits.length).toBe(2);
+        });
+
+        const request = mockHttp.expectOne(subredditData);
+
+        expect(request.request.method).toBe('GET');
+        expect(request.cancelled).toBeFalsy();
+        expect(request.request.responseType).toEqual('json');
+
+        request.flush(testSubreddits);
     });
 });
