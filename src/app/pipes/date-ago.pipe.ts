@@ -5,6 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class DateAgoPipe implements PipeTransform {
     transform(value: string): string {
+        
         if (value) {
             const seconds: number = Math.floor((+new Date() - +new Date(value)) / 1000);
             if (seconds < 29) return 'now';
