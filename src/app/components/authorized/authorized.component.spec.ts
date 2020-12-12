@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AuthorizedComponent } from './authorized.component';
@@ -9,6 +10,7 @@ describe('AuthorizedComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [AuthorizedComponent],
+            schemas: [CUSTOM_ELEMENTS_SCHEMA],
         }).compileComponents();
     });
 

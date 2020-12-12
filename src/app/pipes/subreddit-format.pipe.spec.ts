@@ -1,6 +1,6 @@
 import { SubredditFormatPipe } from './subreddit-format.pipe';
 
-fdescribe('SubredditFormatPipe', () => {
+describe('SubredditFormatPipe', () => {
     const pipe = new SubredditFormatPipe();
 
     it('create an instance', () => {
