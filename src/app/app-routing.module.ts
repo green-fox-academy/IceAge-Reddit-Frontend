@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthorizedComponent } from './components/authorized/authorized.component';
 import { FeedComponent } from './components/authorized/feed/feed.component';
-import { WelcomePageComponent } from './components/authorized/welcome-page/welcome-page.component';
 
 const routes: Routes = [
-    { path: '', component: WelcomePageComponent },
-    { path: 'feed', component: FeedComponent },
+    {
+        path: 'authorized',
+        component: AuthorizedComponent,
+        children: [{ path: 'feed', component: FeedComponent }],
+    },
 ];
 
 @NgModule({
@@ -13,3 +16,4 @@ const routes: Routes = [
     exports: [RouterModule],
 })
 export class AppRoutingModule {}
+export const routingComponents = [AuthorizedComponent, FeedComponent];
