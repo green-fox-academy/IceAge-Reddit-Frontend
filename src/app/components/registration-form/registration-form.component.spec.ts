@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
-import { DataService } from 'src/app/data/data.service';
+import { GatewayService } from 'src/app/services/gateway.service';
 
 import { RegistrationFormComponent } from './registration-form.component';
 
@@ -15,7 +15,7 @@ fdescribe('RegistrationFormComponent', () => {
         await TestBed.configureTestingModule({
             imports: [FormsModule],
             declarations: [RegistrationFormComponent],
-            providers: [HttpClient, { provide: DataService, useClass: MockDataService }],
+            providers: [HttpClient, { provide: GatewayService, useClass: MockDataService }],
         }).compileComponents();
     });
 
