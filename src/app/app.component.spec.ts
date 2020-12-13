@@ -1,16 +1,17 @@
 import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterTestingModule } from '@angular/router/testing';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DataService } from './data/data.service';
+import { GatewayService } from './services/gateway.service';
+import { PostService } from './services/post.service';
+import { SubredditService } from './services/subreddit.service';
 
 describe('AppComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-            providers: [DataService],
+            providers: [PostService, SubredditService, GatewayService],
             declarations: [AppComponent],
         }).compileComponents();
     });
