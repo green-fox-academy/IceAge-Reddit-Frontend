@@ -16,6 +16,7 @@ import { SubredditsComponent } from './components/subreddits/subreddits.componen
 import { PostComponent } from './components/post/post.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { GatewayService } from './services/gateway.service';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
     declarations: [
@@ -24,18 +25,14 @@ import { GatewayService } from './services/gateway.service';
         ForbiddenUsernameDirective,
         ValidatePasswordDirective,
         ValidateEmailDirective,
-    ],
-    imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-    providers: [
-        SubredditsComponent,
-        FeedComponent,
-        PostComponent,
         DateAgoPipe,
         SubredditFormatPipe,
-        PostService,
-        SubredditService,
-        GatewayService,
+        FeedComponent,
+        PostComponent,
+        SubredditsComponent,
     ],
+    imports: [BrowserModule, CommonModule, AppRoutingModule, FormsModule, HttpClientModule],
+    providers: [PostService, SubredditService, GatewayService],
 
     bootstrap: [AppComponent],
 })

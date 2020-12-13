@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { DataService } from 'src/app/data/data.service';
-import { User } from 'src/app/data/user';
+import { User } from 'src/types/user';
+import { GatewayService } from 'src/app/services/gateway.service';
 
 @Component({
     selector: 'app-registration-form',
@@ -15,12 +15,12 @@ export class RegistrationFormComponent {
         password: '',
     };
 
-    constructor(private dataService: DataService) {}
+    constructor(private _gatewayService: GatewayService) {}
 
     onSubmit(registrationform: NgForm) {
         console.log('in onSubmit: ', registrationform.valid);
         if (registrationform.valid) {
-            this.dataService.postRegistrationForm(this.user).subscribe(
+            this._gatewayService.postRegistrationForm(this.user).subscribe(
                 (result) => console.log('succes: ', result),
                 (error) => console.log('error: ', error),
             );

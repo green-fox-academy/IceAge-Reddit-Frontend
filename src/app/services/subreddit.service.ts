@@ -4,16 +4,14 @@ import { Observable } from 'rxjs';
 import { SubredditResponse } from 'src/types/subreddits';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root',
 })
 export class SubredditService {
+    private _data = 'assets/subreddits.json';
 
-  private _data: string = "assets/subreddits.json";
+    constructor(private _httpClient: HttpClient) {}
 
-  constructor(private _httpClient: HttpClient) { }
-
-  getAllSubreddits() : Observable<SubredditResponse> {
-    return this._httpClient.get<SubredditResponse>(this._data);
-  }
-
+    getAllSubreddits(): Observable<SubredditResponse> {
+        return this._httpClient.get<SubredditResponse>(this._data);
+    }
 }
