@@ -21,7 +21,10 @@ export class RegistrationFormComponent {
         console.log('in onSubmit: ', registrationform.valid);
         if (registrationform.valid) {
             this._gatewayService.postRegistrationForm(this.user).subscribe(
-                (result) => console.log('succes: ', result),
+                (result) => {
+					console.log('succes: ', result);
+					localStorage.setItem('token', result.token);
+				},
                 (error) => console.log('error: ', error),
             );
         } else {
