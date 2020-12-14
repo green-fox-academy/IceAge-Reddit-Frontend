@@ -5,7 +5,7 @@ import { RegistrationFormComponent } from './components/registration-form/regist
 import { ForbiddenUsernameDirective } from './shared/forbidden-username.directive';
 import { ValidatePasswordDirective } from './shared/validate-password.directive';
 import { ValidateEmailDirective } from './shared/validate-email.directive';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PostService } from 'src/app/services/post.service';
 import { SubredditService } from 'src/app/services/subreddit.service';
 import { DateAgoPipe } from 'src/app/pipes/date-ago.pipe';
@@ -18,6 +18,7 @@ import { FeedComponent } from './components/feed/feed.component';
 import { GatewayService } from './services/gateway.service';
 import { CommonModule } from '@angular/common';
 import { AuthGuard } from './guards/auth.guard';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 @NgModule({
     declarations: [
@@ -43,7 +44,12 @@ import { AuthGuard } from './guards/auth.guard';
 		PostService, 
 		SubredditService, 
 		GatewayService,
-		AuthGuard
+		AuthGuard,
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: TokenInterceptorService,
+			multi: true
+		}
 	],
 
     bootstrap: [AppComponent],
