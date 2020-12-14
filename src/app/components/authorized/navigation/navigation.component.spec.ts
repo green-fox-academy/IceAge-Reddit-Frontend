@@ -1,20 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { PostService } from 'src/app/services/post.service';
-import { FeedComponent } from './feed.component';
 
-describe('FeedComponent', () => {
-    let component: FeedComponent;
-    let fixture: ComponentFixture<FeedComponent>;
+import { NavigationComponent } from './navigation.component';
+
+describe('NavigationComponent', () => {
+    let component: NavigationComponent;
+    let fixture: ComponentFixture<NavigationComponent>;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [FeedComponent],
-            providers: [PostService],
+            declarations: [NavigationComponent],
         }).compileComponents();
     });
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(FeedComponent);
+        fixture = TestBed.createComponent(NavigationComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

@@ -1,20 +1,18 @@
-{
-    "posts": [
-        {
-            "name": "Subreddit1",
-            "title": "Subreddit1 title",
-            "date_created": "25.11.2020",
-            "description": "Subreddit1 o ničem",
-            "userCount": "User1",
-            "author": "Pepinovič"
-        },
-        {
-            "name": "Subreddit2",
-            "title": "Subreddit2 title",
-            "date_created": "21.11.2020",
-            "description": "Subreddit2 o ničem",
-            "userCount": "User2",
-            "author": "Pepinovičák"
-        }
-    ]
-}
+[
+    {
+        "name": "Subreddit1",
+        "title": "Subreddit1 title",
+        "date_created": "2014-01-01T23:28:56.782Z",
+        "description": "Subreddit1 about something",
+        "userCount": 10,
+        "author": "Author1"
+    },
+    {
+        "name": "Subreddit2",
+        "title": "Subreddit2 title",
+        "date_created": "2020-11-30T17:10:56.782Z",
+        "description": "Subreddit2 obout anything",
+        "userCount": 20,
+        "author": "Author2"
+    }
+]

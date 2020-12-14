@@ -10,15 +10,16 @@ import { PostService } from 'src/app/services/post.service';
 import { SubredditService } from 'src/app/services/subreddit.service';
 import { DateAgoPipe } from 'src/app/pipes/date-ago.pipe';
 import { SubredditFormatPipe } from 'src/app/pipes/subreddit-format.pipe';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SubredditsComponent } from './components/subreddits/subreddits.component';
-import { PostComponent } from './components/post/post.component';
-import { FeedComponent } from './components/feed/feed.component';
 import { GatewayService } from './services/gateway.service';
 import { CommonModule } from '@angular/common';
 import { AuthGuard } from './guards/auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { NavigationComponent } from './components/authorized/navigation/navigation.component';
+import { SubredditsComponent } from './components/authorized/subreddits/subreddits.component';
+import { PostComponent } from './components/authorized/post/post.component';
+import { WelcomePageComponent } from './components/authorized/welcome-page/welcome-page.component';
 
 @NgModule({
     declarations: [
@@ -29,13 +30,18 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
         ValidateEmailDirective,
         DateAgoPipe,
         SubredditFormatPipe,
-        FeedComponent,
         PostComponent,
+		SubredditsComponent,
+		routingComponents,
         SubredditsComponent,
+        PostComponent,
+        DateAgoPipe,
+        SubredditFormatPipe,
+        NavigationComponent,
+        WelcomePageComponent,
     ],
     imports: [
-		BrowserModule, 
-		CommonModule, 
+		BrowserModule,  
 		AppRoutingModule, 
 		FormsModule, 
 		HttpClientModule,
@@ -51,7 +57,6 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 			multi: true
 		}
 	],
-
     bootstrap: [AppComponent],
 })
 export class AppModule {}

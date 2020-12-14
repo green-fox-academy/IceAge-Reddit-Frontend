@@ -1,0 +1,25 @@
+@import '../../../../mixins.scss';
+@import '../../../../colors.scss';
+
+.navigationBar {
+    grid-area: navigationBar;
+    display: grid;
+    grid-template-columns: 1fr 10fr 3fr;
+    grid-template-areas: 
+        "logo subreddits .";
+    color: $lightTextColor;
+    background: $darkBlue;
+    align-items: center;
+
+    > div {
+        padding: 1em;
+    };
+}
+
+.logo {
+    grid-area: logo;
+}
+
+.subreddits {
+    grid-area: subreddits;
+}

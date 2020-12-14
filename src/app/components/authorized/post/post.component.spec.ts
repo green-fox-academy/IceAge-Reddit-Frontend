@@ -58,6 +58,31 @@ describe('PostComponent', () => {
         expect(component).toBeTruthy();
     });
 
+    it('postId should be 1', () => {
+        expect(component.postId).toBe(1);
+    });
+
+    it('postTitle should be "First Post"', () => {
+        expect(component.postTitle).toBe('First Post');
+    });
+
+    it('postDateCreated should be "2020-11-11T23:28:56.782Z"', () => {
+        const date = new Date('2020-11-11T23:28:56.782Z');
+        expect(component.postDateCreated).toEqual(date);
+    });
+
+    it('postAuthor should be "Author1"', () => {
+        expect(component.postAuthor).toBe('Author1');
+    });
+
+    it('postSubreddit should be "Subreddit1"', () => {
+        expect(component.postSubreddit).toBe('Subreddit1');
+    });
+
+    it('postCommentCount should be 2', () => {
+        expect(component.postCommentCount).toBe(2);
+    });
+
     it('Should display post title', () => {
         expect(h2PostTitle.textContent).toContain(component.postTitle);
     });
