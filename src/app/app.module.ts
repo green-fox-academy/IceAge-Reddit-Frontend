@@ -17,7 +17,7 @@ import { PostComponent } from './components/post/post.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { GatewayService } from './services/gateway.service';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
     declarations: [
@@ -42,7 +42,8 @@ import { RouterModule } from '@angular/router';
     providers: [
 		PostService, 
 		SubredditService, 
-		GatewayService
+		GatewayService,
+		AuthGuard
 	],
 
     bootstrap: [AppComponent],
