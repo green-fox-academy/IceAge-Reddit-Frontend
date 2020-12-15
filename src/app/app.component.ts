@@ -19,6 +19,7 @@ export class AppComponent {
         this._gateway.fetchPosts().subscribe((response) => {
             this._postService.setPosts(response);
         });
+
         this._gateway.fetchSubreddits().subscribe((response) => {
             this._subredditService.setSubreddits(response);
         });

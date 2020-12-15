@@ -23,12 +23,12 @@ export class GatewayService {
     // POSTS
 
     fetchPosts(): Observable<Post[]> {
-        return this._httpClient.get<Post[]>(this._feedData);
+        return this._httpClient.get<Post[]>(this._mockPostData);
     }
 
     // SUBREDDITS
 
     fetchSubreddits(): Observable<Subreddit[]> {
-        return this._httpClient.get<Subreddit[]>(this._subredditsData);
+        return this._httpClient.get<Subreddit[]>(this._mockSubredditData);
     }
 }

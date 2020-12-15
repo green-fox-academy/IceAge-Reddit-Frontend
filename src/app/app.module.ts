@@ -10,7 +10,6 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GatewayService } from './services/gateway.service';
 import { NavigationComponent } from './components/authorized/navigation/navigation.component';
-import { SubredditsComponent } from './components/authorized/subreddits/subreddits.component';
 import { PostComponent } from './components/authorized/post/post.component';
 import { WelcomePageComponent } from './components/authorized/welcome-page/welcome-page.component';
 
@@ -18,7 +17,6 @@ import { WelcomePageComponent } from './components/authorized/welcome-page/welco
     declarations: [
         AppComponent,
         routingComponents,
-        SubredditsComponent,
         PostComponent,
         DateAgoPipe,
         SubredditFormatPipe,
