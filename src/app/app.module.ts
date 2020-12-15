@@ -1,5 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
+import { ForbiddenUsernameDirective } from './shared/forbidden-username.directive';
+import { ValidatePasswordDirective } from './shared/validate-password.directive';
+import { ValidateEmailDirective } from './shared/validate-email.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { PostService } from 'src/app/services/post.service';
 import { SubredditService } from 'src/app/services/subreddit.service';
@@ -11,18 +16,24 @@ import { SubredditsComponent } from './components/subreddits/subreddits.componen
 import { PostComponent } from './components/post/post.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { GatewayService } from './services/gateway.service';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
     declarations: [
         AppComponent,
-        SubredditsComponent,
-        FeedComponent,
-        PostComponent,
+        RegistrationFormComponent,
+        ForbiddenUsernameDirective,
+        ValidatePasswordDirective,
+        ValidateEmailDirective,
         DateAgoPipe,
         SubredditFormatPipe,
+        FeedComponent,
+        PostComponent,
+        SubredditsComponent,
     ],
-    imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+    imports: [BrowserModule, CommonModule, AppRoutingModule, FormsModule, HttpClientModule],
     providers: [PostService, SubredditService, GatewayService],
+
     bootstrap: [AppComponent],
 })
 export class AppModule {}

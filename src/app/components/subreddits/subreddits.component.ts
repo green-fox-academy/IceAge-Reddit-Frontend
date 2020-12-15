@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-subreddits',
-  templateUrl: './subreddits.component.html',
-  styleUrls: ['./subreddits.component.scss']
+    selector: 'app-subreddits',
+    templateUrl: './subreddits.component.html',
+    styleUrls: ['./subreddits.component.scss'],
 })
-export class SubredditsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class SubredditsComponent {}

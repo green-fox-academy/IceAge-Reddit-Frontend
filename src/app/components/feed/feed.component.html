@@ -1,6 +1,6 @@
 <div class="postsWrapper">
 
-    <div class="post" *ngFor="let post of _posts">
+    <div *ngFor="let post of _posts" class="post">
         <app-post class="singlePost" [postId]="post.id">
         </app-post>
     </div>

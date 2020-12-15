@@ -10,13 +10,9 @@ import { PostService } from './services/post.service';
 export class AppComponent {
     title = 'IceAge-Reddit-Frontend';
 
-    constructor(
-        private _gateway: GatewayService,
-        private _postService: PostService
-    ) {
-        this._gateway.fetchPosts()
-            .subscribe(response => {
-                this._postService.setPosts(response.posts);
-            })
+    constructor(private _gateway: GatewayService, private _postService: PostService) {
+        this._gateway.fetchPosts().subscribe((response) => {
+            this._postService.setPosts(response.posts);
+        });
     }
 }
