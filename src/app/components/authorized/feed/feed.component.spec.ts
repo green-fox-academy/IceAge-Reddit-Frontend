@@ -2,19 +2,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BehaviorSubject } from 'rxjs';
 import { PostService } from 'src/app/services/post.service';
+import { Post } from 'src/types/posts';
 import { FeedComponent } from './feed.component';
-
-export interface Post {
-    id: number;
-    title: string;
-    date_created: Date;
-    subreddit: string;
-    author: string;
-    commentCount: number;
-    post_type: string;
-    posted_url?: string;
-    description: string;
-}
 
 const data: Post[] = [
     {
