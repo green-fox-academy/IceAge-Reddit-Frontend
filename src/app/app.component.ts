@@ -10,5 +10,4 @@ import { SubredditService } from './services/subreddit.service';
 })
 export class AppComponent {
     title = 'IceAge-Reddit-Frontend';
-
 }
