@@ -15,6 +15,6 @@ export class SubredditComponent implements OnInit {
     constructor(private _subredditService: SubredditService) {}
 
     ngOnInit(): void {
-        this.subreddit = this._subredditService.getSubreddit(this.subredditName);
+        // this.subreddit = this._subredditService.getSubreddit(this.subredditName);
     }
 }
