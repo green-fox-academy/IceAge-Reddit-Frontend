@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 import { PostService } from 'src/app/services/post.service';
 import { SubredditService } from 'src/app/services/subreddit.service';
 import { DateAgoPipe } from 'src/app/pipes/date-ago.pipe';
@@ -9,23 +8,31 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GatewayService } from './services/gateway.service';
-import { NavigationComponent } from './components/authorized/navigation/navigation.component';
-import { SubredditsComponent } from './components/authorized/subreddits/subreddits.component';
+import { CommonModule } from '@angular/common';
 import { PostComponent } from './components/authorized/post/post.component';
-import { WelcomePageComponent } from './components/authorized/welcome-page/welcome-page.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
+import { ForbiddenUsernameDirective } from './shared/forbidden-username.directive';
+import { ValidateEmailDirective } from './shared/validate-email.directive';
+import { ValidatePasswordDirective } from './shared/validate-password.directive';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthorizedComponent } from './components/authorized/authorized.component';
 
 @NgModule({
     declarations: [
         AppComponent,
+        AuthorizedComponent,
         routingComponents,
-        SubredditsComponent,
         PostComponent,
         DateAgoPipe,
         SubredditFormatPipe,
         NavigationComponent,
         WelcomePageComponent,
+        ForbiddenUsernameDirective,
+        ValidatePasswordDirective,
+        ValidateEmailDirective,
     ],
-    imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+    imports: [BrowserModule, CommonModule, AppRoutingModule, FormsModule, HttpClientModule],
     providers: [PostService, SubredditService, GatewayService],
     bootstrap: [AppComponent],
 })

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Post } from 'src/types/posts';
 import { Subreddit } from 'src/types/subreddits';
+import { User } from 'src/types/user';
 
 @Injectable({
     providedIn: 'root',
@@ -17,6 +18,7 @@ export class GatewayService {
 
     private _feedData = `${this._baseUrl}feed`;
     private _subredditsData = `${this._baseUrl}subreddits`;
+    private _registrationData = `${this._baseUrl}auth/sign-in`;
 
     constructor(private _httpClient: HttpClient) {}
 
@@ -30,5 +32,11 @@ export class GatewayService {
 
     fetchSubreddits(): Observable<Subreddit[]> {
         return this._httpClient.get<Subreddit[]>(this._subredditsData);
+    }
+
+    // REGISTRATION
+
+    postRegistrationForm(user: User): Observable<User> {
+        return this._httpClient.post(this._registrationData, user) as Observable<User>;
     }
 }

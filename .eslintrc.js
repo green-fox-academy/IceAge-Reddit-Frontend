@@ -12,13 +12,17 @@ module.exports = {
       },
       extends: [
         "plugin:@angular-eslint/recommended",
-        "airbnb-typescript/base",
         "prettier/@typescript-eslint",
         "plugin:prettier/recommended"
       ],
       rules: {
         "import/prefer-default-export": "off",
-        "no-console": "off"
+        "no-console": "off",
+        'lines-between-class-members': [
+          'error',
+          'always',
+          { 'exceptAfterSingleLine': true },
+        ]
       }
     },
     {

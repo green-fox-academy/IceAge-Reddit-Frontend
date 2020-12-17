@@ -1,12 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { SubredditService } from 'src/app/services/subreddit.service';
+import { Subreddit } from 'src/types/subreddits';
 
 @Component({
     selector: 'app-subreddits',
     templateUrl: './subreddits.component.html',
     styleUrls: ['./subreddits.component.scss'],
 })
-export class SubredditsComponent implements OnInit {
-    constructor() {}
+export class SubredditsComponent {
+    public _subreddits: Subreddit[];
 
-    ngOnInit(): void {}
+    constructor(private _subredditService: SubredditService, private _router: Router) {
+        this._subredditService.subreddits$.subscribe(
+            (subreddits) => (this._subreddits = subreddits),
+        );
+    }
+
+    onSelect(subreddit) {
+        this._router.navigate(['/subreddits', subreddit.name]);
+        console.log('clicked');
+    }
 }
