@@ -6,7 +6,18 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./authorized.component.scss'],
 })
 export class AuthorizedComponent implements OnInit {
-    constructor() {}
+    constructor(
+        private _gateway: GatewayService,
+        private _postService: PostService,
+        private _subredditService: SubredditService,
+    ) {
+        this._gateway.fetchPosts().subscribe((response) => {
+            this._postService.setPosts(response);
+        });
+        this._gateway.fetchSubreddits().subscribe((response) => {
+            this._subredditService.setSubreddits(response);
+        });
+    }
 
     ngOnInit(): void {}
 }
