@@ -23,7 +23,6 @@ export class LoginFormComponent {
     constructor(private _gatewayService: GatewayService, private _router: Router) {}
 
     onSubmit(loginform: NgForm) {
-        console.log('in onSubmit: ', loginform.valid);
         if (loginform.valid) {
             this._gatewayService.postLoginForm(this.user).subscribe(
                 (succes: Token) => {
