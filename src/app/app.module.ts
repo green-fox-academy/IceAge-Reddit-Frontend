@@ -17,6 +17,7 @@ import { PostComponent } from './components/post/post.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { GatewayService } from './services/gateway.service';
 import { CommonModule } from '@angular/common';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 @NgModule({
     declarations: [
@@ -30,6 +31,7 @@ import { CommonModule } from '@angular/common';
         FeedComponent,
         PostComponent,
         SubredditsComponent,
+        LoginFormComponent,
     ],
     imports: [BrowserModule, CommonModule, AppRoutingModule, FormsModule, HttpClientModule],
     providers: [PostService, SubredditService, GatewayService],
