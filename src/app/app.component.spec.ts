@@ -1,12 +1,19 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthorizedComponent } from './components/authorized/authorized.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
+import { GatewayService } from './services/gateway.service';
 
 describe('AppComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [AppComponent],
-            schemas: [CUSTOM_ELEMENTS_SCHEMA],
+            imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+            declarations: [AppComponent, AuthorizedComponent, WelcomePageComponent, NavigationComponent],
+            providers: [GatewayService],
         }).compileComponents();
     });
 

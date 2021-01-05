@@ -14,10 +14,10 @@ export class AuthorizedComponent {
         private _postService: PostService,
         private _subredditService: SubredditService,
     ) {
-        this._gateway.fetchPosts().subscribe((response) => {
+        this._gateway.getAllPosts().subscribe((response) => {
             this._postService.setPosts(response);
         });
-        this._gateway.fetchSubreddits().subscribe((response) => {
+        this._gateway.getAllSubreddits().subscribe((response) => {
             this._subredditService.setSubreddits(response);
         });
     }

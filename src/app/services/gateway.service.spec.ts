@@ -11,9 +11,6 @@ describe('GatewayService', () => {
 
     const baseUrl = 'http://localhost:3000/api/v1/';
 
-    const feedData = `${baseUrl}feed`;
-    const subredditData = `${baseUrl}subreddits`;
-
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [HttpClientTestingModule],
@@ -58,12 +55,12 @@ describe('GatewayService', () => {
             },
         ];
 
-        service.fetchPosts().subscribe((posts) => {
+        service.getAllPosts().subscribe((posts) => {
             expect(posts).toEqual(testPosts);
             expect(posts.length).toBe(2);
         });
 
-        const request = mockHttp.expectOne(feedData);
+        const request = mockHttp.expectOne(`${baseUrl}feed`);
 
         expect(request.request.method).toBe('GET');
         expect(request.cancelled).toBeFalsy();
@@ -94,12 +91,12 @@ describe('GatewayService', () => {
             },
         ];
 
-        service.fetchSubreddits().subscribe((subreddits) => {
+        service.getAllSubreddits().subscribe((subreddits) => {
             expect(subreddits).toEqual(testSubreddits);
             expect(subreddits.length).toBe(2);
         });
 
-        const request = mockHttp.expectOne(subredditData);
+        const request = mockHttp.expectOne(`${baseUrl}subreddits`);
 
         expect(request.request.method).toBe('GET');
         expect(request.cancelled).toBeFalsy();

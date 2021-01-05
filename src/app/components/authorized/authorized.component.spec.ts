@@ -1,12 +1,13 @@
 import { HttpClientModule } from '@angular/common/http';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { GatewayService } from 'src/app/services/gateway.service';
 import { PostService } from 'src/app/services/post.service';
 import { SubredditService } from 'src/app/services/subreddit.service';
-
+import { NavigationComponent } from '../navigation/navigation.component';
+import { WelcomePageComponent } from '../welcome-page/welcome-page.component';
 import { AuthorizedComponent } from './authorized.component';
 
 describe('AuthorizedComponent', () => {
@@ -17,8 +18,7 @@ describe('AuthorizedComponent', () => {
         await TestBed.configureTestingModule({
             imports: [BrowserModule, AppRoutingModule, HttpClientModule],
             providers: [PostService, SubredditService, GatewayService],
-            declarations: [AuthorizedComponent],
-            schemas: [CUSTOM_ELEMENTS_SCHEMA],
+            declarations: [AuthorizedComponent, WelcomePageComponent, NavigationComponent],
         }).compileComponents();
     });
 

@@ -7,14 +7,14 @@ import { Subreddit } from 'src/types/subreddits';
     templateUrl: './subreddit.component.html',
     styleUrls: ['./subreddit.component.scss'],
 })
-export class SubredditComponent implements OnInit {
-    @Input() subredditName: string;
+export class SubredditComponent {
+    // @Input() subredditName: string;
 
-    subreddit: Subreddit;
+    // subreddit: Subreddit;
 
-    constructor(private _subredditService: SubredditService) {}
+    // constructor(private _subredditService: SubredditService) {}
 
-    ngOnInit(): void {
-        // this.subreddit = this._subredditService.getSubreddit(this.subredditName);
-    }
+    // ngOnInit(): void {
+    //     this.subreddit = this._subredditService.getSubreddit(this.subredditName);
+    // }
 }

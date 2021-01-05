@@ -9,34 +9,20 @@ import { User } from 'src/types/user';
     providedIn: 'root',
 })
 export class GatewayService {
-    private _mockPostData = 'assets/posts.json';
-    private _mockSubredditData = 'assets/subreddits.json';
 
     private _baseUrl = 'http://localhost:3000/api/v1/';
 
-    // APIS
-
-    private _feedData = `${this._baseUrl}feed`;
-    private _subredditsData = `${this._baseUrl}subreddits`;
-    private _registrationData = `${this._baseUrl}auth/sign-in`;
-
     constructor(private _httpClient: HttpClient) {}
 
-    // POSTS
-
-    fetchPosts(): Observable<Post[]> {
-        return this._httpClient.get<Post[]>(this._feedData);
+    getAllPosts(): Observable<Post[]> {
+        return this._httpClient.get<Post[]>(`${this._baseUrl}feed`);
     }
 
-    // SUBREDDITS
-
-    fetchSubreddits(): Observable<Subreddit[]> {
-        return this._httpClient.get<Subreddit[]>(this._subredditsData);
+    getAllSubreddits(): Observable<Subreddit[]> {
+        return this._httpClient.get<Subreddit[]>(`${this._baseUrl}subreddits`);
     }
-
-    // REGISTRATION
 
     postRegistrationForm(user: User): Observable<User> {
-        return this._httpClient.post(this._registrationData, user) as Observable<User>;
+        return this._httpClient.post(`${this._baseUrl}auth/sign-in`, user) as Observable<User>;
     }
 }

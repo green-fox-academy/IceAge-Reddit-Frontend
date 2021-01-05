@@ -8,7 +8,6 @@ import { RegistrationFormComponent } from './components/login-registration/regis
 const routes: Routes = [
     { path: 'feed', component: FeedComponent },
     { path: 'subreddits', component: SubredditsComponent },
-    { path: 'subreddits/:name', component: SubredditComponent },
     { path: 'registration', component: RegistrationFormComponent },
 ];
 

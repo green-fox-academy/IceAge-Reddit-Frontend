@@ -19,8 +19,8 @@ export class SubredditService {
         return this.subreddits$;
     }
 
-    getSubreddit(subredditName: string): Subreddit {
-        const result = this._subreddits.find((subreddit) => subreddit.name === subredditName);
-        return result;
-    }
+    // getSubreddit(subredditName: string): Subreddit {
+    //     const result = this._subreddits.find((subreddit) => subreddit.name === subredditName);
+    //     return result;
+    // }
 }
