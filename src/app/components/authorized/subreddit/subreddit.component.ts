@@ -1,6 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { SubredditService } from 'src/app/services/subreddit.service';
-import { Subreddit } from 'src/types/subreddits';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-subreddit',
@@ -8,13 +6,4 @@ import { Subreddit } from 'src/types/subreddits';
     styleUrls: ['./subreddit.component.scss'],
 })
 export class SubredditComponent {
-    // @Input() subredditName: string;
-
-    // subreddit: Subreddit;
-
-    // constructor(private _subredditService: SubredditService) {}
-
-    // ngOnInit(): void {
-    //     this.subreddit = this._subredditService.getSubreddit(this.subredditName);
-    // }
 }
