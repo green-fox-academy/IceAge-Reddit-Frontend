@@ -5,13 +5,13 @@ import { CanActivate, Router } from '@angular/router';
     providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-    constructor(private _router: Router) {}
+    // constructor(private _router: Router) {}
 
     canActivate(): boolean {
         if (this.loggedIn()) {
             return true;
         } else {
-            // TODO implement after log-in/sign-in page is implemented
+            // TODO implement after log-in/sign-in page and landing-page is implemented
             // it will redirect user to
             // this._router.navigate('/landing-page')
             return false;

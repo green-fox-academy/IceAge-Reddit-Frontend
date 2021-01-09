@@ -1,4 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
@@ -19,11 +18,15 @@ import { NavigationComponent } from './components/authorized/navigation/navigati
 import { SubredditsComponent } from './components/authorized/subreddits/subreddits.component';
 import { PostComponent } from './components/authorized/post/post.component';
 import { WelcomePageComponent } from './components/authorized/welcome-page/welcome-page.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
     declarations: [
         AppComponent,
         RegistrationFormComponent,
+        LoginFormComponent,
         ForbiddenUsernameDirective,
         ValidatePasswordDirective,
         ValidateEmailDirective,
@@ -39,7 +42,7 @@ import { WelcomePageComponent } from './components/authorized/welcome-page/welco
         NavigationComponent,
         WelcomePageComponent,
     ],
-    imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+    imports: [BrowserModule, CommonModule, AppRoutingModule, FormsModule, HttpClientModule],
     providers: [
         PostService,
         SubredditService,

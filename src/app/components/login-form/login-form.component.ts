@@ -22,8 +22,8 @@ export class LoginFormComponent {
 
     constructor(private _gatewayService: GatewayService, private _router: Router) {}
 
-    onSubmit(loginForm: NgForm) {
-        if (loginForm.valid) {
+    onSubmit(loginform: NgForm) {
+        if (loginform.valid) {
             this._gatewayService.postLoginForm(this.user).subscribe(
                 (success: Token) => {
                     this.token$ = success;

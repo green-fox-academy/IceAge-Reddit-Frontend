@@ -23,8 +23,8 @@ export class RegistrationFormComponent {
 
     constructor(private _gatewayService: GatewayService, private _router: Router) {}
 
-    onSubmit(registerForm: NgForm) {
-        if (registerForm.valid) {
+    onSubmit(registerform: NgForm) {
+        if (registerform.valid) {
             this._gatewayService.postRegistrationForm(this.user).subscribe(
                 (success: Token) => {
                     this.token$ = success;
