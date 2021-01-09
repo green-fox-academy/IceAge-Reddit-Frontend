@@ -1,18 +1,39 @@
 @import '../../../../colors.scss';
+@import '../../../../mixins.scss';
+
+.contentWrapper {
+    display: grid;
+    margin: 2rem 0;
+    column-gap: 5rem;
+    grid-template-columns: 8fr 4fr;
+    grid-template-areas: 
+        "posts subreddits";
+}
 
 .postsWrapper {
+    grid-area: posts;
     display: grid;
-    grid-gap: 1em;
+    row-gap: 1rem;
 
     > div {
         display: grid;
-        grid-gap: 1em;
         color: $basicTextColor;
         background-color: white;
-        box-shadow: 3px 3px 5px $secondaryColor;
-        border: 0.1em solid transparent;
+        @include boxshadow;
+        border-left: 1rem solid $darkBlue;
         border-radius: 0.3em;
-        padding: 1em;
+        padding: 1rem;
     };
    
+}
+
+.subredditsWrapper {
+    grid-area: subreddits;
+    background-color: $secondaryColor;
+    > h2 {
+        background-color: $darkBlue;
+        color: $lightTextColor;
+        text-align: center;
+        padding: 1rem;
+    }
 }

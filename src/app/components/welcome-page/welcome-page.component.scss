@@ -17,6 +17,7 @@
 
 .mainContent {
   grid-area: mainContent;
+  border-radius: 2rem;
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-areas: 
@@ -28,6 +29,8 @@
 .headerPanel {
   grid-area: headerPanel;
   display: grid;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
   grid-template-rows: 1fr;
   grid-template-areas: 
     "welcomeSign";
@@ -52,6 +55,8 @@
 
 .sidePanel{
   grid-area: sidePanel;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
   background-color: $lightTextColor;
   color: $darkBlue;
   padding: 2.5rem;
