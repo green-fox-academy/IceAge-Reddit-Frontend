@@ -3,6 +3,7 @@ export interface PostResponse {
 }
 
 export interface Post {
+    [x: string]: any;
     id: number,
     title: string,
     date_created: Date,
