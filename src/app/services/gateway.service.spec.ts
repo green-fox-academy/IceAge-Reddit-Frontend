@@ -28,8 +28,6 @@ describe('GatewayService', () => {
         expect(service).toBeTruthy();
     });
 
-    // FEED
-
     it('should retrieve posts from the API via HttpClient.get method', () => {
         const testPosts: Post[] = [
             {
@@ -68,8 +66,6 @@ describe('GatewayService', () => {
 
         request.flush(testPosts);
     });
-
-    // SUBREDDITS
 
     it('should retrieve subreddits from the API via HttpClient.get method', () => {
         const testSubreddits: Subreddit[] = [
