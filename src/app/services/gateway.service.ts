@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PostResponse } from 'src/types/posts';
+import { Post, PostResponse } from 'src/types/posts';
 import { User } from 'src/types/user';
 import { Error } from 'src/types/error';
 import { Token } from 'src/types/token';
@@ -30,5 +30,9 @@ export class GatewayService {
             'http://localhost:3000/api/v1/auth/log-in',
             user,
         ) as Observable<Token>;
+    }
+
+    postNewPost(post: Post) {
+        this._httpClient.post('http://localhost:3000/api/v1/subreddits/posts/create', post);
     }
 }
