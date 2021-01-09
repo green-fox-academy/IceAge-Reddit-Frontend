@@ -16,7 +16,7 @@ describe('RegistrationFormComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [FormsModule, RouterTestingModule],
+            imports: [FormsModule],
             declarations: [RegistrationFormComponent],
             providers: [
                 HttpClient,
