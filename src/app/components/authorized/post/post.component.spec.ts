@@ -28,7 +28,7 @@ class MockPostService {
     }
 }
 
-fdescribe('PostComponent', () => {
+describe('PostComponent', () => {
     let component: PostComponent;
     let fixture: ComponentFixture<PostComponent>;
     let postService: PostService;
