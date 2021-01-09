@@ -8,7 +8,7 @@ import { RegistrationFormComponent } from './registration-form.component';
 
 class MockDataService {}
 
-fdescribe('RegistrationFormComponent', () => {
+describe('RegistrationFormComponent', () => {
     let component: RegistrationFormComponent;
     let fixture: ComponentFixture<RegistrationFormComponent>;
 
