@@ -5,6 +5,7 @@ import { Post } from 'src/types/posts';
 import { Subreddit } from 'src/types/subreddits';
 import { Token } from 'src/types/token';
 import { User } from 'src/types/user';
+import { Error } from 'src/types/error';
 
 @Injectable({
     providedIn: 'root',
@@ -34,9 +35,16 @@ export class GatewayService {
         return this._httpClient.get<Subreddit[]>(this._subredditsData);
     }
 
-    postRegistrationForm(user: User): Observable<Token> {
+    postRegistrationForm(user: User): Observable<Token | Error> {
         return this._httpClient.post(
             'http://localhost:3000/api/v1/auth/sign-in',
+            user,
+        ) as Observable<Token>;
+    }
+
+    postLoginForm(user: User): Observable<Token | Error> {
+        return this._httpClient.post(
+            'http://localhost:3000/api/v1/auth/log-in',
             user,
         ) as Observable<Token>;
     }

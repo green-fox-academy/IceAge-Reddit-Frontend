@@ -4,20 +4,20 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GatewayService } from 'src/app/services/gateway.service';
 
-import { RegistrationFormComponent } from './registration-form.component';
+import { LoginFormComponent } from './login-form.component';
 
 class MockDataService {}
 
 class RouterTestingModule {}
 
-describe('RegistrationFormComponent', () => {
-    let component: RegistrationFormComponent;
-    let fixture: ComponentFixture<RegistrationFormComponent>;
+describe('LoginFormComponent', () => {
+    let component: LoginFormComponent;
+    let fixture: ComponentFixture<LoginFormComponent>;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             imports: [FormsModule],
-            declarations: [RegistrationFormComponent],
+            declarations: [LoginFormComponent],
             providers: [
                 HttpClient,
                 { provide: GatewayService, useClass: MockDataService },
@@ -27,7 +27,7 @@ describe('RegistrationFormComponent', () => {
     });
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(RegistrationFormComponent);
+        fixture = TestBed.createComponent(LoginFormComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

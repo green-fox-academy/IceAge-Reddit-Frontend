@@ -13,7 +13,6 @@ import { SubredditFormatPipe } from 'src/app/pipes/subreddit-format.pipe';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GatewayService } from './services/gateway.service';
-import { CommonModule } from '@angular/common';
 import { AuthGuard } from './guards/auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { NavigationComponent } from './components/authorized/navigation/navigation.component';
@@ -31,8 +30,8 @@ import { WelcomePageComponent } from './components/authorized/welcome-page/welco
         DateAgoPipe,
         SubredditFormatPipe,
         PostComponent,
-		SubredditsComponent,
-		routingComponents,
+        SubredditsComponent,
+        routingComponents,
         SubredditsComponent,
         PostComponent,
         DateAgoPipe,
@@ -40,23 +39,18 @@ import { WelcomePageComponent } from './components/authorized/welcome-page/welco
         NavigationComponent,
         WelcomePageComponent,
     ],
-    imports: [
-		BrowserModule,  
-		AppRoutingModule, 
-		FormsModule, 
-		HttpClientModule,
-	],
+    imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
     providers: [
-		PostService, 
-		SubredditService, 
-		GatewayService,
-		AuthGuard,
-		{
-			provide: HTTP_INTERCEPTORS,
-			useClass: TokenInterceptorService,
-			multi: true
-		}
-	],
+        PostService,
+        SubredditService,
+        GatewayService,
+        AuthGuard,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: TokenInterceptorService,
+            multi: true,
+        },
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
