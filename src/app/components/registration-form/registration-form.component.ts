@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from 'src/types/user';
 import { GatewayService } from 'src/app/services/gateway.service';
+import { Token } from 'src/types/token';
+import { Error } from 'src/types/error';
 import { Router } from '@angular/router';
 
 @Component({
@@ -16,22 +18,20 @@ export class RegistrationFormComponent {
         password: '',
     };
 
-    constructor(
-		private _gatewayService: GatewayService,
-		private _router: Router
-		) {}
+    errorMessage$?: Error;
+    token$?: Token;
 
-    onSubmit(registrationform: NgForm) {
-        console.log('in onSubmit: ', registrationform.valid);
-        if (registrationform.valid) {
+    constructor(private _gatewayService: GatewayService, private _router: Router) {}
+
+    onSubmit(registerForm: NgForm) {
+        if (registerForm.valid) {
             this._gatewayService.postRegistrationForm(this.user).subscribe(
-                (result) => {
-					console.log('succes: ', 'result');
-					localStorage.setItem('token', result.token);
-					this._router.navigate(['/feed']);
-
-				},
-                (error) => console.log('error: ', error),
+                (success: Token) => {
+                    this.token$ = success;
+                    localStorage.setItem('token', success.token);
+                    this._router.navigate(['/feed']);
+                },
+                (error: Error) => (this.errorMessage$ = error),
             );
         } else {
             console.log('error: NOT VALID INPUT');

@@ -18,6 +18,7 @@ import { FeedComponent } from './components/feed/feed.component';
 import { GatewayService } from './services/gateway.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 @NgModule({
     declarations: [
@@ -31,19 +32,10 @@ import { RouterModule } from '@angular/router';
         FeedComponent,
         PostComponent,
         SubredditsComponent,
+        LoginFormComponent,
     ],
-    imports: [
-		BrowserModule, 
-		CommonModule, 
-		AppRoutingModule, 
-		FormsModule, 
-		HttpClientModule,
-	],
-    providers: [
-		PostService, 
-		SubredditService, 
-		GatewayService
-	],
+    imports: [BrowserModule, CommonModule, AppRoutingModule, FormsModule, HttpClientModule],
+    providers: [PostService, SubredditService, GatewayService],
 
     bootstrap: [AppComponent],
 })
