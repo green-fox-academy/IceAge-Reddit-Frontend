@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SubredditComponent } from '../subreddit/subreddit.component';
 
 import { SubredditsComponent } from './subreddits.component';
 
@@ -8,7 +9,7 @@ describe('SubredditsComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [SubredditsComponent],
+            declarations: [SubredditsComponent, SubredditComponent],
         }).compileComponents();
     });
 

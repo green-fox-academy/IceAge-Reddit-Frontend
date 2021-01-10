@@ -7,12 +7,9 @@ import { GatewayService } from 'src/app/services/gateway.service';
     providedIn: 'root',
 })
 export class SubredditService {
-    private _subreddits: Subreddit[];
-
     subreddits$: BehaviorSubject<Subreddit[]> = new BehaviorSubject(null);
 
     setSubreddits(subreddits: Subreddit[]): void {
-        this._subreddits = subreddits;
         this.subreddits$.next(subreddits);
     }
 

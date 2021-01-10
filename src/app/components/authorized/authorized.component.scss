@@ -3,7 +3,7 @@
 
 .gridWrapper {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 2fr 8fr 2fr;
   grid-template-rows: 1fr auto;
   row-gap: 2em;
   grid-template-areas: 
@@ -11,11 +11,10 @@
     ". mainContent .";
 }
 
-.navigationBar {
-  grid-area: navigationBar;
+.router-outlet {
+  grid-area: mainContent;
 }
 
-.mainContent {
-  grid-area: mainContent;
-  display: grid;
+.navigationBar {
+  grid-area: navigationBar;
 }
