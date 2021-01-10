@@ -11,9 +11,12 @@
     <div class="subredditsWrapper">
 
         <h2>Subreddits</h2>
-        <div *ngFor="let subreddit of _subreddits">
-            {{subreddit.name}}
+        <div class="listOfSubreddits">
+            <div *ngFor="let subreddit of _subreddits">
+                {{subreddit.name | subredditFormat}}
+            </div>
         </div>
+        
 
     </div>
 </div>

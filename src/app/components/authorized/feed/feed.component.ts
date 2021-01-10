@@ -15,6 +15,8 @@ export class FeedComponent {
 
     constructor(private _postService: PostService, private _subredditService: SubredditService) {
         this._postService.posts$.subscribe((posts) => (this._posts = posts));
-        this._subredditService.subreddits$.subscribe((subreddits) => (this._subreddits = subreddits));
+        this._subredditService.subreddits$.subscribe(
+            (subreddits) => (this._subreddits = subreddits),
+        );
     }
 }

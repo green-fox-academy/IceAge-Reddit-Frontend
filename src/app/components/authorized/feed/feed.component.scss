@@ -31,10 +31,28 @@
     grid-area: subreddits;
     background-color: $secondaryColor;
     color: $darkBlue;
+    // display: grid;
+    // grid-template-rows: auto auto;
+    // grid-template-areas:
+    //     "title"
+    //     "content";
     > h2 {
+        grid-area: title;
         background-color: $darkBlue;
         color: $lightTextColor;
         text-align: center;
         padding: 1rem;
     }
+
+    > div {
+        padding: 1rem;
+        > div {
+            padding-bottom: 0.5rem;
+            letter-spacing: 0.2rem;
+        }
+    }
+}
+
+.listOfSubreddits {
+    grid-area: content;
 }
