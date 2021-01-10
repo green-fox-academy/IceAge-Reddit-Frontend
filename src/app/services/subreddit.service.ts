@@ -6,7 +6,6 @@ import { Subreddit } from 'src/types/subreddits';
     providedIn: 'root',
 })
 export class SubredditService {
-
     subreddits$: BehaviorSubject<Subreddit[]> = new BehaviorSubject(null);
 
     setSubreddits(subreddits: Subreddit[]): void {

@@ -11,8 +11,8 @@
     <div class="subredditsWrapper">
 
         <h2>Subreddits</h2>
-        <div>
-            <app-subreddits></app-subreddits>
+        <div *ngFor="let subreddit of _subreddits">
+            {{subreddit}}
         </div>
 
     </div>
