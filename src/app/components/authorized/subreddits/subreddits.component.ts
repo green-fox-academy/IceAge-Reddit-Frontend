@@ -7,5 +7,4 @@ import { Subreddit } from 'src/types/subreddits';
     templateUrl: './subreddits.component.html',
     styleUrls: ['./subreddits.component.scss'],
 })
-export class SubredditsComponent {
-}
+export class SubredditsComponent {}
