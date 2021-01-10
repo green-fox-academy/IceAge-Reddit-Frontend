@@ -30,6 +30,7 @@
 .subredditsWrapper {
     grid-area: subreddits;
     background-color: $secondaryColor;
+    color: $darkBlue;
     > h2 {
         background-color: $darkBlue;
         color: $lightTextColor;
