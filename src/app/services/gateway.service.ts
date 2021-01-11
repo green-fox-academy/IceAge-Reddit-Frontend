@@ -9,7 +9,6 @@ import { User } from 'src/types/user';
     providedIn: 'root',
 })
 export class GatewayService {
-
     private _baseUrl = 'http://localhost:3000/api/v1/';
 
     constructor(private _httpClient: HttpClient) {}

@@ -28,7 +28,18 @@ class MockPostService {
     }
 }
 
-describe('PostComponent', () => {
+const mockedPost: Post = {
+    id: 1,
+    title: 'First Post',
+    date_created: new Date('2020-11-11T23:28:56.782Z'),
+    subreddit: 'Subreddit1',
+    author: 'Author1',
+    commentCount: 2,
+    post_type: 'text',
+    description: 'Describing this first post.',
+};
+
+fdescribe('PostComponent', () => {
     let component: PostComponent;
     let fixture: ComponentFixture<PostComponent>;
     let postService: PostService;
@@ -51,9 +62,24 @@ describe('PostComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should make a call to postService.getPost(postId)', () => {
-        spyOn(component['_postService'], 'getPost').and.callThrough();
+    it('should make a call to postService.getPost(postId) and call private method _setPropertiesFromPosts in ngOnInit', () => {
+        let getPostSpy = spyOn(component['_postService'], 'getPost').and.callThrough();
+        let setPropertiesFromPostsSpy = spyOn<any>(
+            component,
+            '_setPropertiesFromPosts',
+        ).and.callThrough();
         component.ngOnInit();
-        expect(component['_postService'].getPost).toHaveBeenCalledWith(component.postId);
+        expect(getPostSpy).toHaveBeenCalledWith(component.postId);
+        expect(setPropertiesFromPostsSpy).toHaveBeenCalledWith(component.post);
+    });
+
+    it('should test private method _setPropertiesFromPosts with parameter mockedPost', () => {
+        component['_setPropertiesFromPosts'](mockedPost);
+        expect(component.post).toBe(mockedPost);
+        expect(component.postTitle).toBe(mockedPost.title);
+        expect(component.postDateCreated).toEqual(mockedPost.date_created);
+        expect(component.postAuthor).toBe(mockedPost.author);
+        expect(component.postSubreddit).toBe(mockedPost.subreddit);
+        expect(component.postCommentCount).toBe(mockedPost.commentCount);
     });
 });
