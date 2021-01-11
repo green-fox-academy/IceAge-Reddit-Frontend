@@ -3,10 +3,16 @@ export interface SubredditResponse {
 }
 
 export interface Subreddit {
-    name: string,
-    title: string,
-    date_created: Date,
-    description: string,
-    userCount: number,
-    author: string
+    name: string;
+    title: string;
+    date_created: Date;
+    description: string;
+    userCount: number;
+    author: string;
+}
+
+export interface SubredditCreation {
+    name: string;
+    title: string;
+    description: string;
 }

@@ -9,6 +9,7 @@ const routes: Routes = [
     { path: 'feed', component: FeedComponent },
     { path: 'subreddits', component: SubredditsComponent },
     { path: 'registration', component: RegistrationFormComponent },
+    { path: 'createSubreddit', component: SubredditComponent },
 ];
 
 @NgModule({

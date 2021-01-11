@@ -1,0 +1,27 @@
+<div>
+    <h1>Create Topic</h1>
+    
+    <form #subredditForm="ngForm" (ngSubmit)="onSubmit(subredditForm)">
+    
+        <input type="text"
+                placeholder="Your topic name"
+                name="name"
+                required
+                #name="ngModel"
+            [(ngModel)] ="subreddit.name">
+        <input type="text"
+                placeholder="Your title"
+                name="title"
+                #title="ngModel"
+                required
+                [(ngModel)] ="subreddit.title">
+        <input type="text"
+                placeholder="Your description"
+                #description="ngModel"
+                name="description"
+                required
+                [(ngModel)] ="subreddit.description">
+        <button>Create</button>
+    </form>
+</div>
+    
