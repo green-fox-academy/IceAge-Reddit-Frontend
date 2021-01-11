@@ -12,13 +12,9 @@ export class AuthorizedComponent {
     constructor(
         private _gateway: GatewayService,
         private _postService: PostService,
-        private _subredditServise: SubredditService,
     ) {
         this._gateway.getAllPosts().subscribe((response) => {
             this._postService.setPosts(response);
-        });
-        this._gateway.getAllSubreddits().subscribe((response) => {
-            this._subredditServise.setSubreddits(response);
         });
     }
 }

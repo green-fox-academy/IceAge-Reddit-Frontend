@@ -11,10 +11,8 @@ import { Subreddit } from 'src/types/subreddits';
 })
 export class FeedComponent {
     public _posts: Post[];
-    public _subreddits: Subreddit[];
 
-    constructor(private _postService: PostService, private _subredditService: SubredditService) {
+    constructor(private _postService: PostService) {
         this._postService.posts$.subscribe((posts) => (this._posts = posts));
-        this._subredditService.subreddits$.subscribe((subreddits) => (this._subreddits = subreddits));
     }
 }
