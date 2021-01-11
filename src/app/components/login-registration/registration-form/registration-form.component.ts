@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { User } from 'src/types/user';
 import { GatewayService } from 'src/app/services/gateway.service';
-import { Token } from 'src/types/token';
+import { User } from 'src/types/user';
 import { Error } from 'src/types/error';
+import { Token } from 'src/types/token';
 import { Router } from '@angular/router';
 
 @Component({
@@ -19,7 +19,6 @@ export class RegistrationFormComponent {
     };
 
     errorMessage$?: Error;
-    token$?: Token;
 
     constructor(private _gatewayService: GatewayService, private _router: Router) {}
 
@@ -27,7 +26,6 @@ export class RegistrationFormComponent {
         if (registerForm.valid) {
             this._gatewayService.postRegistrationForm(this.user).subscribe(
                 (success: Token) => {
-                    this.token$ = success;
                     localStorage.setItem('token', success.token);
                     this._router.navigate(['/feed']);
                 },

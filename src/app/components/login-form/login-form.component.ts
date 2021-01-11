@@ -18,7 +18,6 @@ export class LoginFormComponent {
     };
 
     errorMessage$?: Error;
-    token$?: Token;
 
     constructor(private _gatewayService: GatewayService, private _router: Router) {}
 
@@ -26,7 +25,6 @@ export class LoginFormComponent {
         if (loginForm.valid) {
             this._gatewayService.postLoginForm(this.user).subscribe(
                 (success: Token) => {
-                    this.token$ = success;
                     localStorage.setItem('token', success.token);
                     this._router.navigate(['/feed']);
                 },

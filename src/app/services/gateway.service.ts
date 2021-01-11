@@ -23,8 +23,10 @@ export class GatewayService {
         return this._httpClient.get<Subreddit[]>(`${this._baseUrl}subreddits`);
     }
 
-    postRegistrationForm(user: User): Observable<User> {
-        return this._httpClient.post(`${this._baseUrl}auth/sign-in`, user) as Observable<User>;
+    postRegistrationForm(user: User): Observable<Token | Error> {
+        return this._httpClient.post(`${this._baseUrl}auth/sign-in`, user) as Observable<
+            Token | Error
+        >;
     }
 
     postLoginForm(user: User): Observable<Token | Error> {
