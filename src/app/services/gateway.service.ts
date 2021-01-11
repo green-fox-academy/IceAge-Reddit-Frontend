@@ -24,4 +24,8 @@ export class GatewayService {
     postRegistrationForm(user: User): Observable<User> {
         return this._httpClient.post(`${this._baseUrl}auth/sign-in`, user) as Observable<User>;
     }
+
+    getSubredditPostsFeedByName(subredditName: string): Observable<Post[]> {
+        return this._httpClient.get<Post[]>(`${this._baseUrl}r/${subredditName}`);
+    }
 }

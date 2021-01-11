@@ -12,7 +12,7 @@
 
         <h2>Subreddits</h2>
         <div class="listOfSubreddits">
-            <div *ngFor="let subreddit of _subreddits">
+            <div (click)= "onSelect(subreddit)" *ngFor="let subreddit of _subreddits">
                 {{subreddit.name | subredditFormat}}
             </div>
         </div>
