@@ -8,8 +8,11 @@ import { RegistrationFormComponent } from './registration-form.component';
 
 class MockDataService {}
 
+<<<<<<< HEAD:src/app/components/registration-form/registration-form.component.spec.ts
 class RouterTestingModule {}
 
+=======
+>>>>>>> master:src/app/components/login-registration/registration-form/registration-form.component.spec.ts
 describe('RegistrationFormComponent', () => {
     let component: RegistrationFormComponent;
     let fixture: ComponentFixture<RegistrationFormComponent>;
