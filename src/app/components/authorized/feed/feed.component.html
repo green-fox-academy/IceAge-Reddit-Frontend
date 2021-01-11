@@ -1,0 +1,11 @@
+<div class="contentWrapper">
+    <div class="postsWrapper">
+
+        <div *ngFor="let post of _posts" class="post">
+            <app-post class="singlePost" [postId]="post.id">
+            </app-post>
+        </div>
+
+    </div>
+</div>
+

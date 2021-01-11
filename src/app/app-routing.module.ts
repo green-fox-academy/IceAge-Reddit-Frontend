@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
-import { FeedComponent } from './components/feed/feed.component';
+import { FeedComponent } from './components/authorized/feed/feed.component';
+import { SubredditComponent } from './components/authorized/subreddit/subreddit.component';
+import { SubredditsComponent } from './components/authorized/subreddits/subreddits.component';
+import { RegistrationFormComponent } from './components/login-registration/registration-form/registration-form.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'feed', pathMatch: 'full' },
     { path: 'feed', component: FeedComponent },
-    {
-        path: 'registration',
-        component: RegistrationFormComponent,
-    },
+    { path: 'subreddits', component: SubredditsComponent },
+    { path: 'registration', component: RegistrationFormComponent },
 ];
 
 @NgModule({

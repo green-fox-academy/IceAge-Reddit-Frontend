@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { PostService } from 'src/app/services/post.service';
+import { SubredditService } from 'src/app/services/subreddit.service';
 import { Post } from 'src/types/posts';
+import { Subreddit } from 'src/types/subreddits';
 
 @Component({
     selector: 'app-feed',

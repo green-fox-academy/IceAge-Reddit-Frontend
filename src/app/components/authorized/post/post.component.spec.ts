@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BehaviorSubject } from 'rxjs';
 import { DateAgoPipe } from 'src/app/pipes/date-ago.pipe';
 import { SubredditFormatPipe } from 'src/app/pipes/subreddit-format.pipe';
 import { PostService } from 'src/app/services/post.service';
@@ -19,20 +20,29 @@ class MockPostService {
         },
     ];
 
+    posts$: BehaviorSubject<Post[]> = new BehaviorSubject(this._posts);
+
     getPost(postId: number): Post {
         const result = this._posts.find((post) => post.id === postId);
         return result;
     }
 }
 
+const mockedPost: Post = {
+    id: 1,
+    title: 'First Post',
+    date_created: new Date('2020-11-11T23:28:56.782Z'),
+    subreddit: 'Subreddit1',
+    author: 'Author1',
+    commentCount: 2,
+    post_type: 'text',
+    description: 'Describing this first post.',
+};
+
 describe('PostComponent', () => {
     let component: PostComponent;
     let fixture: ComponentFixture<PostComponent>;
-    let h2PostTitle: HTMLElement;
-    let divPostDateCreated: HTMLElement;
-    let aPostAuthor: HTMLElement;
-    let aPostSubreddit: HTMLElement;
-    let divPostCommentCount: HTMLElement;
+    let postService: PostService;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
@@ -45,12 +55,6 @@ describe('PostComponent', () => {
         fixture = TestBed.createComponent(PostComponent);
         component = fixture.componentInstance;
         component.postId = 1;
-        h2PostTitle = fixture.nativeElement.querySelector('h2');
-        divPostDateCreated = fixture.nativeElement.querySelector('.postDateCreated');
-        aPostAuthor = fixture.nativeElement.querySelector('.postAuthor');
-        aPostSubreddit = fixture.nativeElement.querySelector('.postSubreddit');
-        divPostCommentCount = fixture.nativeElement.querySelector('.postCommentCount');
-
         fixture.detectChanges();
     });
 
@@ -58,26 +62,24 @@ describe('PostComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('Should display post title', () => {
-        expect(h2PostTitle.textContent).toContain(component.postTitle);
+    it('should make a call to postService.getPost(postId) and call private method _setPropertiesFromPosts in ngOnInit', () => {
+        let getPostSpy = spyOn(component['_postService'], 'getPost').and.callThrough();
+        let setPropertiesFromPostsSpy = spyOn<any>(
+            component,
+            '_setPropertiesFromPosts',
+        ).and.callThrough();
+        component.ngOnInit();
+        expect(getPostSpy).toHaveBeenCalledWith(component.postId);
+        expect(setPropertiesFromPostsSpy).toHaveBeenCalledWith(component.post);
     });
 
-    it('Should display post dateCreated', () => {
-        const datePipe = new DateAgoPipe();
-        expect(divPostDateCreated.textContent).toContain(
-            datePipe.transform(component.postDateCreated.toString()),
-        );
-    });
-
-    it('Should display post author', () => {
-        expect(aPostAuthor.textContent).toContain(component.postAuthor);
-    });
-
-    it('Should display post subreddit', () => {
-        expect(aPostSubreddit.textContent).toContain(component.postSubreddit);
-    });
-
-    it('Should display post commentCount', () => {
-        expect(divPostCommentCount.textContent).toContain(component.postCommentCount.toString());
+    it('should test private method _setPropertiesFromPosts with parameter mockedPost', () => {
+        component['_setPropertiesFromPosts'](mockedPost);
+        expect(component.post).toBe(mockedPost);
+        expect(component.postTitle).toBe(mockedPost.title);
+        expect(component.postDateCreated).toEqual(mockedPost.date_created);
+        expect(component.postAuthor).toBe(mockedPost.author);
+        expect(component.postSubreddit).toBe(mockedPost.subreddit);
+        expect(component.postCommentCount).toBe(mockedPost.commentCount);
     });
 });
