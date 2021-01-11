@@ -39,7 +39,7 @@ const mockedPost: Post = {
     description: 'Describing this first post.',
 };
 
-fdescribe('PostComponent', () => {
+describe('PostComponent', () => {
     let component: PostComponent;
     let fixture: ComponentFixture<PostComponent>;
     let postService: PostService;
