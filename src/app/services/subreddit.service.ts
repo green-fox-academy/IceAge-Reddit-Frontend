@@ -15,7 +15,7 @@ export class SubredditService {
         this.subreddits$.next(subreddits);
     }
 
-    getAllSubreddits(): Observable<Subreddit[]> {
-        return this.subreddits$;
+    getAllSubreddits(): Subreddit[] {
+        return this._subreddits;
     }
 }

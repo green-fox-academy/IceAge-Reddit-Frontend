@@ -19,7 +19,7 @@ export class FeedComponent {
         private _postService: PostService,
         private _subredditService: SubredditService,
         private _gateWayService: GatewayService,
-        private router: Router,
+        private _router: Router,
     ) {
         this._postService.posts$.subscribe((posts) => (this._posts = posts));
         this._subredditService.subreddits$.subscribe(
@@ -28,7 +28,7 @@ export class FeedComponent {
     }
 
     private _navigateToSubredditComponent(subredditName: string): void {
-        this.router.navigate(['/feed', subredditName]);
+        this._router.navigate(['/feed', subredditName]);
     }
 
     onSelect(subreddit) {

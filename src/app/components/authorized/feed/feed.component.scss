@@ -31,11 +31,7 @@
     grid-area: subreddits;
     background-color: $secondaryColor;
     color: $darkBlue;
-    // display: grid;
-    // grid-template-rows: auto auto;
-    // grid-template-areas:
-    //     "title"
-    //     "content";
+    
     > h2 {
         grid-area: title;
         background-color: $darkBlue;
