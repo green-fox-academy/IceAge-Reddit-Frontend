@@ -6,12 +6,13 @@ import { Subreddit } from 'src/types/subreddits';
 import { Post } from 'src/types/posts';
 import { User } from 'src/types/user';
 import { Error } from 'src/types/error';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root',
 })
 export class GatewayService {
-    private _baseUrl = 'http://localhost:3000/api/v1/';
+    private _baseUrl = environment.BACKEND_API;
 
     constructor(private _httpClient: HttpClient) {}
 
