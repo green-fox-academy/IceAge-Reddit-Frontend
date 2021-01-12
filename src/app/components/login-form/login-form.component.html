@@ -1,0 +1,24 @@
+<div>
+	<h1>Login</h1>
+	
+	<form #loginform="ngForm" (ngSubmit)="onSubmit(loginform)">
+	
+			<input type="text"
+					placeholder="Your email"
+					required
+					name="email"
+					[(ngModel)]="user.email"
+					appValidateEmail="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+			>
+			<input type="password"
+					placeholder="Password"
+					required
+					name="password"
+					[(ngModel)]="user.password"
+					appValidatePassword="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$"
+			>
+			<button type="submit" [disabled]="!loginform.form.valid">login</button>
+	</form>
+<div *ngIf="errorMessage$ !== undefined" class="form-error">
+
+<p class="red-text">{{ errorMessage$.error }}</p>

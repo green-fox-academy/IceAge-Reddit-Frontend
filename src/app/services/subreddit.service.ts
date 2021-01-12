@@ -1,17 +1,18 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { SubredditResponse } from 'src/types/subreddits';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Subreddit } from 'src/types/subreddits';
 
 @Injectable({
     providedIn: 'root',
 })
 export class SubredditService {
-    private _data = 'assets/subreddits.json';
+    subreddits$: BehaviorSubject<Subreddit[]> = new BehaviorSubject(null);
 
-    constructor(private _httpClient: HttpClient) {}
+    setSubreddits(subreddits: Subreddit[]): void {
+        this.subreddits$.next(subreddits);
+    }
 
-    getAllSubreddits(): Observable<SubredditResponse> {
-        return this._httpClient.get<SubredditResponse>(this._data);
+    getAllSubreddits(): Observable<Subreddit[]> {
+        return this.subreddits$;
     }
 }

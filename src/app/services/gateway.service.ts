@@ -1,25 +1,40 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PostResponse } from 'src/types/posts';
+import { Token } from 'src/types/token';
+import { Subreddit } from 'src/types/subreddits';
+import { Post } from 'src/types/posts';
 import { User } from 'src/types/user';
+import { Error } from 'src/types/error';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root',
 })
 export class GatewayService {
-    private _data = 'assets/posts.json';
+    private _baseUrl = environment.BACKEND_API;
 
     constructor(private _httpClient: HttpClient) {}
 
-    fetchPosts(): Observable<PostResponse> {
-        return this._httpClient.get<PostResponse>(this._data);
+    getAllPosts(): Observable<Post[]> {
+        return this._httpClient.get<Post[]>(`${this._baseUrl}feed`);
     }
 
-    postRegistrationForm(user: User): Observable<User> {
-        return this._httpClient.post(
-            'http://localhost:3000/api/v1/auth/sign-in',
-            user,
-        ) as Observable<User>;
+    getAllSubreddits(): Observable<Subreddit[]> {
+        return this._httpClient.get<Subreddit[]>(`${this._baseUrl}subreddits`);
+    }
+
+    postRegistrationForm(user: User): Observable<Token | Error> {
+        return this._httpClient.post(`${this._baseUrl}auth/sign-in`, user) as Observable<
+            Token | Error
+        >;
+    }
+
+    postLoginForm(user: User): Observable<Token | Error> {
+        return this._httpClient.post(`${this._baseUrl}auth/log-in`, user) as Observable<Token>;
+    }
+
+    postNewPost(post: Post) {
+        this._httpClient.post(`${this._baseUrl}subreddits/posts/create`, post);
     }
 }
