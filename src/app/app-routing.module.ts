@@ -4,9 +4,10 @@ import { RegistrationFormComponent } from './components/login-registration/regis
 import { FeedComponent } from './components//authorized/feed/feed.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { SubredditsComponent } from './components/authorized/subreddits/subreddits.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-    { path: 'feed', component: FeedComponent },
+    { path: 'feed', component: FeedComponent, canActivate: [AuthGuard] },
     { path: 'registration', component: RegistrationFormComponent },
     { path: 'login', component: LoginFormComponent },
     { path: 'subreddits', component: SubredditsComponent },
