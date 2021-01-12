@@ -11,7 +11,7 @@ import { Error } from 'src/types/error';
     providedIn: 'root',
 })
 export class GatewayService {
-    private _baseUrl = 'http://localhost:3000/api/v1/';
+    private _baseUrl = process.env.BACKEND_API;
 
     constructor(private _httpClient: HttpClient) {}
 
