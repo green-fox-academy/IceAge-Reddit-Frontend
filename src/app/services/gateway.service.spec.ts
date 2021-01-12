@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing';
 import { Post } from 'src/types/posts';
-
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { Subreddit } from 'src/types/subreddits';
 import { GatewayService } from './gateway.service';
@@ -10,9 +9,6 @@ describe('GatewayService', () => {
     let mockHttp: HttpTestingController;
 
     const baseUrl = 'http://localhost:3000/api/v1/';
-
-    const feedData = `${baseUrl}feed`;
-    const subredditData = `${baseUrl}subreddits`;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -30,8 +26,6 @@ describe('GatewayService', () => {
     it('should be created', () => {
         expect(service).toBeTruthy();
     });
-
-    // FEED
 
     it('should retrieve posts from the API via HttpClient.get method', () => {
         const testPosts: Post[] = [
@@ -58,12 +52,12 @@ describe('GatewayService', () => {
             },
         ];
 
-        service.fetchPosts().subscribe((posts) => {
+        service.getAllPosts().subscribe((posts) => {
             expect(posts).toEqual(testPosts);
             expect(posts.length).toBe(2);
         });
 
-        const request = mockHttp.expectOne(feedData);
+        const request = mockHttp.expectOne(`${baseUrl}feed`);
 
         expect(request.request.method).toBe('GET');
         expect(request.cancelled).toBeFalsy();
@@ -71,8 +65,6 @@ describe('GatewayService', () => {
 
         request.flush(testPosts);
     });
-
-    // SUBREDDITS
 
     it('should retrieve subreddits from the API via HttpClient.get method', () => {
         const testSubreddits: Subreddit[] = [
@@ -94,12 +86,12 @@ describe('GatewayService', () => {
             },
         ];
 
-        service.fetchSubreddits().subscribe((subreddits) => {
+        service.getAllSubreddits().subscribe((subreddits) => {
             expect(subreddits).toEqual(testSubreddits);
             expect(subreddits.length).toBe(2);
         });
 
-        const request = mockHttp.expectOne(subredditData);
+        const request = mockHttp.expectOne(`${baseUrl}subreddits`);
 
         expect(request.request.method).toBe('GET');
         expect(request.cancelled).toBeFalsy();

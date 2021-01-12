@@ -1,22 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
-import { AuthGuard } from './guards/auth.guard';
-import { AuthorizedComponent } from './components/authorized/authorized.component';
-import { FeedComponent } from './components/authorized/feed/feed.component';
+import { RegistrationFormComponent } from './components/login-registration/registration-form/registration-form.component';
+import { FeedComponent } from './components//authorized/feed/feed.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { SubredditsComponent } from './components/authorized/subreddits/subreddits.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'feed', pathMatch: 'full' },
-    { path: 'feed', component: FeedComponent, canActivate: [AuthGuard] },
-    {
-        path: 'registration',
-        component: RegistrationFormComponent,
-    },
-    {
-        path: 'login',
-        component: LoginFormComponent,
-    },
+    { path: 'feed', component: FeedComponent },
+    { path: 'registration', component: RegistrationFormComponent },
+    { path: 'login', component: LoginFormComponent },
+    { path: 'subreddits', component: SubredditsComponent },
 ];
 
 @NgModule({
@@ -24,4 +17,3 @@ const routes: Routes = [
     exports: [RouterModule],
 })
 export class AppRoutingModule {}
-export const routingComponents = [AuthorizedComponent, FeedComponent];

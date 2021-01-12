@@ -1,6 +1,5 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NavigationComponent } from '../navigation/navigation.component';
 import { WelcomePageComponent } from './welcome-page.component';
 
 describe('WelcomePageComponent', () => {
@@ -9,8 +8,7 @@ describe('WelcomePageComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [WelcomePageComponent],
-            schemas: [CUSTOM_ELEMENTS_SCHEMA],
+            declarations: [WelcomePageComponent, NavigationComponent],
         }).compileComponents();
     });
 

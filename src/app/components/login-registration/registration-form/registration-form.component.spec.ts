@@ -3,7 +3,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GatewayService } from 'src/app/services/gateway.service';
-
 import { RegistrationFormComponent } from './registration-form.component';
 
 class MockDataService {}
