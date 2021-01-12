@@ -14,11 +14,11 @@ export class AuthorizedComponent {
         private _postService: PostService,
         private _subredditServise: SubredditService,
     ) {
-        this._gateway.getAllPosts().subscribe((response) => {
-            this._postService.setPosts(response);
-        });
-        this._gateway.getAllSubreddits().subscribe((response) => {
-            this._subredditServise.setSubreddits(response);
+        this._gateway.getAllPosts().subscribe((posts) => {
+            this._postService.setPosts(posts);
+            this._gateway.getAllSubreddits().subscribe((subreddits) => {
+                this._subredditServise.setSubreddits(subreddits);
+            });
         });
     }
 }

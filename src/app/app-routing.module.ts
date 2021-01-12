@@ -6,9 +6,16 @@ import { RegistrationFormComponent } from './components/login-registration/regis
 
 const routes: Routes = [
     { path: '', redirectTo: '/registration', pathMatch: 'full' },
-    { path: 'feed', component: FeedComponent },
+    // { path: 'feed', component: FeedComponent },
+    {
+        path: 'feed',
+        children: [
+            { path: '', component: FeedComponent },
+            { path: ':name', component: SubredditComponent },
+        ],
+    },
     { path: 'registration', component: RegistrationFormComponent },
-    { path: 'feed/:name', component: SubredditComponent },
+    // { path: 'feed/:name', component: SubredditComponent },
 ];
 
 @NgModule({
