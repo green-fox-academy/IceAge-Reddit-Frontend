@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing';
 import { Post } from 'src/types/posts';
-
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { Subreddit } from 'src/types/subreddits';
 import { GatewayService } from './gateway.service';

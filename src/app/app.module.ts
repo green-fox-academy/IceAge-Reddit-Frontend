@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GatewayService } from './services/gateway.service';
 import { CommonModule } from '@angular/common';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 import { PostComponent } from './components/authorized/post/post.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
@@ -30,7 +31,6 @@ import { RegistrationFormComponent } from './components/login-registration/regis
         SubredditsComponent,
         SubredditComponent,
         RegistrationFormComponent,
-        PostComponent,
         DateAgoPipe,
         SubredditFormatPipe,
         NavigationComponent,
@@ -38,6 +38,8 @@ import { RegistrationFormComponent } from './components/login-registration/regis
         ForbiddenUsernameDirective,
         ValidatePasswordDirective,
         ValidateEmailDirective,
+        PostComponent,
+        LoginFormComponent,
     ],
     imports: [BrowserModule, CommonModule, AppRoutingModule, FormsModule, HttpClientModule],
     providers: [PostService, SubredditService, GatewayService],

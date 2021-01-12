@@ -1,19 +1,18 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { User } from 'src/types/user';
 import { GatewayService } from 'src/app/services/gateway.service';
-import { Token } from 'src/types/token';
+import { User } from 'src/types/user';
 import { Error } from 'src/types/error';
+import { Token } from 'src/types/token';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-registration-form',
-    templateUrl: './registration-form.component.html',
-    styleUrls: ['./registration-form.component.scss'],
+    selector: 'app-login-form',
+    templateUrl: './login-form.component.html',
+    styleUrls: ['./login-form.component.scss'],
 })
-export class RegistrationFormComponent {
+export class LoginFormComponent {
     user: User = {
-        username: '',
         email: '',
         password: '',
     };
@@ -23,17 +22,17 @@ export class RegistrationFormComponent {
 
     constructor(private _gatewayService: GatewayService, private _router: Router) {}
 
-    onSubmit(registrationform: NgForm) {
-        if (registrationform.valid) {
-            this._gatewayService.postRegistrationForm(this.user).subscribe(
+    onSubmit(loginform: NgForm) {
+        if (loginform.valid) {
+            this._gatewayService.postLoginForm(this.user).subscribe(
                 (succes: Token) => {
                     this.token$ = succes;
                     this._router.navigateByUrl('/feed');
                 },
-                (error: Error) => (this.errorMessage$ = error),
+                (err: Error) => (this.errorMessage$ = err),
             );
         } else {
-            console.log('error: NOT VALID INPUT');
+            console.log('error: bad login');
         }
     }
 }
