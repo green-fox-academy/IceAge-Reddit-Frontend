@@ -8,7 +8,7 @@ const routes: Routes = [
     { path: '', redirectTo: '/registration', pathMatch: 'full' },
     { path: 'feed', component: FeedComponent },
     { path: 'registration', component: RegistrationFormComponent },
-    { path: 'subreddits/:name', component: SubredditComponent },
+    { path: 'feed/:name', component: SubredditComponent },
 ];
 
 @NgModule({

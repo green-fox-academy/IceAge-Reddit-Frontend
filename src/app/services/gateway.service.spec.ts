@@ -76,6 +76,7 @@ describe('GatewayService', () => {
                 description: 'Subreddit1 about something',
                 userCount: 10,
                 author: 'Author1',
+                posts: [],
             },
             {
                 name: 'Subreddit2',
@@ -84,6 +85,7 @@ describe('GatewayService', () => {
                 description: 'Subreddit2 obout anything',
                 userCount: 20,
                 author: 'Author2',
+                posts: [],
             },
         ];
 

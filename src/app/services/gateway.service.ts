@@ -26,6 +26,6 @@ export class GatewayService {
     }
 
     getSubredditPostsFeedByName(subredditName: string): Observable<Post[]> {
-        return this._httpClient.get<Post[]>(`${this._baseUrl}r/${subredditName}`);
+        return this._httpClient.get<Post[]>(`${this._baseUrl}feed/r/${subredditName}`);
     }
 }

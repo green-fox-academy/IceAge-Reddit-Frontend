@@ -1,8 +1,12 @@
-<h1>TOHLE JE SUBREDDIT COMPONENT</h1>
-<h2>{{subredditName}}</h2>
-<h2>{{currentSubreddit.author}}</h2>
+<div class="contentWrapper">
+    <h1>{{subredditName}}</h1>
+    <div class="postsWrapper">
 
-<div *ngFor="let post of listOfPosts" class="post">
-    <app-post class="singlePost" [postId]="post.id">
-    </app-post>
+        <div *ngFor="let post of listOfPosts" class="post">
+            <app-post class="singlePost" [postId]="post.id">
+            </app-post>
+            {{post.title}}
+        </div>
+
+    </div>
 </div>

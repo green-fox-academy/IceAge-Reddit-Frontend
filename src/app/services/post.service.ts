@@ -7,6 +7,7 @@ import { Post } from 'src/types/posts';
 })
 export class PostService {
     private _posts: Post[];
+    private _currentSubredditPosts: Post[];
 
     posts$: BehaviorSubject<Post[]> = new BehaviorSubject(null);
 
@@ -22,5 +23,13 @@ export class PostService {
     getPost(postId: number): Post {
         const result = this._posts.find((post) => post.id === postId);
         return result;
+    }
+
+    setCurrentSubredditPosts(postsList: Post[]): void {
+        this._currentSubredditPosts = postsList;
+    }
+
+    getCurrentSubredditPosts(): Post[] {
+        return this._currentSubredditPosts;
     }
 }
