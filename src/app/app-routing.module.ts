@@ -7,14 +7,8 @@ import { SubredditsComponent } from './components/authorized/subreddits/subreddi
 
 const routes: Routes = [
     { path: 'feed', component: FeedComponent },
-    {
-        path: 'registration',
-        component: RegistrationFormComponent,
-    },
-    {
-        path: 'login',
-        component: LoginFormComponent,
-    },
+    { path: 'registration', component: RegistrationFormComponent },
+    { path: 'login', component: LoginFormComponent },
     { path: 'subreddits', component: SubredditsComponent },
 ];
 

@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Token } from 'src/types/token';
 import { Subreddit } from 'src/types/subreddits';
 import { Post } from 'src/types/posts';
 import { User } from 'src/types/user';
 import { Error } from 'src/types/error';
-import { Token } from 'src/types/token';
 
 @Injectable({
     providedIn: 'root',
@@ -24,20 +24,16 @@ export class GatewayService {
     }
 
     postRegistrationForm(user: User): Observable<Token | Error> {
-        return this._httpClient.post(
-            'http://localhost:3000/api/v1/auth/sign-in',
-            user,
-        ) as Observable<Token>;
+        return this._httpClient.post(`${this._baseUrl}auth/sign-in`, user) as Observable<
+            Token | Error
+        >;
     }
 
     postLoginForm(user: User): Observable<Token | Error> {
-        return this._httpClient.post(
-            'http://localhost:3000/api/v1/auth/log-in',
-            user,
-        ) as Observable<Token>;
+        return this._httpClient.post(`${this._baseUrl}auth/log-in`, user) as Observable<Token>;
     }
 
     postNewPost(post: Post) {
-        this._httpClient.post('http://localhost:3000/api/v1/subreddits/posts/create', post);
+        this._httpClient.post(`${this._baseUrl}subreddits/posts/create`, post);
     }
 }

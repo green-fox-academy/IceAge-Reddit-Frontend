@@ -18,16 +18,15 @@ export class LoginFormComponent {
     };
 
     errorMessage$?: Error;
-    token$?: Token;
 
     constructor(private _gatewayService: GatewayService, private _router: Router) {}
 
-    onSubmit(loginform: NgForm) {
-        if (loginform.valid) {
+    onSubmit(loginForm: NgForm) {
+        if (loginForm.valid) {
             this._gatewayService.postLoginForm(this.user).subscribe(
-                (succes: Token) => {
-                    this.token$ = succes;
-                    this._router.navigateByUrl('/feed');
+                (success: Token) => {
+                    localStorage.setItem('token', success.token);
+                    this._router.navigate(['/feed']);
                 },
                 (err: Error) => (this.errorMessage$ = err),
             );
