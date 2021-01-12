@@ -17,19 +17,19 @@ export class PostComponent implements OnInit {
     postSubreddit: string;
     postCommentCount: number;
 
+    private _setPropertiesFromPosts = (post: Post) => {
+        this.post = post;
+        this.postTitle = post.title;
+        this.postDateCreated = new Date(post.date_created);
+        this.postAuthor = post.author;
+        this.postSubreddit = post.subreddit;
+        this.postCommentCount = post.commentCount;
+    };
+
     constructor(private _postService: PostService) {}
 
     ngOnInit(): void {
-        this.post = this._postService.getPost(this.postId);
-        this.setPropertiesFromPosts();
-    }
-
-    private setPropertiesFromPosts(): void {
-        this.post = this._postService.getPost(this.postId);
-        this.postTitle = this.post.title;
-        this.postDateCreated = new Date(this.post.date_created);
-        this.postAuthor = this.post.author;
-        this.postSubreddit = this.post.subreddit;
-        this.postCommentCount = this.post.commentCount;
+        const post = this._postService.getPost(this.postId);
+        this._setPropertiesFromPosts(post);
     }
 }

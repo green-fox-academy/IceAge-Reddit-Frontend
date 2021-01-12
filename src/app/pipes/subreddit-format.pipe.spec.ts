@@ -1,8 +1,14 @@
 import { SubredditFormatPipe } from './subreddit-format.pipe';
 
 describe('SubredditFormatPipe', () => {
-  it('create an instance', () => {
     const pipe = new SubredditFormatPipe();
-    expect(pipe).toBeTruthy();
-  });
+
+    it('create an instance', () => {
+        expect(pipe).toBeTruthy();
+    });
+
+    it('should add "/r/" as prefix to the string "subreddit"', () => {
+        const testWord = 'subreddit';
+        expect(pipe.transform(testWord)).toBe('/r/subreddit');
+    });
 });
