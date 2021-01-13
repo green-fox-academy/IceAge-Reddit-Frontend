@@ -7,10 +7,11 @@ import { SubredditsComponent } from './components/authorized/subreddits/subreddi
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-    { path: 'feed', component: FeedComponent, canActivate: [AuthGuard] },
     { path: 'registration', component: RegistrationFormComponent },
     { path: 'login', component: LoginFormComponent },
-    { path: 'subreddits', component: SubredditsComponent },
+
+    { path: 'feed', component: FeedComponent, canActivate: [AuthGuard] },
+    { path: 'subreddits', component: SubredditsComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
