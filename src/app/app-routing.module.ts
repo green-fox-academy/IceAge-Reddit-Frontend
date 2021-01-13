@@ -8,7 +8,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/land-page', pathMatch: 'full' },
+    { path: '', redirectTo: 'feed', pathMatch: 'full' },
     { path: 'land-page', component: WelcomePageComponent },
     { path: 'register', component: RegistrationFormComponent },
     { path: 'login', component: LoginFormComponent },

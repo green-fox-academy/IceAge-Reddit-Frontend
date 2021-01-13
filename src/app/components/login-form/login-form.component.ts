@@ -26,6 +26,7 @@ export class LoginFormComponent {
             this._gatewayService.postLoginForm(this.user).subscribe(
                 (success: Token) => {
                     localStorage.setItem('token', success.token);
+                    console.log('storing token');
                     this._router.navigate(['/feed']);
                 },
                 (err: Error) => (this.errorMessage$ = err),

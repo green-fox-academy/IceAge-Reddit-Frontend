@@ -27,7 +27,6 @@ export class RegistrationFormComponent {
             this._gatewayService.postRegistrationForm(this.user).subscribe(
                 (success: Token) => {
                     localStorage.setItem('token', success.token);
-                    console.log('registrace a jde se na feed');
                     this._router.navigate(['/feed']);
                 },
                 (error: Error) => (this.errorMessage$ = error),
