@@ -10,7 +10,7 @@ import { WelcomePageComponent } from './components/welcome-page/welcome-page.com
 const routes: Routes = [
     { path: '', redirectTo: '/land-page', pathMatch: 'full' },
     { path: 'land-page', component: WelcomePageComponent },
-    { path: 'registration', component: RegistrationFormComponent },
+    { path: 'register', component: RegistrationFormComponent },
     { path: 'login', component: LoginFormComponent },
 
     { path: 'feed', component: FeedComponent, canActivate: [AuthGuard] },
