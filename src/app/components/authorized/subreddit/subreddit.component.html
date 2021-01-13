@@ -1,22 +1,3 @@
-<!-- <div class="contentWrapper">
-    <h1>{{subredditName}}</h1>
-    <div class="postsWrapper">
-
-        <div *ngFor="let post of listOfPosts" class="post">
-            <app-post class="singlePost" [postId]="post.id">
-            </app-post>
-        </div>
-
-    </div>
-
-    <h2>Subreddits</h2>
-        <div class="listOfSubreddits">
-            <div *ngFor="let subreddit of subreddits">
-                {{subreddit.name | subredditFormat}}
-            </div>
-        </div>
-</div> -->
-
 <div class="contentWrapper">
     <div class="postsWrapper">
 
@@ -26,18 +7,6 @@
             <app-post class="singlePost" [postId]="post.id">
             </app-post>
         </div>
-
-    </div>
-
-    <div class="subredditsWrapper">
-
-        <h2>Subreddits</h2>
-        <div class="listOfSubreddits">
-            <div (click)= "onSelect(subreddit)" *ngFor="let subreddit of subreddits">
-                {{subreddit.name | subredditFormat}}
-            </div>
-        </div>
-        
 
     </div>
 </div>

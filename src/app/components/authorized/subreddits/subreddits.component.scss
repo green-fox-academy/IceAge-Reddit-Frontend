@@ -1,0 +1,27 @@
+@import '../../../../colors.scss';
+@import '../../../../mixins.scss';
+
+.subredditsWrapper {
+    background-color: $secondaryColor;
+    color: $darkBlue;
+    align-items: start;
+    @include boxshadow;
+    border-radius: 0.3em;
+    
+    > h2 {
+        background-color: $darkBlue;
+        color: $lightTextColor;
+        text-align: center;
+        padding: 1rem;
+        border-top-left-radius: 0.3em;
+        border-top-right-radius: 0.3em;
+    }
+
+    > div {
+        padding: 1rem;
+        > div {
+            padding-bottom: 0.5rem;
+            letter-spacing: 0.2rem;
+        }
+    }
+}

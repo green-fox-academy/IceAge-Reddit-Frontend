@@ -5,7 +5,7 @@ import { SubredditComponent } from './components/authorized/subreddit/subreddit.
 import { RegistrationFormComponent } from './components/login-registration/registration-form/registration-form.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/registration', pathMatch: 'full' },
+    // { path: '', redirectTo: '/registration', pathMatch: 'full' },
     {
         path: 'feed',
         children: [

@@ -5,15 +5,22 @@
     display: grid;
     margin: 2rem 0;
     column-gap: 5rem;
-    grid-template-columns: 8fr 4fr;
-    grid-template-areas: 
-        "posts subreddits";
+    align-items: start;
 }
 
 .postsWrapper {
-    grid-area: posts;
     display: grid;
     row-gap: 1rem;
+
+    > h1 {
+        background-color: $darkBlue;
+        color: $lightTextColor;
+        padding: 0.5rem;
+        letter-spacing: 0.1rem;
+        @include boxshadow;
+        border-left: 0.5rem solid $secondaryColor;
+        border-radius: 0.3em;
+    }
 
     > div {
         display: grid;
@@ -25,30 +32,4 @@
         padding: 1rem;
     };
    
-}
-
-.subredditsWrapper {
-    grid-area: subreddits;
-    background-color: $secondaryColor;
-    color: $darkBlue;
-    
-    > h2 {
-        grid-area: title;
-        background-color: $darkBlue;
-        color: $lightTextColor;
-        text-align: center;
-        padding: 1rem;
-    }
-
-    > div {
-        padding: 1rem;
-        > div {
-            padding-bottom: 0.5rem;
-            letter-spacing: 0.2rem;
-        }
-    }
-}
-
-.listOfSubreddits {
-    grid-area: content;
 }

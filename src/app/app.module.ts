@@ -21,7 +21,6 @@ import { FeedComponent } from './components/authorized/feed/feed.component';
 import { SubredditComponent } from './components/authorized/subreddit/subreddit.component';
 import { SubredditsComponent } from './components/authorized/subreddits/subreddits.component';
 import { RegistrationFormComponent } from './components/login-registration/registration-form/registration-form.component';
-import { ContentComponent } from './components/authorized/content/content.component';
 
 @NgModule({
     declarations: [
@@ -39,7 +38,6 @@ import { ContentComponent } from './components/authorized/content/content.compon
         ForbiddenUsernameDirective,
         ValidatePasswordDirective,
         ValidateEmailDirective,
-        ContentComponent,
     ],
     imports: [BrowserModule, CommonModule, AppRoutingModule, FormsModule, HttpClientModule],
     providers: [PostService, SubredditService, GatewayService],

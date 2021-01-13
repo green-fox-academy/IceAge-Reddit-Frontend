@@ -1,0 +1,11 @@
+<div class="subredditsWrapper">
+
+    <h2>Subreddits</h2>
+    <div class="listOfSubreddits">
+        <div (click)= "onSelect(subreddit)" *ngFor="let subreddit of _subreddits">
+            {{subreddit.name | subredditFormat}}
+        </div>
+    </div>
+    
+
+</div>

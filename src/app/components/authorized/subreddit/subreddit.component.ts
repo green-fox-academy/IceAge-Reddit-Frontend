@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { GatewayService } from 'src/app/services/gateway.service';
 import { PostService } from 'src/app/services/post.service';
 import { SubredditService } from 'src/app/services/subreddit.service';
@@ -11,7 +11,7 @@ import { Subreddit } from 'src/types/subreddits';
     templateUrl: './subreddit.component.html',
     styleUrls: ['./subreddit.component.scss'],
 })
-export class SubredditComponent implements OnInit {
+export class SubredditComponent {
     subredditName: string;
     listOfPosts: Post[];
     subreddits: Subreddit[];
@@ -20,27 +20,15 @@ export class SubredditComponent implements OnInit {
         private _postService: PostService,
         private _subredditService: SubredditService,
         private _gateWayService: GatewayService,
-        private _route: ActivatedRoute,
-        private _router: Router,
+        private _activatedRoute: ActivatedRoute,
     ) {
-        this.subreddits = this._subredditService.getAllSubreddits();
-    }
-
-    ngOnInit(): void {
-        let name = this._route.snapshot.params.name;
-        this.subredditName = name;
-        this.listOfPosts = this._postService.getCurrentSubredditPosts();
-    }
-
-    private _navigateToSubredditComponent(subredditName: string): void {
-        this._router.navigate(['/feed', subredditName]);
-    }
-
-    onSelect(subreddit) {
-        this._gateWayService.getSubredditPostsFeedByName(subreddit.name).subscribe((response) => {
-            this.listOfPosts = response;
-            this._navigateToSubredditComponent(subreddit.name);
-            this.subredditName = subreddit.name;
+        this._activatedRoute.params.subscribe((data) => {
+            this.subredditName = data.name;
+            this._gateWayService.getSubredditPostsFeedByName(data.name).subscribe((response) => {
+                this._postService.setCurrentSubredditPosts(response);
+                this.subreddits = this._subredditService.getAllSubreddits();
+                this.listOfPosts = this._postService.getCurrentSubredditPosts();
+            });
         });
     }
 }
