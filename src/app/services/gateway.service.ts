@@ -17,7 +17,6 @@ export class GatewayService {
     constructor(private _httpClient: HttpClient) {}
 
     getAllPosts(): Observable<Post[]> {
-        console.log('fetching feed');
         return this._httpClient.get<Post[]>(`${this._baseUrl}feed`);
     }
 
