@@ -1,3 +1,4 @@
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { BehaviorSubject } from 'rxjs';
 import { Subreddit } from 'src/types/subreddits';
@@ -25,10 +26,15 @@ const subredditsData: Subreddit[] = [
 
 describe('SubredditService', () => {
     let service: SubredditService;
+    let mockHttp: HttpTestingController;
 
     beforeEach(() => {
-        TestBed.configureTestingModule({});
+        TestBed.configureTestingModule({
+            imports: [HttpClientTestingModule],
+            providers: [SubredditService],
+        });
         service = TestBed.inject(SubredditService);
+        mockHttp = TestBed.inject(HttpTestingController);
     });
 
     it('should be created', () => {
