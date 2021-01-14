@@ -9,11 +9,11 @@ import { Router } from '@angular/router';
 export class WelcomePageComponent {
     constructor(private _router: Router) {}
 
-    loginClick(): void {
+    onLoginClick(): void {
         this._router.navigate(['/login']);
     }
 
-    registerClick(): void {
+    onRegisterClick(): void {
         this._router.navigate(['/register']);
     }
 }
