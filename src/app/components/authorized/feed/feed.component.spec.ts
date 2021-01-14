@@ -1,6 +1,10 @@
+import { HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserModule } from '@angular/platform-browser';
 import { BehaviorSubject } from 'rxjs';
+import { AppRoutingModule } from 'src/app/app-routing.module';
+import { GatewayService } from 'src/app/services/gateway.service';
 import { PostService } from 'src/app/services/post.service';
 import { Post } from 'src/types/posts';
 import { FeedComponent } from './feed.component';
@@ -39,8 +43,9 @@ describe('FeedComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
+            imports: [BrowserModule, AppRoutingModule, HttpClientModule],
             declarations: [FeedComponent],
-            providers: [{ provide: PostService, useClass: MockPostService }],
+            providers: [{ provide: PostService, useClass: MockPostService }, GatewayService],
             schemas: [CUSTOM_ELEMENTS_SCHEMA],
         }).compileComponents();
     });
