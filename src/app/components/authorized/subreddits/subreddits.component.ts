@@ -19,9 +19,12 @@ export class SubredditsComponent {
         private _gateWayService: GatewayService,
         private _router: Router,
     ) {
-        this._subredditService.subreddits$.subscribe(
-            (subreddits) => (this._subreddits = subreddits),
-        );
+        this._gateWayService.getAllSubreddits().subscribe((subreddits) => {
+            this._subredditService.setSubreddits(subreddits);
+            this._subredditService.subreddits$.subscribe((currentSubreddits) => {
+                this._subreddits = currentSubreddits;
+            });
+        });
     }
 
     private _navigateToSubredditComponent(subredditName: string): void {
