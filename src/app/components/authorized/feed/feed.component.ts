@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
+import { GatewayService } from 'src/app/services/gateway.service';
 import { PostService } from 'src/app/services/post.service';
-import { SubredditService } from 'src/app/services/subreddit.service';
 import { Post } from 'src/types/posts';
-import { Subreddit } from 'src/types/subreddits';
 
 @Component({
     selector: 'app-feed',
@@ -12,7 +11,10 @@ import { Subreddit } from 'src/types/subreddits';
 export class FeedComponent {
     public _posts: Post[];
 
-    constructor(private _postService: PostService) {
+    constructor(private _gateway: GatewayService, private _postService: PostService) {
+        this._gateway.getAllPosts().subscribe((response) => {
+            this._postService.setPosts(response);
+        });
         this._postService.posts$.subscribe((posts) => (this._posts = posts));
     }
 }

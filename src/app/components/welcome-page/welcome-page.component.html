@@ -1,7 +1,5 @@
 <div class="gridWrapper">
 
-    <app-navigation class="navigationBar"></app-navigation>
-
     <div class="mainContent">
         <div class="headerPanel">
             <h1 class="welcomeSign">Welcome to <br><strong>Iced Reddit</strong></h1>
@@ -10,12 +8,12 @@
         <div class="sidePanel">
             <div class="loginContainer">
                 <h2>To enter the application, please log in.</h2>
-                <button class="loginBtn" type="submit">Log in</button>
+                <button class="loginBtn" type="submit" (click)="onLoginClick();">Log in</button>
             </div>
 
             <div class="registrationContainer">
                 <h2>If you do not have account, please register.</h2>
-                <button class="registrationBtn" type="submit">Sign in</button>
+                <button class="registrationBtn" type="submit" (click)="onRegisterClick();">Sign in</button>
             </div>
         </div>
     </div>
