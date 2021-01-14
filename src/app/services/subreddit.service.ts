@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Subreddit, SubredditCreation } from 'src/types/subreddits';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root',
 })
 export class SubredditService {
     subreddits$: BehaviorSubject<Subreddit[]> = new BehaviorSubject(null);
-    private _baseUrl = 'http://localhost:3000/api/v1/';
+    private _baseUrl = environment.BACKEND_API;
 
     constructor(private _httpClient: HttpClient) {}
 
