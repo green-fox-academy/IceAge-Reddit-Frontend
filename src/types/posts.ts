@@ -1,11 +1,29 @@
+import { User } from './user';
+
 export interface Post {
-    id: number;
+    id?: number;
     title: string;
-    date_created: Date;
+    date_created?: Date;
     subreddit: string;
     author: string;
-    commentCount: number;
+    commentCount?: number;
     post_type: string;
     posted_url?: string;
     description: string;
 }
+
+export interface newPost {
+    title: string;
+    subreddit: string;
+    post_type: string;
+    commentCount: number;
+    posted_url: string;
+    description: string;
+}
+
+/* export interface TextPost {
+    title: string;
+    subreddit: string;
+    post_type: 'text';
+    description: string;
+} */

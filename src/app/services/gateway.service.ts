@@ -1,18 +1,20 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { Token } from 'src/types/token';
 import { Subreddit } from 'src/types/subreddits';
-import { Post } from 'src/types/posts';
+import { newPost, Post } from 'src/types/posts';
 import { User } from 'src/types/user';
 import { Error } from 'src/types/error';
 import { environment } from 'src/environments/environment';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root',
 })
 export class GatewayService {
     private _baseUrl = environment.BACKEND_API;
+    private posts$: Post[];
 
     constructor(private _httpClient: HttpClient) {}
 
@@ -34,7 +36,22 @@ export class GatewayService {
         return this._httpClient.post(`${this._baseUrl}auth/log-in`, user) as Observable<Token>;
     }
 
-    postNewPost(post: Post) {
-        this._httpClient.post(`${this._baseUrl}subreddits/posts/create`, post);
+    postNewPost(newPost: any): Observable<Post | Error> {
+        return this._httpClient.post(
+            `${this._baseUrl}subreddits/posts/create`,
+            newPost,
+        ) as Observable<Post>;
     }
+
+    /* postNewPost(newPost: any): Observable<Post | Error> {
+        return this._httpClient.post(`${this._baseUrl}subreddits/posts/create`, newPost).pipe(
+            map((post: Post) => {
+                return post;
+            }),
+            catchError(() => {
+                return throwError('Something went wrong!');
+            }),
+        );
+         as Observable<Post>;
+    } */
 }
