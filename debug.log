@@ -115,3 +115,4 @@
 [0117/214441.244:ERROR:process_reader_win.cc(151)] SuspendThread: Pøístup byl odepøen. (0x5)
 [0117/215544.887:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systém nemùže nalézt uvedenou cestu. (0x3)
 [0117/223819.765:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systém nemùže nalézt uvedenou cestu. (0x3)
+[0117/230047.507:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systém nemùže nalézt uvedenou cestu. (0x3)

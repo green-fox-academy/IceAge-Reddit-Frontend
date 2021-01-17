@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { newPost, Post } from 'src/types/posts';
 import { Token } from 'src/types/token';
 import { Router } from '@angular/router';
+import { Error } from 'src/types/error';
 
 @Component({
     selector: 'app-add-new-post',
@@ -22,6 +23,7 @@ export class AddNewPostComponent {
     };
 
     urlExists: boolean;
+    errorMessage$?: Error;
 
     token: Token;
     allSubreddits$: Subreddit[];
@@ -45,7 +47,7 @@ export class AddNewPostComponent {
                 console.log(succes);
                 this._router.navigate(['/feed']);
             },
-            (error) => console.log(error),
+            (err: Error) => (this.errorMessage$ = err),
         );
     }
 
