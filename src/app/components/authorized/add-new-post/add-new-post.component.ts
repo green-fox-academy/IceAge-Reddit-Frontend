@@ -6,6 +6,7 @@ import { newPost, Post } from 'src/types/posts';
 import { Token } from 'src/types/token';
 import { Router } from '@angular/router';
 import { Error } from 'src/types/error';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
     selector: 'app-add-new-post',
@@ -29,7 +30,11 @@ export class AddNewPostComponent {
     allSubreddits$: Subreddit[];
     namesOfSubreddits: string[];
 
-    constructor(private _gatewayService: GatewayService, private _router: Router) {
+    constructor(
+        private _gatewayService: GatewayService,
+        private _router: Router,
+        private _postService: PostService,
+    ) {
         this._gatewayService.getAllSubreddits().subscribe((succes) => {
             this.allSubreddits$ = succes;
             this.getNamesOfSubreddits();
@@ -43,8 +48,9 @@ export class AddNewPostComponent {
 
     createNewPost() {
         this._gatewayService.postNewPost(this.newPost).subscribe(
-            (succes: Post) => {
-                console.log(succes);
+            (success: Post) => {
+                console.log(success);
+                this._postService.addpost(success);
                 this._router.navigate(['/feed']);
             },
             (err: Error) => (this.errorMessage$ = err),

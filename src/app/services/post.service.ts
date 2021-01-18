@@ -6,7 +6,7 @@ import { Post } from 'src/types/posts';
     providedIn: 'root',
 })
 export class PostService {
-    private _posts: Post[];
+    _posts: Post[];
 
     posts$: BehaviorSubject<Post[]> = new BehaviorSubject(null);
 
@@ -22,5 +22,9 @@ export class PostService {
     getPost(postId: number): Post {
         const result = this._posts.find((post) => post.id === postId);
         return result;
+    }
+
+    addpost(post: Post) {
+        this._posts.push(post);
     }
 }
