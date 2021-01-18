@@ -21,9 +21,12 @@ export class SubredditsComponent {
     ) {
         this._gateWayService.getAllSubreddits().subscribe((subreddits) => {
             this._subredditService.setSubreddits(subreddits);
-            this._subredditService.subreddits$.subscribe((currentSubreddits) => {
-                this._subreddits = currentSubreddits;
-            });
+        });
+        this._gateWayService.getAllPosts().subscribe((posts) => {
+            this._postService.setPosts(posts);
+        });
+        this._subredditService.subreddits$.subscribe((currentSubreddits) => {
+            this._subreddits = currentSubreddits;
         });
     }
 

@@ -14,9 +14,9 @@ export class FeedComponent {
     constructor(private _postService: PostService, private _gateway: GatewayService) {
         this._gateway.getAllPosts().subscribe((posts) => {
             this._postService.setPosts(posts);
-            this._postService.posts$.subscribe((currentPosts) => {
-                this._posts = currentPosts;
-            });
+        });
+        this._postService.posts$.subscribe((currentPosts) => {
+            this._posts = currentPosts;
         });
     }
 }
