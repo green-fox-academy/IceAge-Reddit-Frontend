@@ -7,8 +7,6 @@ import { newPost, Post } from 'src/types/posts';
 import { User } from 'src/types/user';
 import { Error } from 'src/types/error';
 import { environment } from 'src/environments/environment';
-import { catchError, map } from 'rxjs/operators';
-
 @Injectable({
     providedIn: 'root',
 })
@@ -42,16 +40,4 @@ export class GatewayService {
             newPost,
         ) as Observable<Post>;
     }
-
-    /* postNewPost(newPost: any): Observable<Post | Error> {
-        return this._httpClient.post(`${this._baseUrl}subreddits/posts/create`, newPost).pipe(
-            map((post: Post) => {
-                return post;
-            }),
-            catchError(() => {
-                return throwError('Something went wrong!');
-            }),
-        );
-         as Observable<Post>;
-    } */
 }

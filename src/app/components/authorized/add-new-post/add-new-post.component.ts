@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { GatewayService } from 'src/app/services/gateway.service';
 import { Subreddit } from 'src/types/subreddits';
-import { NgForm } from '@angular/forms';
 import { newPost, Post } from 'src/types/posts';
 import { Token } from 'src/types/token';
 import { Router } from '@angular/router';
@@ -24,7 +23,6 @@ export class AddNewPostComponent {
     };
 
     namesOfSubreddits: string[];
-    disabled = 'Select';
     urlExists: boolean;
     errorMessage$?: Error;
     token: Token;
