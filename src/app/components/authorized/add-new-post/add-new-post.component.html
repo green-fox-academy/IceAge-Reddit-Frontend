@@ -21,8 +21,9 @@
         ><br>
 
         <label>Subreddit: </label>
-        <select  [(ngModel)]="newPost.subreddit" name="subredditName">
-            <option *ngFor="let subreddit of namesOfSubreddits">{{subreddit}}</option>
+        <select  [(ngModel)]="newPost.subreddit" name="subredditName"
+                >
+            <option *ngFor="let subreddit of namesOfSubreddits" [disabled]="subreddit==='Select'">{{subreddit}}</option>
         </select>
     </div>
 </div>
@@ -43,7 +44,7 @@
     
         <label>Subreddit: </label>
         <select  [(ngModel)]="newPost.subreddit" name="subredditName">
-            <option *ngFor="let subreddit of namesOfSubreddits">{{subreddit}}</option>
+            <option *ngFor="let subreddit of namesOfSubreddits" [disabled]="subreddit==='Select'">{{subreddit}}</option>
         </select>
 </div>
 

@@ -16,19 +16,19 @@ import { PostService } from 'src/app/services/post.service';
 export class AddNewPostComponent {
     newPost: newPost = {
         title: '',
-        subreddit: '',
+        subreddit: 'Select',
         post_type: 'text',
         commentCount: 0,
         posted_url: '',
         description: '',
     };
 
+    namesOfSubreddits: string[];
+    disabled = 'Select';
     urlExists: boolean;
     errorMessage$?: Error;
-
     token: Token;
     allSubreddits$: Subreddit[];
-    namesOfSubreddits: string[];
 
     constructor(
         private _gatewayService: GatewayService,
@@ -38,6 +38,7 @@ export class AddNewPostComponent {
         this._gatewayService.getAllSubreddits().subscribe((succes) => {
             this.allSubreddits$ = succes;
             this.getNamesOfSubreddits();
+            this.namesOfSubreddits.unshift('Select');
             console.log(this.namesOfSubreddits);
         });
     }
