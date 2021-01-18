@@ -17,4 +17,5 @@ export class FeedComponent {
         });
         this._postService.posts$.subscribe((posts) => (this._posts = posts));
     }
+    
 }
