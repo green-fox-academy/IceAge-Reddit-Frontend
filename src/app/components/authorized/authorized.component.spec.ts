@@ -9,6 +9,7 @@ import { SubredditService } from 'src/app/services/subreddit.service';
 import { NavigationComponent } from '../navigation/navigation.component';
 import { WelcomePageComponent } from '../welcome-page/welcome-page.component';
 import { AuthorizedComponent } from './authorized.component';
+import { SubredditsComponent } from './subreddits/subreddits.component';
 
 describe('AuthorizedComponent', () => {
     let component: AuthorizedComponent;
@@ -18,7 +19,12 @@ describe('AuthorizedComponent', () => {
         await TestBed.configureTestingModule({
             imports: [BrowserModule, AppRoutingModule, HttpClientModule],
             providers: [PostService, SubredditService, GatewayService],
-            declarations: [AuthorizedComponent, WelcomePageComponent, NavigationComponent],
+            declarations: [
+                AuthorizedComponent,
+                WelcomePageComponent,
+                NavigationComponent,
+                SubredditsComponent,
+            ],
         }).compileComponents();
     });
 

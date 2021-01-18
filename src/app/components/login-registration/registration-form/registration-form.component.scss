@@ -1,8 +1,32 @@
+@import '../../../../colors.scss';
+@import '../../../../mixins.scss';
+
+form{
+    color: black;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    grid-gap: 1rem;
+}
+
+label {
+    grid-column: span 2;
+    display: grid;
+    grid: inherit;
+    grid-template-columns: inherit;
+    grid-gap: inherit;
+}
+
+button{
+ @include button;
+ justify-self: self-end;
+}
+
+
 .ng-invalid:not(form).ng-touched {
     border: 1px solid red;
 } 
 .form-error{
-    border: 1px solid red;
+    color: red;
 }
 .red-text{
     color: red;

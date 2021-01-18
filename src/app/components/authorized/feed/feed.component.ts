@@ -12,7 +12,11 @@ import { Post } from 'src/types/posts';
 export class FeedComponent {
     public _posts: Post[];
 
-    constructor(private _postService: PostService, private _gateway: GatewayService, private _subredditService: SubredditService) {
+    constructor(
+        private _postService: PostService,
+        private _gateway: GatewayService,
+        private _subredditService: SubredditService,
+    ) {
         this._gateway.getAllPosts().subscribe((posts) => {
             this._postService.setPosts(posts);
         });
