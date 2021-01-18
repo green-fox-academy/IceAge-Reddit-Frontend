@@ -1,24 +1,41 @@
 @import '../../../../colors.scss';
 @import '../../../../mixins.scss';
 
-form{
+// form{
+//     color: black;
+//     display: grid;
+//     grid-template-columns: max-content 1fr;
+//     grid-gap: 1rem;
+// }
+
+// label {
+//     grid-column: span 2;
+//     display: grid;
+//     grid: inherit;
+//     grid-template-columns: inherit;
+//     grid-gap: inherit;
+// }
+
+// button{
+//  @include button;
+//  justify-self: self-end;
+// }
+
+form {
     color: black;
     display: grid;
-    grid-template-columns: max-content 1fr;
     grid-gap: 1rem;
-}
 
-label {
-    grid-column: span 2;
-    display: grid;
-    grid: inherit;
-    grid-template-columns: inherit;
-    grid-gap: inherit;
-}
+    label {
+        display: grid;
+        grid-template-columns: max-content auto;
+        column-gap: 1rem;
+    }
 
-button{
- @include button;
- justify-self: self-end;
+    button {
+        justify-self: flex-end;
+        @include button;
+    }
 }
 
 

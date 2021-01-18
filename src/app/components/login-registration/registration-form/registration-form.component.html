@@ -2,22 +2,27 @@
 
         <h1>Register for Iced Reddit</h1>
 
-        <label for="username" class="field">
-                <span class="label-text">Your Username</span>
+        <label for="username">
+                <span class="label-text">
+                        Your Username
+                </span>
                 <input type="text"
-                name="username"
                 id="username"
+                name="username"
                 required
                 #username="ngModel"
                 appForbiddenUsername=" "
                 [(ngModel)] ="user.username">
         </label>
-        
-        <div [hidden]="username.untouched || username.valid" class="form-error">
-                Username must be filled in and can't have whitespace</div>
 
-        <label for="email" class="field">
-                <span class="label-text">Email</span>
+        <div [hidden]="username.untouched || username.valid" class="form-error">
+                Username must be filled in and can't have whitespace
+        </div>
+
+        <label for="email">
+                <span class="label-text">
+                        Your Email
+                </span>
                 <input type="email"
                 id="email"
                 name="email"
@@ -26,13 +31,15 @@
                 required
                 [(ngModel)] ="user.email">
         </label>
-
+        
         <div [hidden]="email.untouched || email.valid" class="form-error">
                 Please enter valid email
         </div>
 
-        <label for="password" class="field">
-                <span class="label-text">Your Password</span>
+        <label for="password">
+                <span class="label-text">
+                        Your Password
+                </span>
                 <input type="password"
                 id="password"
                 #password="ngModel"
@@ -43,20 +50,18 @@
                 appValidatePassword="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$"
                 [(ngModel)] ="user.password">
         </label>
-        
+
         <div [hidden]="password.untouched || password.valid" class="form-error">
                 Your password must have upper case, lower case and number and must be 6-20 characters long
         </div>
 
-        <button>
-                Register
-        </button>
-
+        <button>Register</button>
 </form>
 
 <div *ngIf="errorMessage$ !== undefined">
 
         <p class="red-text">{{ errorMessage$.error }}</p>
+
 </div>
 
 <a [routerLink]="['/login']">Already registered?</a>
