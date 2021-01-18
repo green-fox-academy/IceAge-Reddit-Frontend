@@ -1,9 +1,7 @@
-import { User } from './user';
-
 export interface Post {
     id?: number;
     title: string;
-    date_created?: Date;
+    date_created: Date;
     subreddit: string;
     author: string;
     commentCount?: number;
@@ -20,10 +18,3 @@ export interface newPost {
     posted_url: string;
     description: string;
 }
-
-/* export interface TextPost {
-    title: string;
-    subreddit: string;
-    post_type: 'text';
-    description: string;
-} */
