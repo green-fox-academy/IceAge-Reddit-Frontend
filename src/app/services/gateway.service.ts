@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Token } from 'src/types/token';
-import { Subreddit } from 'src/types/subreddits';
+import { Subreddit, SubredditCreation } from 'src/types/subreddits';
 import { Post } from 'src/types/posts';
 import { User } from 'src/types/user';
 import { Error } from 'src/types/error';
@@ -36,5 +36,11 @@ export class GatewayService {
 
     postNewPost(post: Post) {
         this._httpClient.post(`${this._baseUrl}subreddits/posts/create`, post);
+    }
+
+    createSubreddit(subreddit: SubredditCreation): Observable<SubredditCreation> {
+        return this._httpClient.post(`${this._baseUrl}subreddits/create`, subreddit) as Observable<
+            SubredditCreation
+        >;
     }
 }

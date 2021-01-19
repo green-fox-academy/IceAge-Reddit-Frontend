@@ -2,8 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SubredditService } from 'src/app/services/subreddit.service';
 import { AddNewSubredditComponent } from './add-new-subreddit.component';
+import { GatewayService } from 'src/app/services/gateway.service';
 
 class MockDataService {}
 
@@ -19,7 +19,7 @@ describe('AddNewSubredditComponent', () => {
             declarations: [AddNewSubredditComponent],
             providers: [
                 HttpClient,
-                { provide: SubredditService, useClass: MockDataService },
+                { provide: GatewayService, useClass: MockDataService },
                 { provide: Router, useClass: RouterTestingModule },
             ],
         }).compileComponents();

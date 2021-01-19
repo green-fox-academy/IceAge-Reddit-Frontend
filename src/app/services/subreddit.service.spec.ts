@@ -26,15 +26,10 @@ const subredditsData: Subreddit[] = [
 
 describe('SubredditService', () => {
     let service: SubredditService;
-    let mockHttp: HttpTestingController;
 
     beforeEach(() => {
-        TestBed.configureTestingModule({
-            imports: [HttpClientTestingModule],
-            providers: [SubredditService],
-        });
+        TestBed.configureTestingModule({});
         service = TestBed.inject(SubredditService);
-        mockHttp = TestBed.inject(HttpTestingController);
     });
 
     it('should be created', () => {

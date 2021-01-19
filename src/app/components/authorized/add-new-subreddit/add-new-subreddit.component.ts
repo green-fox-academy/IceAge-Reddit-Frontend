@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { SubredditService } from 'src/app/services/subreddit.service';
+import { GatewayService } from 'src/app/services/gateway.service';
 import { SubredditCreation } from 'src/types/subreddits';
 
 @Component({
@@ -15,12 +15,12 @@ export class AddNewSubredditComponent {
         description: '',
     };
 
-    constructor(private _subredditService: SubredditService) {}
+    constructor(private _gatewayService: GatewayService) {}
 
     onSubmit(subredditForm: NgForm) {
         console.log('in onSubmit: ', subredditForm.valid);
         if (subredditForm.valid) {
-            this._subredditService.createSubreddit(this.subreddit).subscribe(
+            this._gatewayService.createSubreddit(this.subreddit).subscribe(
                 (result) => console.log('succes: ', result),
                 (error) => console.log('error: ', error),
             );
