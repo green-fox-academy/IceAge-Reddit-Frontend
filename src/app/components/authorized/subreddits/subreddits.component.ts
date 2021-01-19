@@ -31,7 +31,7 @@ export class SubredditsComponent {
     }
 
     private _navigateToSubredditComponent(subredditName: string): void {
-        this._router.navigate(['/feed', subredditName]);
+        this._router.navigate(['/auth/feed', subredditName]);
     }
 
     onSelect(subreddit) {
