@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -8,6 +8,7 @@ import { Subreddit } from 'src/types/subreddits';
 import { AddNewPostComponent } from './add-new-post.component';
 import { of } from 'rxjs';
 import { PostService } from 'src/app/services/post.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 const mockedSubreddits: Subreddit[] = [
     {
@@ -43,7 +44,7 @@ describe('AddNewPostComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [FormsModule],
+            imports: [FormsModule, HttpClientModule, HttpClientTestingModule],
             declarations: [AddNewPostComponent],
             providers: [
                 HttpClient,

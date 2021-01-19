@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Token } from 'src/types/token';
 import { Subreddit } from 'src/types/subreddits';
-import { Post } from 'src/types/posts';
+import { Post, newPost } from 'src/types/posts';
 import { User } from 'src/types/user';
 import { Error } from 'src/types/error';
 import { environment } from 'src/environments/environment';
@@ -34,10 +34,10 @@ export class GatewayService {
         return this._httpClient.post(`${this._baseUrl}auth/log-in`, user) as Observable<Token>;
     }
 
-    postNewPost(newPost: any): Observable<Post | Error> {
+    postNewPost(aNewPost: newPost): Observable<Post | Error> {
         return this._httpClient.post(
             `${this._baseUrl}subreddits/posts/create`,
-            newPost,
+            aNewPost,
         ) as Observable<Post>;
     }
 }
