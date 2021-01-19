@@ -18,7 +18,6 @@ const routes: Routes = [
         ],
     },
     { path: 'land-page', component: WelcomePageComponent },
-    { path: 'registration', component: RegistrationFormComponent },
     { path: 'register', component: RegistrationFormComponent },
     { path: 'login', component: LoginFormComponent },
     { path: 'subreddits', component: SubredditsComponent, canActivate: [AuthGuard] },

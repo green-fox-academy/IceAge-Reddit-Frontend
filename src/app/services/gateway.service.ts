@@ -21,7 +21,7 @@ export class GatewayService {
     }
 
     getAllSubreddits(): Observable<Subreddit[]> {
-        return this._httpClient.get<Subreddit[]>(`${this._baseUrl}subreddits`);
+        return this._httpClient.get<Subreddit[]>(`${this._baseUrl}r`);
     }
 
     postRegistrationForm(user: User): Observable<Token | Error> {
