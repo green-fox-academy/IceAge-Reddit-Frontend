@@ -4,10 +4,17 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AddNewSubredditComponent } from './add-new-subreddit.component';
 import { GatewayService } from 'src/app/services/gateway.service';
+import { SubredditCreation } from 'src/types/subreddits';
 
 class MockDataService {}
 
 class RouterTestingModule {}
+
+const mockedSubreddit: SubredditCreation = {
+    name: 'Name of Subreddit',
+    title: 'Title of Subreddit',
+    description: 'Description of Subreddit',
+};
 
 describe('AddNewSubredditComponent', () => {
     let component: AddNewSubredditComponent;
@@ -34,4 +41,8 @@ describe('AddNewSubredditComponent', () => {
     it('should create', () => {
         expect(component).toBeTruthy();
     });
+
+    /*it('subreddit form on submit should create object equal to data from MockSubreddit', () => {
+        expect(component.onSubmit).toEqual(mockedSubreddit);
+    });*/
 });
