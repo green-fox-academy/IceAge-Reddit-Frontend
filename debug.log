@@ -123,3 +123,5 @@
 [0119/011504.735:ERROR:process_reader_win.cc(151)] SuspendThread: Pøístup byl odepøen. (0x5)
 [0119/011504.735:ERROR:process_reader_win.cc(151)] SuspendThread: Pøístup byl odepøen. (0x5)
 [0119/011504.822:ERROR:process_reader_win.cc(151)] SuspendThread: Pøístup byl odepøen. (0x5)
+[0119/012701.504:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systém nemùže nalézt uvedenou cestu. (0x3)
+[0119/014015.049:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systém nemùže nalézt uvedenou cestu. (0x3)
