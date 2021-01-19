@@ -1,24 +1,37 @@
-<div>
+<form #loginform="ngForm" (ngSubmit)="onSubmit(loginform)">
+
 	<h1>Login</h1>
+
+	<label for="email">
+		<span class="label-text">
+				YourEmail
+		</span>
+		<input type="text"
+			id="email"
+			required
+			name="email"
+			[(ngModel)]="user.email"
+			appValidateEmail="^[^\s@]+@[^\s@]+\.[^\s@]+$">
+	</label>
+
+	<label for="password">
+		<span class="label-text">
+				Your Password
+		</span>
+		<input type="password"
+			id="password"
+			required
+			name="password"
+			[(ngModel)]="user.password"
+			appValidatePassword="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$">
+	</label>
 	
-	<form #loginform="ngForm" (ngSubmit)="onSubmit(loginform)">
-	
-			<input type="text"
-					placeholder="Your email"
-					required
-					name="email"
-					[(ngModel)]="user.email"
-					appValidateEmail="^[^\s@]+@[^\s@]+\.[^\s@]+$"
-			>
-			<input type="password"
-					placeholder="Password"
-					required
-					name="password"
-					[(ngModel)]="user.password"
-					appValidatePassword="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$"
-			>
-			<button type="submit" [disabled]="!loginform.form.valid">login</button>
-	</form>
+	<button type="submit" [disabled]="!loginform.form.valid">Login</button>
+
+</form>
+
 <div *ngIf="errorMessage$ !== undefined" class="form-error">
 
-<p class="red-text">{{ errorMessage$.error }}</p>
+	<p class="red-text">{{ errorMessage$.error }}</p> 
+
+</div>>
