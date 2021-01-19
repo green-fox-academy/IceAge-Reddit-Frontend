@@ -8,6 +8,7 @@ import { GatewayService } from 'src/app/services/gateway.service';
 import { Subreddit } from 'src/types/subreddits';
 import { AddNewPostComponent } from './add-new-post.component';
 import { of } from 'rxjs';
+import { PostService } from 'src/app/services/post.service';
 
 const mockedSubreddits: Subreddit[] = [
     {
@@ -33,6 +34,7 @@ class MockGatewayService {
         return of(mockedSubreddits);
     }
 }
+class MockPostService {}
 
 class RouterTestingModule {}
 
@@ -48,6 +50,7 @@ describe('AddNewPostComponent', () => {
                 HttpClient,
                 { provide: GatewayService, useClass: MockGatewayService },
                 { provide: Router, useClass: RouterTestingModule },
+                { provide: PostService, useClass: MockPostService },
             ],
         }).compileComponents();
     });
