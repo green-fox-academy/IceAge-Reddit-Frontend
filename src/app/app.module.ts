@@ -24,6 +24,7 @@ import { WelcomePageComponent } from './components/welcome-page/welcome-page.com
 import { FeedComponent } from './components/authorized/feed/feed.component';
 import { SubredditComponent } from './components/authorized/subreddit/subreddit.component';
 import { RegistrationFormComponent } from './components/login-registration/registration-form/registration-form.component';
+import { PostDetailsComponent } from './components/authorized/post-details/post-details.component';
 
 @NgModule({
     declarations: [
@@ -42,6 +43,7 @@ import { RegistrationFormComponent } from './components/login-registration/regis
         ValidateEmailDirective,
         DateAgoPipe,
         SubredditFormatPipe,
+        PostDetailsComponent,
     ],
     imports: [BrowserModule, CommonModule, AppRoutingModule, FormsModule, HttpClientModule],
     providers: [
