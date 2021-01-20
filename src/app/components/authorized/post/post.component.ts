@@ -35,6 +35,6 @@ export class PostComponent implements OnInit {
     }
 
     onDetailsClick(): void {
-        this._router.navigate(['/auth/post-details']);
+        this._router.navigate([`/auth/post-details/${this.postId}`]);
     }
 }

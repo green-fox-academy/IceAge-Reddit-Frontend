@@ -16,6 +16,8 @@ export class GatewayService {
 
     constructor(private _httpClient: HttpClient) {}
 
+    getPost(postId: number): Observable<PostDetails> {}
+
     getAllPosts(): Observable<Post[]> {
         return this._httpClient.get<Post[]>(`${this._baseUrl}feed`);
     }
