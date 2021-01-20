@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PostService } from 'src/app/services/post.service';
 import { Post } from 'src/types/posts';
 
@@ -26,10 +27,14 @@ export class PostComponent implements OnInit {
         this.postCommentCount = post.commentCount;
     };
 
-    constructor(private _postService: PostService) {}
+    constructor(private _postService: PostService, private _router: Router) {}
 
     ngOnInit(): void {
         const post = this._postService.getPost(this.postId);
         this._setPropertiesFromPosts(post);
+    }
+
+    onDetailsClick(): void {
+        this._router.navigate(['/auth/post-details']);
     }
 }

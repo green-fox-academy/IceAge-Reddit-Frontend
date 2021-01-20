@@ -8,6 +8,7 @@ import { SubredditsComponent } from './components/authorized/subreddits/subreddi
 import { AuthGuard } from './guards/auth.guard';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 import { AuthorizedComponent } from './components/authorized/authorized.component';
+import { PostDetailsComponent } from './components/authorized/post-details/post-details.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/auth/feed', pathMatch: 'full' },
@@ -20,9 +21,13 @@ const routes: Routes = [
             {
                 path: 'feed',
                 children: [
-                    { path: '', component: FeedComponent, canActivate: [AuthGuard] },
+                    { path: '', component: FeedComponent },
                     { path: ':name', component: SubredditComponent },
                 ],
+            },
+            {
+                path: 'post-details',
+                component: PostDetailsComponent,
             },
         ],
     },
