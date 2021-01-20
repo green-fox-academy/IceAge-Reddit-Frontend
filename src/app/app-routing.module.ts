@@ -7,16 +7,26 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { SubredditsComponent } from './components/authorized/subreddits/subreddits.component';
 import { AuthGuard } from './guards/auth.guard';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
+import { AuthorizedComponent } from './components/authorized/authorized.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/feed', pathMatch: 'full' },
+    { path: '', redirectTo: '/auth/feed', pathMatch: 'full' },
+
     {
-        path: 'feed',
+        path: 'auth',
+        component: AuthorizedComponent,
+        canActivate: [AuthGuard],
         children: [
-            { path: '', component: FeedComponent, canActivate: [AuthGuard] },
-            { path: ':name', component: SubredditComponent },
+            {
+                path: 'feed',
+                children: [
+                    { path: '', component: FeedComponent, canActivate: [AuthGuard] },
+                    { path: ':name', component: SubredditComponent },
+                ],
+            },
         ],
     },
+
     { path: 'land-page', component: WelcomePageComponent },
     { path: 'register', component: RegistrationFormComponent },
     { path: 'login', component: LoginFormComponent },

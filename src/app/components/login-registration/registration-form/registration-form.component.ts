@@ -27,7 +27,7 @@ export class RegistrationFormComponent {
             this._gatewayService.postRegistrationForm(this.user).subscribe(
                 (success: Token) => {
                     localStorage.setItem('token', success.token);
-                    this._router.navigate(['/feed']);
+                    this._router.navigate(['/auth/feed']);
                 },
                 (error: Error) => (this.errorMessage$ = error),
             );
