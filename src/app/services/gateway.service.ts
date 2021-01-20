@@ -16,12 +16,12 @@ export class GatewayService {
 
     constructor(private _httpClient: HttpClient) {}
 
-    getPost(postId: number): Observable<PostDetails> {
-        return this._httpClient.get<PostDetails>(`${this._baseUrl}subreddits/posts/${postId}`);
-    }
-
     getAllPosts(): Observable<Post[]> {
         return this._httpClient.get<Post[]>(`${this._baseUrl}feed`);
+    }
+
+    getPostDetails(postId: number): Observable<PostDetails> {
+        return this._httpClient.get<PostDetails>(`${this._baseUrl}subreddits/posts/${postId}`);
     }
 
     getAllSubreddits(): Observable<Subreddit[]> {
