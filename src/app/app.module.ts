@@ -14,13 +14,13 @@ import { AppComponent } from './app.component';
 import { GatewayService } from './services/gateway.service';
 import { AuthGuard } from './guards/auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
-import { SubredditsComponent } from './components/authorized/subreddits/subreddits.component';
 import { PostComponent } from './components/authorized/post/post.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { CommonModule } from '@angular/common';
-import { AuthorizedComponent } from './components/authorized/authorized.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
+import { AuthorizedComponent } from './components/authorized/authorized.component';
+import { SubredditsComponent } from './components/authorized/subreddits/subreddits.component';
 import { FeedComponent } from './components/authorized/feed/feed.component';
 import { SubredditComponent } from './components/authorized/subreddit/subreddit.component';
 import { RegistrationFormComponent } from './components/login-registration/registration-form/registration-form.component';
@@ -35,6 +35,9 @@ import { PostDetailsComponent } from './components/authorized/post-details/post-
         LoginFormComponent,
         AuthorizedComponent,
         FeedComponent,
+        SubredditsComponent,
+        SubredditComponent,
+        RegistrationFormComponent,
         PostComponent,
         SubredditsComponent,
         SubredditComponent,

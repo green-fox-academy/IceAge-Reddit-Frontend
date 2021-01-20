@@ -15,10 +15,6 @@
 [1130/214333.166:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
 [1201/201418.146:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
 [1201/204759.007:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
-<<<<<<< HEAD
-=======
-[0104/212732.439:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
->>>>>>> master
 [1204/123147.510:ERROR:process_reader_win.cc(151)] SuspendThread: Pï¿½ï¿½stup byl odepï¿½en. (0x5)
 [1204/123147.516:ERROR:process_reader_win.cc(151)] SuspendThread: Pï¿½ï¿½stup byl odepï¿½en. (0x5)
 [1204/123147.832:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\User\AppData\Local\Temp\karma-81399756\Crashpad\attachments\b2e4d530-0f42-4b61-a58d-7d95d763ddbf: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
@@ -55,9 +51,6 @@
 [1210/164801.689:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
 [1210/184051.316:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
 [1212/192728.465:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
-<<<<<<< HEAD
-[0104/212732.439:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
-=======
 [1217/155757.946:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
 [0105/143246.764:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
 [0105/150500.629:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
@@ -74,8 +67,4 @@
 [0107/193920.621:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
 [0107/201202.751:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
 [0109/172958.405:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
-<<<<<<< HEAD
-=======
-[0112/202716.442:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systém nemùže nalézt uvedenou cestu. (0x3)
->>>>>>> master
->>>>>>> master
+[0118/210529.011:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systém nemùže nalézt uvedenou cestu. (0x3)

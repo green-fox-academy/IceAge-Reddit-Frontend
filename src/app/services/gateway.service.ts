@@ -21,7 +21,7 @@ export class GatewayService {
     }
 
     getAllSubreddits(): Observable<Subreddit[]> {
-        return this._httpClient.get<Subreddit[]>(`${this._baseUrl}subreddits`);
+        return this._httpClient.get<Subreddit[]>(`${this._baseUrl}r`);
     }
 
     postRegistrationForm(user: User): Observable<Token | Error> {
@@ -36,5 +36,9 @@ export class GatewayService {
 
     postNewPost(post: Post) {
         this._httpClient.post(`${this._baseUrl}subreddits/posts/create`, post);
+    }
+
+    getSubredditPostsFeedByName(subredditName: string): Observable<Post[]> {
+        return this._httpClient.get<Post[]>(`${this._baseUrl}feed/r/${subredditName}`);
     }
 }
