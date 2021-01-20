@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Post } from 'src/types/posts';
+import { GatewayService } from 'src/app/services/gateway.service';
+import { PostDetails } from 'src/types/posts';
 
 @Component({
     selector: 'app-post-details',
@@ -8,15 +9,16 @@ import { Post } from 'src/types/posts';
     styleUrls: ['./post-details.component.scss'],
 })
 export class PostDetailsComponent implements OnInit {
-    @Input() post: Post;
+    @Input() post: PostDetails;
 
-    constructor(private route: ActivatedRoute) {}
+    constructor(private _route: ActivatedRoute, private _gatewayService: GatewayService) {}
 
     ngOnInit(): void {
         this.getPostDetails();
     }
 
     getPostDetails(): void {
-        const id = +this.route.snapshot.paramMap.get('id');
+        const id = +this._route.snapshot.paramMap.get('id');
+        this._gatewayService.getPost(id).subscribe((post) => (this.post = post));
     }
 }
