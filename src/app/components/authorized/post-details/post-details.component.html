@@ -1,20 +1,33 @@
-<div class="postDetails" *ngIf="post">
-  <h2>{{post.title}}</h2>
-  <p>{{post.description}}</p>
-  <div class="postDateCreated">
-    Posted  {{post.date_created | dateAgo}} by
-    <a class="postAuthor" href="">
-      {{post.author}}
-    </a> 
-    to 
-    <a class="postSubreddit" href="">
-      {{post.subreddit | subredditFormat}}
-    </a>
-  </div>
-  <div class="postCommentCount">
-   {{post.commentCount}} Comments - 
-   <a href="">
-       share
-   </a>
-  </div>
+<div class="postDetailsWrapper" *ngIf="post">
+    <div class="postDetails">
+        <h2>{{post.title}}</h2>
+        <p>{{post.description}}</p>
+        <div class="postDateCreated">
+            Posted  {{post.date_created | dateAgo}} by
+            <a class="postAuthor" href="">
+            {{post.author}}
+            </a> 
+            to 
+            <a class="postSubreddit" href="">
+            {{post.subreddit | subredditFormat}}
+            </a>
+        </div>
+        <div class="postCommentCount">
+            {{post.commentCount}} Comments - 
+        <a href="">
+            share
+        </a>
+        </div>
+    </div>
+    <div class="commentsWrapper" *ngIf="post.comments.length > 0; else noComments">
+        <div class="comment" *ngFor="let comment of post.comments">
+            <span>{{comment.author}}</span>
+            {{comment.date_created | dateAgo}}
+            <p>
+                {{comment.description}}
+            </p>
+        </div>
+    </div>
 </div>
+
+<ng-template #noComments>There are no comments. You can be first!</ng-template>

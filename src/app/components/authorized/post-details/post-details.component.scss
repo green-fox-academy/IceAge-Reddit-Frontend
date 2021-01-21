@@ -1,0 +1,34 @@
+@import '../../../../mixins.scss';
+
+.postDetailsWrapper {
+    display: grid;
+    row-gap: 2rem;
+    color: black;
+
+    > div {
+        @include boxshadow;
+        border-radius: 0.5em;
+        padding: 1em;
+    }
+}
+
+.postDetails {
+    > p {
+        padding-top: 0.5em;
+        padding-bottom: 2em;
+    }
+}
+
+.commentsWrapper {
+    display: grid;
+    row-gap: 1.5em;
+    background-color: rgb(243, 243, 243);
+
+    span {
+       font-weight: bold;
+   }
+
+   > p {
+       padding-top: 0.5em;
+   }
+}
