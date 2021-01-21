@@ -15,10 +15,7 @@
 [1130/214333.166:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
 [1201/201418.146:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
 [1201/204759.007:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
-<<<<<<< HEAD
-=======
 [0104/212732.439:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
->>>>>>> master
 [1204/123147.510:ERROR:process_reader_win.cc(151)] SuspendThread: Pï¿½ï¿½stup byl odepï¿½en. (0x5)
 [1204/123147.516:ERROR:process_reader_win.cc(151)] SuspendThread: Pï¿½ï¿½stup byl odepï¿½en. (0x5)
 [1204/123147.832:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\User\AppData\Local\Temp\karma-81399756\Crashpad\attachments\b2e4d530-0f42-4b61-a58d-7d95d763ddbf: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
@@ -76,7 +73,8 @@
 [0109/172958.405:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
 <<<<<<< HEAD
 =======
-[0112/202716.442:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systém nemùže nalézt uvedenou cestu. (0x3)
+[0112/202716.442:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
 >>>>>>> master
 >>>>>>> master
-[0119/205410.495:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systém nemùže nalézt uvedenou cestu. (0x3)
+[0119/205410.495:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
+[0121/193312.172:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)

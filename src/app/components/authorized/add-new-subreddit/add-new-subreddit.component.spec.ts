@@ -1,10 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ExtraOptions, Router, Routes } from '@angular/router';
 import { AddNewSubredditComponent } from './add-new-subreddit.component';
 import { GatewayService } from 'src/app/services/gateway.service';
 import { SubredditCreation } from 'src/types/subreddits';
+import { ModuleWithProviders } from '@angular/core';
 
 class MockDataService {}
 
