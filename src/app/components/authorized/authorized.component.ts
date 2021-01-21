@@ -7,10 +7,4 @@ import { PostService } from 'src/app/services/post.service';
     templateUrl: './authorized.component.html',
     styleUrls: ['./authorized.component.scss'],
 })
-export class AuthorizedComponent {
-    constructor(private _gateway: GatewayService, private _postService: PostService) {
-        this._gateway.getAllPosts().subscribe((response) => {
-            this._postService.setPosts(response);
-        });
-    }
-}
+export class AuthorizedComponent {}

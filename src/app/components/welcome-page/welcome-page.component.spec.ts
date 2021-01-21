@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
 import { NavigationComponent } from '../navigation/navigation.component';
 import { WelcomePageComponent } from './welcome-page.component';
+
+class RouterTestingModule {}
 
 describe('WelcomePageComponent', () => {
     let component: WelcomePageComponent;
@@ -9,6 +12,7 @@ describe('WelcomePageComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [WelcomePageComponent, NavigationComponent],
+            providers: [{ provide: Router, useClass: RouterTestingModule }],
         }).compileComponents();
     });
 
