@@ -10,3 +10,9 @@ export interface Subreddit {
     userCount: number;
     author: string;
 }
+
+export interface SubredditCreation {
+    name: string;
+    title: string;
+    description: string;
+}
