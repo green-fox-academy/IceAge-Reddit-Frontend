@@ -5,6 +5,30 @@ import { Subreddit } from 'src/types/subreddits';
 import { GatewayService } from './gateway.service';
 import { environment } from 'src/environments/environment';
 
+const testPosts: Post[] = [
+    {
+        id: 1,
+        title: 'First post',
+        date_created: new Date('2014-01-01T23:28:56.782Z'),
+        subreddit: 'Subreddit1',
+        author: 'Author1',
+        commentCount: 2,
+        post_type: 'text',
+        description: 'Post about something',
+    },
+    {
+        id: 2,
+        title: 'Second post',
+        date_created: new Date('2020-11-30T17:10:56.782Z'),
+        subreddit: 'Subreddit2',
+        author: 'Author2',
+        commentCount: 3,
+        post_type: 'url',
+        posted_url: 'https://seznam.cz',
+        description: 'Post about anything',
+    },
+];
+
 describe('GatewayService', () => {
     let service: GatewayService;
     let mockHttp: HttpTestingController;
@@ -29,29 +53,6 @@ describe('GatewayService', () => {
     });
 
     it('should retrieve posts from the API via HttpClient.get method', () => {
-        const testPosts: Post[] = [
-            {
-                id: 1,
-                title: 'First post',
-                date_created: new Date('2014-01-01T23:28:56.782Z'),
-                subreddit: 'Subreddit1',
-                author: 'Author1',
-                commentCount: 2,
-                post_type: 'text',
-                description: 'Post about something',
-            },
-            {
-                id: 2,
-                title: 'Second post',
-                date_created: new Date('2020-11-30T17:10:56.782Z'),
-                subreddit: 'Subreddit2',
-                author: 'Author2',
-                commentCount: 3,
-                post_type: 'url',
-                posted_url: 'https://seznam.cz',
-                description: 'Post about anything',
-            },
-        ];
 
         service.getAllPosts().subscribe((posts) => {
             expect(posts).toEqual(testPosts);
@@ -59,6 +60,26 @@ describe('GatewayService', () => {
         });
 
         const request = mockHttp.expectOne(`${baseUrl}feed`);
+
+        expect(request.request.method).toBe('GET');
+        expect(request.cancelled).toBeFalsy();
+        expect(request.request.responseType).toEqual('json');
+
+        request.flush(testPosts);
+    });
+
+    it('should retrieve posts by name of subreddit from the API via HttpClient.get method with name of subreddit as argument', () => {
+        const subredditName = 'Subreddit1';
+
+        service.getSubredditPostsFeedByName(subredditName).subscribe((posts) => {
+            let postsByName: Post[];
+            let currentPost = testPosts.find((post) => post.subreddit === subredditName);
+            postsByName.push(currentPost);
+            expect(posts).toEqual(postsByName);
+            expect(posts.length).toBe(1);
+        });
+
+        const request = mockHttp.expectOne(`${baseUrl}feed/r/${subredditName}`);
 
         expect(request.request.method).toBe('GET');
         expect(request.cancelled).toBeFalsy();

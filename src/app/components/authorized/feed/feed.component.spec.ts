@@ -43,7 +43,7 @@ describe('FeedComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+            imports: [BrowserModule, AppRoutingModule],
             declarations: [FeedComponent],
             providers: [{ provide: PostService, useClass: MockPostService }, GatewayService],
             schemas: [CUSTOM_ELEMENTS_SCHEMA],
