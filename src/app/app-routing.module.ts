@@ -9,7 +9,6 @@ import { WelcomePageComponent } from './components/welcome-page/welcome-page.com
 import { AddNewSubredditComponent } from './components/authorized/add-new-subreddit/add-new-subreddit.component';
 
 const routes: Routes = [
-    { path: 'feed', component: FeedComponent },
     { path: 'registration', component: RegistrationFormComponent },
     { path: 'create-subreddit', component: AddNewSubredditComponent },
     { path: '', redirectTo: 'feed', pathMatch: 'full' },

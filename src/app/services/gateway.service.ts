@@ -38,7 +38,7 @@ export class GatewayService {
         this._httpClient.post(`${this._baseUrl}subreddits/posts/create`, post);
     }
 
-    createSubreddit(subreddit: SubredditCreation): Observable<SubredditCreation> {
+    createSubreddit(subreddit: SubredditCreation): Observable<SubredditCreation | Error> {
         return this._httpClient.post(`${this._baseUrl}subreddits/create`, subreddit) as Observable<
             SubredditCreation
         >;

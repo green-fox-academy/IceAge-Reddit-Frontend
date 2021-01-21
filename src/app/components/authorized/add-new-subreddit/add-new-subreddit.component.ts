@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { GatewayService } from 'src/app/services/gateway.service';
 import { SubredditCreation } from 'src/types/subreddits';
+import { Error } from 'src/types/error';
 
 @Component({
     selector: 'app-add-new-subreddit',
@@ -15,6 +16,8 @@ export class AddNewSubredditComponent {
         description: '',
     };
 
+    errorMessage$?: Error;
+
     constructor(private _gatewayService: GatewayService) {}
 
     onSubmit(subredditForm: NgForm) {
@@ -25,6 +28,7 @@ export class AddNewSubredditComponent {
                 (error) => console.log('error: ', error),
             );
         } else {
+            (error: Error) => (this.errorMessage$ = error);
             console.log('error: NOT VALID INPUT');
         }
     }
