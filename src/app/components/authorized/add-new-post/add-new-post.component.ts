@@ -46,13 +46,13 @@ export class AddNewPostComponent {
         );
     }
 
-    urlClick(): boolean {
+    onUrlClick() {
         this.newPost.post_type = 'url';
-        return (this.urlExists = true);
+        this.urlExists = true;
     }
 
-    textClick(): boolean {
+    onTextClick() {
         this.newPost.post_type = 'text';
-        return (this.urlExists = false);
+        this.urlExists = false;
     }
 }

@@ -23,8 +23,4 @@ export class PostService {
         const result = this.posts.find((post) => post.id === postId);
         return result;
     }
-
-    addpost(post: Post) {
-        this.posts.push(post);
-    }
 }

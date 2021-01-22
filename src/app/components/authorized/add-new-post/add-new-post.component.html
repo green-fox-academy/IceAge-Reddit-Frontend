@@ -1,7 +1,7 @@
 <h1>Add new post</h1>
 
-<button class='typeButton' (click)='textClick()'>Text</button>
-<button class='typeButton' (click)="urlClick()" >URL</button>
+<button class='typeButton' (click)='onTextClick()'>Text</button>
+<button class='typeButton' (click)="onUrlClick()" >URL</button>
 
 <form #addNewPostForm="ngForm" (ngSubmit)='createNewPost()'>
 

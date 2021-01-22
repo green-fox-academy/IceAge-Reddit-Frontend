@@ -42,7 +42,6 @@ describe('AuthorizedComponent', () => {
         await TestBed.configureTestingModule({
             imports: [BrowserModule, AppRoutingModule, HttpClientModule],
             declarations: [AuthorizedComponent, WelcomePageComponent, NavigationComponent],
-            //providers: [PostService, SubredditService, GatewayService],
             providers: [
                 HttpClient,
                 { provide: GatewayService, useClass: MockGatewayService },
