@@ -135,3 +135,6 @@
 =======
 [0119/205410.495:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systém nemùže nalézt uvedenou cestu. (0x3)
 >>>>>>> ff8de79a3594eb4b69180c06b6b5f3dcb33875c0
+[0122/144245.733:ERROR:file_io_win.cc(162)] CreateFile C:\Users\Guest\AppData\Local\Temp\karma-51929425\Crashpad\settings.dat: Systém nemùže nalézt uvedenou cestu. (0x3)
+[0122/144245.735:ERROR:file_io_win.cc(171)] CreateFile C:\Users\Guest\AppData\Local\Temp\karma-51929425\Crashpad\reports\277ba7e6-1648-45b7-8fb5-f320168a02e0.dmp: Systém nemùže nalézt uvedenou cestu. (0x3)
+[0122/144245.735:ERROR:crash_report_exception_handler.cc(99)] PrepareNewCrashReport failed

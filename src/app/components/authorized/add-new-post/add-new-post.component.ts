@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { GatewayService } from 'src/app/services/gateway.service';
 import { Subreddit } from 'src/types/subreddits';
-import { newPost, Post } from 'src/types/posts';
-import { Token } from 'src/types/token';
+import { NewPost } from 'src/types/posts';
 import { Router } from '@angular/router';
 import { Error } from 'src/types/error';
-import { PostService } from 'src/app/services/post.service';
 
 @Component({
     selector: 'app-add-new-post',
@@ -13,7 +11,7 @@ import { PostService } from 'src/app/services/post.service';
     styleUrls: ['./add-new-post.component.scss'],
 })
 export class AddNewPostComponent {
-    newPost: newPost = {
+    newPost: NewPost = {
         title: '',
         subreddit: 'Select',
         post_type: 'text',
@@ -25,19 +23,13 @@ export class AddNewPostComponent {
     namesOfSubreddits: string[];
     urlExists: boolean;
     errorMessage$?: Error;
-    token: Token;
     allSubreddits$: Subreddit[];
 
-    constructor(
-        private _gatewayService: GatewayService,
-        private _router: Router,
-        private _postService: PostService,
-    ) {
+    constructor(private _gatewayService: GatewayService, private _router: Router) {
         this._gatewayService.getAllSubreddits().subscribe((succes) => {
             this.allSubreddits$ = succes;
             this.getNamesOfSubreddits();
             this.namesOfSubreddits.unshift('Select');
-            console.log(this.namesOfSubreddits);
         });
     }
 
@@ -47,9 +39,7 @@ export class AddNewPostComponent {
 
     createNewPost() {
         this._gatewayService.postNewPost(this.newPost).subscribe(
-            (success: Post) => {
-                console.log(success);
-                this._postService.addpost(success);
+            () => {
                 this._router.navigate(['/feed']);
             },
             (err: Error) => (this.errorMessage$ = err),

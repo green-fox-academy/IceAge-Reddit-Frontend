@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Token } from 'src/types/token';
-import { Post, newPost } from 'src/types/posts';
+import { Post, NewPost } from 'src/types/posts';
 import { Subreddit, SubredditCreation } from 'src/types/subreddits';
 import { User } from 'src/types/user';
 import { Error } from 'src/types/error';
@@ -12,7 +12,6 @@ import { environment } from 'src/environments/environment';
 })
 export class GatewayService {
     private _baseUrl = environment.BACKEND_API;
-    private posts$: Post[];
 
     constructor(private _httpClient: HttpClient) {}
 
@@ -34,7 +33,7 @@ export class GatewayService {
         return this._httpClient.post(`${this._baseUrl}auth/log-in`, user) as Observable<Token>;
     }
 
-    postNewPost(aNewPost: newPost): Observable<Post | Error> {
+    postNewPost(aNewPost: NewPost): Observable<Post | Error> {
         return this._httpClient.post(
             `${this._baseUrl}subreddits/posts/create`,
             aNewPost,

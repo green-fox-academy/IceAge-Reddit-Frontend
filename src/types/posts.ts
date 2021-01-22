@@ -10,7 +10,7 @@ export interface Post {
     description: string;
 }
 
-export interface newPost {
+export interface NewPost {
     title: string;
     subreddit: string;
     post_type: string;
