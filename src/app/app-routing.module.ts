@@ -9,7 +9,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 import { AuthorizedComponent } from './components/authorized/authorized.component';
 
-const routes: Routes = [
+export const routes: Routes = [
     { path: '', redirectTo: '/auth/feed', pathMatch: 'full' },
 
     {
