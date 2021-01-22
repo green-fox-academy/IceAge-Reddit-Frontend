@@ -7,8 +7,10 @@ import { SubredditsComponent } from './components/authorized/subreddits/subreddi
 import { AddNewPostComponent } from './components/authorized/add-new-post/add-new-post.component';
 import { AuthGuard } from './guards/auth.guard';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
+import { AddNewSubredditComponent } from './components/authorized/add-new-subreddit/add-new-subreddit.component';
 
 const routes: Routes = [
+    { path: 'create-subreddit', component: AddNewSubredditComponent },
     { path: '', redirectTo: 'feed', pathMatch: 'full' },
     { path: 'land-page', component: WelcomePageComponent },
     { path: 'register', component: RegistrationFormComponent },

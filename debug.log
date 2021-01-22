@@ -76,6 +76,7 @@
 [0112/202716.442:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
 >>>>>>> master
 >>>>>>> master
+<<<<<<< HEAD
 [0117/212610.509:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
 [0117/213130.514:ERROR:process_reader_win.cc(151)] SuspendThread: Pï¿½ï¿½stup byl odepï¿½en. (0x5)
 [0117/213130.515:ERROR:process_reader_win.cc(151)] SuspendThread: Pï¿½ï¿½stup byl odepï¿½en. (0x5)
@@ -131,3 +132,6 @@
 [0121/190238.997:ERROR:process_reader_win.cc(151)] SuspendThread: Pøístup byl odepøen. (0x5)
 [0121/190239.200:ERROR:process_reader_win.cc(151)] SuspendThread: Pøístup byl odepøen. (0x5)
 [0121/190239.200:ERROR:process_reader_win.cc(151)] SuspendThread: Pøístup byl odepøen. (0x5)
+=======
+[0119/205410.495:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systém nemùže nalézt uvedenou cestu. (0x3)
+>>>>>>> ff8de79a3594eb4b69180c06b6b5f3dcb33875c0
