@@ -40,7 +40,7 @@ class MockGatewayService {
 class MockPostService {
     posts$: BehaviorSubject<Post[]> = new BehaviorSubject(data);
     data: Post[];
-    setPosts(posts: Post[]): void {}
+    setPosts(): void {}
 }
 
 describe('FeedComponent', () => {

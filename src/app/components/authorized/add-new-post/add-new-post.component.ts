@@ -23,18 +23,18 @@ export class AddNewPostComponent {
     namesOfSubreddits: string[];
     urlExists: boolean;
     errorMessage$?: Error;
-    allSubreddits$: Subreddit[];
+    allSubreddits: Subreddit[];
 
     constructor(private _gatewayService: GatewayService, private _router: Router) {
         this._gatewayService.getAllSubreddits().subscribe((succes) => {
-            this.allSubreddits$ = succes;
-            this.getNamesOfSubreddits();
+            this.allSubreddits = succes;
+            this.setNamesOfSubreddits(this.allSubreddits);
             this.namesOfSubreddits.unshift('Select');
         });
     }
 
-    getNamesOfSubreddits(): string[] {
-        return (this.namesOfSubreddits = this.allSubreddits$.map((name) => name.name));
+    setNamesOfSubreddits(subreddits: Subreddit[]) {
+        this.namesOfSubreddits = subreddits.map((name) => name.name);
     }
 
     createNewPost() {
