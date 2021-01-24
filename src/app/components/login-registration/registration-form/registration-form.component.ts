@@ -18,7 +18,7 @@ export class RegistrationFormComponent {
         password: '',
     };
 
-    errorMessage$?: Error;
+    errorMessage?: Error;
 
     constructor(private _gatewayService: GatewayService, private _router: Router) {}
 
@@ -29,7 +29,7 @@ export class RegistrationFormComponent {
                     localStorage.setItem('token', success.token);
                     this._router.navigate(['/feed']);
                 },
-                (error: Error) => (this.errorMessage$ = error),
+                (error: Error) => (this.errorMessage = error),
             );
         } else {
             console.log('error: NOT VALID INPUT');

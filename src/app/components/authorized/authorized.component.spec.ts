@@ -31,7 +31,7 @@ class MockGatewayService {
     }
 }
 class MockPostService {
-    setPosts(posts: Post[]): void {}
+    setPosts(): void {}
 }
 
 describe('AuthorizedComponent', () => {

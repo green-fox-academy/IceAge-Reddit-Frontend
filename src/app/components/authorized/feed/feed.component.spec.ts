@@ -68,8 +68,4 @@ describe('FeedComponent', () => {
     it('should create', () => {
         expect(component).toBeTruthy();
     });
-
-    /*  it('component _posts should equal to data from MockPostService', () => {
-        expect(component._posts).toEqual(data);
-    }); */
 });
