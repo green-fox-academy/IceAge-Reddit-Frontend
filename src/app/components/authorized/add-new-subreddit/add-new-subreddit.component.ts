@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { GatewayService } from 'src/app/services/gateway.service';
 import { SubredditCreation } from 'src/types/subreddits';
 import { Error } from 'src/types/error';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-add-new-subreddit',
@@ -16,20 +17,16 @@ export class AddNewSubredditComponent {
         description: '',
     };
 
-    errorMessage$?: Error;
+    errorMessage?: Error;
 
-    constructor(private _gatewayService: GatewayService) {}
+    constructor(private _gatewayService: GatewayService, private _router: Router) {}
 
-    onSubmit(subredditForm: NgForm) {
-        console.log('in onSubmit: ', subredditForm.valid);
-        if (subredditForm.valid) {
-            this._gatewayService.createSubreddit(this.subreddit).subscribe(
-                (result) => console.log('succes: ', result),
-                (error) => console.log('error: ', error),
-            );
-        } else {
-            (error: Error) => (this.errorMessage$ = error);
-            console.log('error: NOT VALID INPUT');
-        }
+    createNewSubreddit() {
+        this._gatewayService.createSubreddit(this.subreddit).subscribe(
+            () => {
+                this._router.navigate(['/feed']);
+            },
+            (err: Error) => (this.errorMessage = err),
+        );
     }
 }

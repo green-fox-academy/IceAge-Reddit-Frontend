@@ -1,6 +1,6 @@
 <div>
     <h1>Create Topic</h1>
-    <form #subredditForm="ngForm" (ngSubmit)="onSubmit(subredditForm)">
+    <form #subredditForm="ngForm" (ngSubmit)='createNewSubreddit()'>
         <label for="name">Subreddit tag</label>
         <br>
         <input type="text"
@@ -8,11 +8,7 @@
                 name="name"
                 required
                 #name="ngModel"
-            [(ngModel)] ="subreddit.name">
-            <div [hidden]="name.untouched || name.valid" class="form-error">
-                Username must be filled in and can't have whitespace</div>
-            <div *ngIf="errorMessage$ !== undefined">
-                <p class="red-text">{{ errorMessage$.error }}</p></div>    
+            [(ngModel)] ="subreddit.name">    
         <br>
         <label for="title">Topic Title</label>
         <br>
@@ -36,6 +32,7 @@
         </textarea>
         <br>
         <button>Create</button>
+        <div *ngIf="errorMessage !== undefined">
+            <p class="red-text">{{ errorMessage.error }}</p></div>
     </form>
-    
 </div>
