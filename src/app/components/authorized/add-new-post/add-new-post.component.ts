@@ -22,7 +22,7 @@ export class AddNewPostComponent {
 
     namesOfSubreddits: string[];
     urlExists: boolean;
-    errorMessage?: Error;
+    error?: Error;
     allSubreddits: Subreddit[];
 
     constructor(private _gatewayService: GatewayService, private _router: Router) {
@@ -34,7 +34,7 @@ export class AddNewPostComponent {
     }
 
     setNamesOfSubreddits(subreddits: Subreddit[]) {
-        this.namesOfSubreddits = subreddits.map((name) => name.name);
+        this.namesOfSubreddits = subreddits.map((subreddit) => subreddit.name);
     }
 
     createNewPost() {
@@ -42,7 +42,7 @@ export class AddNewPostComponent {
             () => {
                 this._router.navigate(['/feed']);
             },
-            (err: Error) => (this.errorMessage = err),
+            (err: Error) => (this.error = err),
         );
     }
 
