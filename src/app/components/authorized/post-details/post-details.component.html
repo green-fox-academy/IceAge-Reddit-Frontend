@@ -19,6 +19,13 @@
         </a>
         </div>
     </div>
+    <div class="createCommetn">
+        <textarea 
+            maxlength="255"
+            placeholder="this is the place for your not trolling comment..."
+            [(ngModel)]="newComment"></textarea>
+        <button (click)="createNewComment()">Comment</button>
+    </div>
     <div class="commentsWrapper" *ngIf="post.comments.length > 0; else noComments">
         <div class="comment" *ngFor="let comment of post.comments">
             <span>{{comment.author}}</span>

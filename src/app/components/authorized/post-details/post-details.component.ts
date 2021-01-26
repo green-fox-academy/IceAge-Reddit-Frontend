@@ -10,6 +10,7 @@ import { PostDetails } from 'src/types/posts';
 })
 export class PostDetailsComponent implements OnInit {
     @Input() post: PostDetails;
+    newComment: string;
 
     constructor(private _route: ActivatedRoute, private _gatewayService: GatewayService) {}
 
@@ -21,4 +22,6 @@ export class PostDetailsComponent implements OnInit {
         const id = +this._route.snapshot.paramMap.get('id');
         this._gatewayService.getPostDetails(id).subscribe((post) => (this.post = post));
     }
+
+    createNewComment(): void {}
 }
