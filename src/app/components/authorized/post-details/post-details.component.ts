@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GatewayService } from 'src/app/services/gateway.service';
-import { PostDetails } from 'src/types/posts';
+import { NewComment, PostDetails } from 'src/types/posts';
 
 @Component({
     selector: 'app-post-details',
@@ -10,7 +10,7 @@ import { PostDetails } from 'src/types/posts';
 })
 export class PostDetailsComponent implements OnInit {
     @Input() post: PostDetails;
-    newComment: string;
+    commentDescription: string;
 
     constructor(private _route: ActivatedRoute, private _gatewayService: GatewayService) {}
 
@@ -23,5 +23,13 @@ export class PostDetailsComponent implements OnInit {
         this._gatewayService.getPostDetails(id).subscribe((post) => (this.post = post));
     }
 
-    createNewComment(): void {}
+    addComment(): void {
+        console.log(this.commentDescription);
+        const newComment: NewComment = {
+            postId: this.post.id,
+            description: this.commentDescription,
+        };
+        console.log(newComment);
+        this.commentDescription = null;
+    }
 }

@@ -30,3 +30,8 @@ export interface Comment {
     date_created: Date;
     description: string;
 }
+
+export interface NewComment {
+    postId: number;
+    description: string;
+}
