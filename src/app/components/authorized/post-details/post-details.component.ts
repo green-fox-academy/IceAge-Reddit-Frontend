@@ -24,12 +24,15 @@ export class PostDetailsComponent implements OnInit {
     }
 
     addComment(): void {
-        console.log(this.commentDescription);
+        if (this.commentDescription == null) return;
+
         const newComment: NewComment = {
             postId: this.post.id,
             description: this.commentDescription,
         };
-        console.log(newComment);
+
+        //TODO sent comment to backend and reload post's details
+
         this.commentDescription = null;
     }
 }
