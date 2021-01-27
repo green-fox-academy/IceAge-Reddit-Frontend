@@ -78,3 +78,7 @@
 >>>>>>> master
 [0119/205410.495:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
 [0121/193312.172:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systï¿½m nemï¿½ï¿½e nalï¿½zt uvedenou cestu. (0x3)
+[0125/154436.815:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systém nemùže nalézt uvedenou cestu. (0x3)
+[0125/164123.315:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systém nemùže nalézt uvedenou cestu. (0x3)
+[0125/212001.300:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systém nemùže nalézt uvedenou cestu. (0x3)
+[0126/230816.261:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systém nemùže nalézt uvedenou cestu. (0x3)

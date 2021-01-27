@@ -6,20 +6,26 @@ import { AddNewSubredditComponent } from './add-new-subreddit.component';
 import { GatewayService } from 'src/app/services/gateway.service';
 import { SubredditCreation } from 'src/types/subreddits';
 import { ModuleWithProviders } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
-class MockDataService {}
+class MockService {
+    createSubreddit(subreddit: SubredditCreation): Observable<SubredditCreation> {
+        return of(mockedSubreddit);
+    }
+}
 
 class RouterTestingModule {}
 
-const mockedSubreddit: SubredditCreation = {
-    name: 'Name of Subreddit',
-    title: 'Title of Subreddit',
-    description: 'Description of Subreddit',
+let mockedSubreddit: SubredditCreation = {
+    name: '',
+    title: '',
+    description: '',
 };
 
 describe('AddNewSubredditComponent', () => {
     let component: AddNewSubredditComponent;
     let fixture: ComponentFixture<AddNewSubredditComponent>;
+    let mockService: MockService;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
@@ -27,7 +33,7 @@ describe('AddNewSubredditComponent', () => {
             declarations: [AddNewSubredditComponent],
             providers: [
                 HttpClient,
-                { provide: GatewayService, useClass: MockDataService },
+                { provide: GatewayService, useClass: MockService },
                 { provide: Router, useClass: RouterTestingModule },
             ],
         }).compileComponents();
@@ -43,7 +49,11 @@ describe('AddNewSubredditComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    /*it('subreddit form on submit should create object equal to data from MockSubreddit', () => {
-        expect(component.onSubmit).toEqual(mockedSubreddit);
-    });*/
+    it('createNewSubreddit() method should create object equal to data from mockedSubreddit', () => {
+        //component['createNewSubreddit()'](mockedSubreddit);
+        expect(mockService.createSubreddit(component.subreddit)).toBe(mockedSubreddit);
+        //expect(component.subreddit.name).toMatch(mockedSubreddit.name);
+        //expect(component.subreddit.title).toMatch(mockedSubreddit.title);
+        //expect(component.subreddit.description).toMatch(mockedSubreddit.description);
+    });
 });

@@ -31,7 +31,7 @@
                 [(ngModel)] ="subreddit.description">
         </textarea>
         <br>
-        <button>Create</button>
+        <button class='typeButton' type="submit">Create</button>
         <div *ngIf="errorMessage !== undefined">
             <p class="red-text">{{ errorMessage.error }}</p></div>
     </form>
