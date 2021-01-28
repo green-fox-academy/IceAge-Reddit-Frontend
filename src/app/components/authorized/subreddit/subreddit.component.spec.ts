@@ -1,15 +1,13 @@
-import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
-import { async, BehaviorSubject, Observable, of } from 'rxjs';
+import { ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
+import { Observable, of } from 'rxjs';
 import { GatewayService } from 'src/app/services/gateway.service';
 import { PostService } from 'src/app/services/post.service';
 import { SubredditService } from 'src/app/services/subreddit.service';
 import { Post } from 'src/types/posts';
 import { SubredditComponent } from './subreddit.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ActivatedRoute, convertToParamMap, Router } from '@angular/router';
-import { routes } from 'src/app/app-routing.module';
+import { ActivatedRoute } from '@angular/router';
 import { Subreddit } from 'src/types/subreddits';
-import { subscribeOn } from 'rxjs/operators';
 import { PostComponent } from '../post/post.component';
 import { DateAgoPipe } from 'src/app/pipes/date-ago.pipe';
 import { SubredditFormatPipe } from 'src/app/pipes/subreddit-format.pipe';
