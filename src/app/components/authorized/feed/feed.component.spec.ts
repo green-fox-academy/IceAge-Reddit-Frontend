@@ -86,7 +86,7 @@ class MockGatewayService {
     }
 }
 
-fdescribe('FeedComponent', () => {
+describe('FeedComponent', () => {
     let component: FeedComponent;
     let fixture: ComponentFixture<FeedComponent>;
     let postService: PostService;

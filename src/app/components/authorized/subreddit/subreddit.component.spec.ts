@@ -99,17 +99,13 @@ fdescribe('SubredditComponent', () => {
     let component: SubredditComponent;
     let activatedRoute: ActivatedRoute;
     let fixture: ComponentFixture<SubredditComponent>;
+    let postService: PostService;
+    let subredditService: SubredditService;
+    let gatewayService: GatewayService;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [
-                RouterTestingModule.withRoutes([
-                    {
-                        path: 'auth/feed/:name',
-                        component: SubredditComponent,
-                    },
-                ]),
-            ],
+            imports: [],
             declarations: [SubredditComponent, PostComponent, DateAgoPipe, SubredditFormatPipe],
             providers: [
                 { provide: PostService, useClass: MockPostService },
@@ -124,16 +120,65 @@ fdescribe('SubredditComponent', () => {
     });
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(SubredditComponent);
-        component = fixture.componentInstance;
         activatedRoute = TestBed.inject(ActivatedRoute);
+        subredditService = TestBed.inject(SubredditService);
+        postService = TestBed.inject(PostService);
+        gatewayService = TestBed.inject(GatewayService);
     });
 
     it('should create', () => {
+        fixture = TestBed.createComponent(SubredditComponent);
+        component = fixture.componentInstance;
         expect(component).toBeTruthy();
     });
 
-    it('should test route parameters using Activated routes', fakeAsync(() => {
+    it('should test route parameters using Activated routes in constructor', () => {
+        fixture = TestBed.createComponent(SubredditComponent);
+        component = fixture.componentInstance;
         expect(component.subredditName).toBe('Subreddit1');
-    }));
+    });
+
+    it('should call gatewayService.getSubredditPostsFeed with parameter Subreddit1 in constructor', () => {
+        let getSubredditPostsFeedSpy = spyOn(gatewayService, 'getSubredditPostsFeedByName')
+            .withArgs('Subreddit1')
+            .and.callThrough();
+        fixture = TestBed.createComponent(SubredditComponent);
+        component = fixture.componentInstance;
+        expect(getSubredditPostsFeedSpy).toHaveBeenCalled();
+    });
+
+    it('should call postService.setCurrentSubredditPosts with received data from gatewayService.getSubredditPostsFeedByName method in constructor', () => {
+        spyOn(gatewayService, 'getSubredditPostsFeedByName')
+            .withArgs('Subreddit1')
+            .and.returnValue(of(testPosts));
+        let setCurrentSubredditPostsSpy = spyOn(
+            postService,
+            'setCurrentSubredditPosts',
+        ).and.callThrough();
+        fixture = TestBed.createComponent(SubredditComponent);
+        component = fixture.componentInstance;
+        expect(setCurrentSubredditPostsSpy).toHaveBeenCalledWith(testPosts);
+    });
+
+    it('should call subredditService.getAllSubreddits and assign received data to component.subreddits property in constructor', () => {
+        let getAllSubredditsSpy = spyOn(subredditService, 'getAllSubreddits').and.callThrough();
+        fixture = TestBed.createComponent(SubredditComponent);
+        component = fixture.componentInstance;
+        expect(getAllSubredditsSpy).toHaveBeenCalledWith();
+        expect(component.subreddits).toEqual(testSubreddits);
+    });
+
+    it('should call postService.getCurrentSubredditPosts and assign received data to component.listOfPosts property in constructor', () => {
+        spyOn(gatewayService, 'getSubredditPostsFeedByName')
+            .withArgs('Subreddit1')
+            .and.returnValue(of(testPosts));
+        let getCurrentSubredditPostsSpy = spyOn(
+            postService,
+            'getCurrentSubredditPosts',
+        ).and.callThrough();
+        fixture = TestBed.createComponent(SubredditComponent);
+        component = fixture.componentInstance;
+        expect(getCurrentSubredditPostsSpy).toHaveBeenCalledWith();
+        expect(component.listOfPosts).toEqual(testPosts);
+    });
 });
