@@ -7,14 +7,14 @@ import { GatewayService } from 'src/app/services/gateway.service';
 import { SubredditCreation } from 'src/types/subreddits';
 import { ModuleWithProviders } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FeedComponent } from '../feed/feed.component';
 
 class MockService {
     createSubreddit(subreddit: SubredditCreation): Observable<SubredditCreation> {
         return of(mockedSubreddit);
     }
 }
-
-class RouterTestingModule {}
 
 let mockedSubreddit: SubredditCreation = {
     name: '',
@@ -25,12 +25,21 @@ let mockedSubreddit: SubredditCreation = {
 describe('AddNewSubredditComponent', () => {
     let component: AddNewSubredditComponent;
     let fixture: ComponentFixture<AddNewSubredditComponent>;
-    let mockService: MockService;
+    let gatewayService: GatewayService;
+    let router: RouterTestingModule;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [FormsModule],
-            declarations: [AddNewSubredditComponent],
+            imports: [
+                FormsModule,
+                RouterTestingModule.withRoutes([
+                    {
+                        path: '/feed',
+                        component: FeedComponent,
+                    },
+                ]),
+            ],
+            declarations: [AddNewSubredditComponent, FeedComponent],
             providers: [
                 HttpClient,
                 { provide: GatewayService, useClass: MockService },
@@ -40,6 +49,7 @@ describe('AddNewSubredditComponent', () => {
     });
 
     beforeEach(() => {
+        gatewayService = TestBed.inject(GatewayService);
         fixture = TestBed.createComponent(AddNewSubredditComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
@@ -49,11 +59,13 @@ describe('AddNewSubredditComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('createNewSubreddit() method should create object equal to data from mockedSubreddit', () => {
-        //component['createNewSubreddit()'](mockedSubreddit);
-        expect(mockService.createSubreddit(component.subreddit)).toBe(mockedSubreddit);
-        //expect(component.subreddit.name).toMatch(mockedSubreddit.name);
-        //expect(component.subreddit.title).toMatch(mockedSubreddit.title);
-        //expect(component.subreddit.description).toMatch(mockedSubreddit.description);
+    it('createNewSubreddit() should be called and reroute to feed', () => {
+        let getSpyForCreateSubreddit = spyOn(gatewayService, 'createSubreddit').and.callThrough();
+        component.createNewSubreddit();
+        expect(getSpyForCreateSubreddit).toHaveBeenCalled();
+    });
+
+    it('subreddit in component should be equal to mockedSubreddit', () => {
+        expect(component.subreddit).toEqual(mockedSubreddit);
     });
 });
