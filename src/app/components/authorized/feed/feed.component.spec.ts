@@ -1,12 +1,12 @@
 import { HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { delay } from 'rxjs/operators';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { GatewayService } from 'src/app/services/gateway.service';
 import { PostService } from 'src/app/services/post.service';
+import { SubredditService } from 'src/app/services/subreddit.service';
 import { Post } from 'src/types/posts';
 import { Subreddit } from 'src/types/subreddits';
 import { FeedComponent } from './feed.component';
@@ -57,12 +57,22 @@ const mockSubreddits: Subreddit[] = [
 ];
 
 class MockPostService {
-    posts$: BehaviorSubject<Post[]> = new BehaviorSubject(mockPosts);
+    posts$: BehaviorSubject<Post[]> = new BehaviorSubject(null);
     _posts: Post[];
 
     setPosts(posts: Post[]): void {
         this._posts = posts;
         this.posts$.next(posts);
+    }
+}
+
+class MockSubredditService {
+    subreddits$: BehaviorSubject<Subreddit[]> = new BehaviorSubject(null);
+    _subreddits: Subreddit[];
+
+    setSubreddits(subreddits: Subreddit[]): void {
+        this._subreddits = subreddits;
+        this.subreddits$.next(subreddits);
     }
 }
 
@@ -81,6 +91,7 @@ fdescribe('FeedComponent', () => {
     let fixture: ComponentFixture<FeedComponent>;
     let postService: PostService;
     let gatewayService: GatewayService;
+    let subredditService: SubredditService;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
@@ -88,6 +99,7 @@ fdescribe('FeedComponent', () => {
             declarations: [FeedComponent],
             providers: [
                 { provide: PostService, useClass: MockPostService },
+                { provide: SubredditService, useClass: MockSubredditService },
                 { provide: GatewayService, useClass: MockGatewayService },
                 HttpClientModule,
             ],
@@ -98,25 +110,13 @@ fdescribe('FeedComponent', () => {
     beforeEach(() => {
         gatewayService = TestBed.inject(GatewayService);
         postService = TestBed.inject(PostService);
+        subredditService = TestBed.inject(SubredditService);
     });
 
     it('should create', () => {
         fixture = TestBed.createComponent(FeedComponent);
         component = fixture.componentInstance;
         expect(component).toBeTruthy();
-    });
-
-    it('component _posts should equal to data from MockPostService', () => {
-        fixture = TestBed.createComponent(FeedComponent);
-        component = fixture.componentInstance;
-        expect(component._posts).toEqual(mockPosts);
-    });
-
-    it('should call postService.setPosts(mockPosts)', () => {
-        let setPostsSpy = spyOn(postService, 'setPosts').and.callThrough();
-        fixture = TestBed.createComponent(FeedComponent);
-        component = fixture.componentInstance;
-        expect(setPostsSpy).toHaveBeenCalledWith(mockPosts);
     });
 
     it('should call gatewayService.getAllPosts() in constructor)', () => {
@@ -126,14 +126,32 @@ fdescribe('FeedComponent', () => {
         expect(getAllPostsSpy).toHaveBeenCalled();
     });
 
-    it('should subscribe to postService.posts$ and set subscribed data to component._posts property', fakeAsync(() => {
-        let getAllPostsSpy = spyOn(gatewayService, 'getAllPosts')
-            .and.returnValue(of(mockPosts))
-            .and.callThrough();
+    it('should call postService.setPosts with received data from gatewayService.getAllPosts method in constructor', () => {
+        spyOn(gatewayService, 'getAllPosts').and.returnValue(of(mockPosts));
         let setPostsSpy = spyOn(postService, 'setPosts').and.callThrough();
         fixture = TestBed.createComponent(FeedComponent);
         component = fixture.componentInstance;
-        expect(getAllPostsSpy).toHaveBeenCalled();
-        expect(setPostsSpy).toHaveBeenCalled();
-    }));
+        expect(setPostsSpy).toHaveBeenCalledWith(mockPosts);
+    });
+
+    it('mocked data received from postService.posts$ subscribtion should be assigned to component._posts property in constructor', () => {
+        fixture = TestBed.createComponent(FeedComponent);
+        component = fixture.componentInstance;
+        expect(component._posts).toEqual(mockPosts);
+    });
+
+    it('should call gatewayService.getAllSubreddits() in constructor)', () => {
+        let getAllSubredditsSpy = spyOn(gatewayService, 'getAllSubreddits').and.callThrough();
+        fixture = TestBed.createComponent(FeedComponent);
+        component = fixture.componentInstance;
+        expect(getAllSubredditsSpy).toHaveBeenCalled();
+    });
+
+    it('should call subredditService.setSubreddits with received data from gatewayService.getAllSubreddits method in constructor', () => {
+        spyOn(gatewayService, 'getAllSubreddits').and.returnValue(of(mockSubreddits));
+        let setSubredditsSpy = spyOn(subredditService, 'setSubreddits').and.callThrough();
+        fixture = TestBed.createComponent(FeedComponent);
+        component = fixture.componentInstance;
+        expect(setSubredditsSpy).toHaveBeenCalledWith(mockSubreddits);
+    });
 });
