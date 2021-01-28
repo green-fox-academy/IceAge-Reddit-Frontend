@@ -17,7 +17,7 @@ export class LoginFormComponent {
         password: '',
     };
 
-    errorMessage$?: Error;
+    error?: Error;
 
     constructor(private _gatewayService: GatewayService, private _router: Router) {}
 
@@ -28,7 +28,7 @@ export class LoginFormComponent {
                     localStorage.setItem('token', success.token);
                     this._router.navigate(['/feed']);
                 },
-                (err: Error) => (this.errorMessage$ = err),
+                (err: Error) => (this.error = err),
             );
         } else {
             console.log('error: bad login');

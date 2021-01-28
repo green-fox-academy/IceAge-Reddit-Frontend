@@ -35,7 +35,9 @@
                 Your password must have upper case, lower case and number and must be 6-20 characters long</div>
 <button>Register</button>
 </form>
-<div *ngIf="errorMessage$ !== undefined">
+</div>
+<div *ngIf="error !== undefined">
 
-        <p class="red-text">{{ errorMessage$.error }}</p></div>
+        <p class="red-text">{{ error.message }}</p>
+</div>
 <a [routerLink]="['/login']">Already registered?</a>
