@@ -95,7 +95,7 @@ const mockActivatedRoute = {
     }),
 };
 
-fdescribe('SubredditComponent', () => {
+describe('SubredditComponent', () => {
     let component: SubredditComponent;
     let activatedRoute: ActivatedRoute;
     let fixture: ComponentFixture<SubredditComponent>;
