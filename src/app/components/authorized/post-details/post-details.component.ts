@@ -31,7 +31,9 @@ export class PostDetailsComponent implements OnInit {
             description: this.commentDescription,
         };
 
-        //TODO sent comment to backend and reload post's details
+        this._gatewayService.postNewComment(newComment).subscribe((comment) => {
+            this.post.commentCount = this.post.comments.push(comment);
+        });
 
         this.commentDescription = null;
     }
