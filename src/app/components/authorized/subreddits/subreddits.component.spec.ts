@@ -94,7 +94,7 @@ const mockRouter = {
     navigate: jasmine.createSpy('navigate'),
 };
 
-fdescribe('SubredditsComponent', () => {
+describe('SubredditsComponent', () => {
     let component: SubredditsComponent;
     let fixture: ComponentFixture<SubredditsComponent>;
     let postService: PostService;

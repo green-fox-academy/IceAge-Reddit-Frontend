@@ -18,6 +18,7 @@ const mockedSubreddits: Subreddit[] = [
         description: 'Description',
         userCount: 1,
         author: 'Jirinka',
+        posts: [],
     },
     {
         name: 'Subreddit2',
@@ -26,6 +27,7 @@ const mockedSubreddits: Subreddit[] = [
         description: 'Description2',
         userCount: 1,
         author: 'Martin',
+        posts: [],
     },
 ];
 
