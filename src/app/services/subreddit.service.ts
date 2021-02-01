@@ -10,6 +10,8 @@ export class SubredditService {
 
     subreddits$: BehaviorSubject<Subreddit[]> = new BehaviorSubject(null);
 
+    constructor() {}
+
     setSubreddits(subreddits: Subreddit[]): void {
         this._subreddits = subreddits;
         this.subreddits$.next(subreddits);

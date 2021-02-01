@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 @Component({
     selector: 'app-authorized',
     templateUrl: './authorized.component.html',

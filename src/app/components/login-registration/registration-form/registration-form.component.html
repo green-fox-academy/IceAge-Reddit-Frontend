@@ -60,8 +60,7 @@
         <a class="link" [routerLink]="['/login']">Already registered?</a>
 </form>
 
-<div *ngIf="errorMessage$ !== undefined">
+<div *ngIf="error !== undefined">
 
-        <p class="red-text">{{ errorMessage$.error }}</p>
-
+        <p class="red-text">{{ error.message }}</p>
 </div>
