@@ -26,7 +26,7 @@ export class AddNewSubredditComponent {
             () => {
                 this._router.navigate(['land-page']);
             },
-            (err: Error) => (this.errorMessage = err),
+            (error: Error) => (this.errorMessage = error),
         );
     }
 }
