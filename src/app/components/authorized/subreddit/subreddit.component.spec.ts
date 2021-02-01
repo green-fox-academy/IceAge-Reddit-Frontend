@@ -118,6 +118,11 @@ describe('SubredditComponent', () => {
         }).compileComponents();
     });
 
+    function createComponent(): void {
+        fixture = TestBed.createComponent(SubredditComponent);
+        component = fixture.componentInstance;
+    }
+
     beforeEach(() => {
         activatedRoute = TestBed.inject(ActivatedRoute);
         subredditService = TestBed.inject(SubredditService);
@@ -126,14 +131,12 @@ describe('SubredditComponent', () => {
     });
 
     it('should create', () => {
-        fixture = TestBed.createComponent(SubredditComponent);
-        component = fixture.componentInstance;
+        createComponent();
         expect(component).toBeTruthy();
     });
 
     it('should test route parameters using Activated routes in constructor', () => {
-        fixture = TestBed.createComponent(SubredditComponent);
-        component = fixture.componentInstance;
+        createComponent();
         expect(component.subredditName).toBe('Subreddit1');
     });
 
@@ -141,8 +144,7 @@ describe('SubredditComponent', () => {
         let getSubredditPostsFeedSpy = spyOn(gatewayService, 'getSubredditPostsFeedByName')
             .withArgs('Subreddit1')
             .and.callThrough();
-        fixture = TestBed.createComponent(SubredditComponent);
-        component = fixture.componentInstance;
+        createComponent();
         expect(getSubredditPostsFeedSpy).toHaveBeenCalled();
     });
 
@@ -154,16 +156,15 @@ describe('SubredditComponent', () => {
             postService,
             'setCurrentSubredditPosts',
         ).and.callThrough();
-        fixture = TestBed.createComponent(SubredditComponent);
-        component = fixture.componentInstance;
+        createComponent();
         expect(setCurrentSubredditPostsSpy).toHaveBeenCalledWith(testPosts);
     });
 
     it('should call subredditService.getAllSubreddits and assign received data to component.subreddits property in constructor', () => {
         let getAllSubredditsSpy = spyOn(subredditService, 'getAllSubreddits').and.callThrough();
         fixture = TestBed.createComponent(SubredditComponent);
-        component = fixture.componentInstance;
-        expect(getAllSubredditsSpy).toHaveBeenCalledWith();
+        createComponent();
+        expect(getAllSubredditsSpy).toHaveBeenCalled();
         expect(component.subreddits).toEqual(testSubreddits);
     });
 
@@ -175,8 +176,7 @@ describe('SubredditComponent', () => {
             postService,
             'getCurrentSubredditPosts',
         ).and.callThrough();
-        fixture = TestBed.createComponent(SubredditComponent);
-        component = fixture.componentInstance;
+        createComponent();
         expect(getCurrentSubredditPostsSpy).toHaveBeenCalledWith();
         expect(component.listOfPosts).toEqual(testPosts);
     });
