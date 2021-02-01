@@ -1,52 +1,52 @@
-<h1>Add new post</h1>
-
-<button class='typeButton' (click)='onTextClick()'>Text</button>
-<button class='typeButton' (click)="onUrlClick()" >URL</button>
-
 <form #addNewPostForm="ngForm" (ngSubmit)='createNewPost()'>
-
-<div *ngIf="urlExists">
-    <div>
-        <label>Title: </label>
-        <input type="text"
-        name="title"
-        required
-        [(ngModel)]="newPost.title"
-        ><br>
-        <label>url:</label>
-        <input type="text"
-        required
-        [(ngModel)]="newPost.posted_url"
-        name="url"
-        ><br>
-
-        <label>Subreddit: </label>
-        <select  [(ngModel)]="newPost.subreddit" name="subredditName"
-                >
-            <option *ngFor="let subreddit of namesOfSubreddits" [disabled]="subreddit==='Select'">{{subreddit}}</option>
-        </select>
-    </div>
-</div>
-<div *ngIf="!urlExists">
-    <label>Title: </label>
-        <input type="text"
-        name="title"
-        [(ngModel)]="newPost.title"
-        required
-        ><br>
-        <label>Description</label>
-            <textarea type="text"
-            cols="30" 
-            rows="5"
-            name="description"
-            [(ngModel)]="newPost.description"
-            required></textarea><br>
+   
+    <button class='typeButton' (click)='onTextClick()'>Text</button>
+    <button class='typeButton' (click)="onUrlClick()" >URL</button>
     
-        <label>Subreddit: </label>
-        <select  [(ngModel)]="newPost.subreddit" name="subredditName">
-            <option *ngFor="let subreddit of namesOfSubreddits" [disabled]="subreddit==='Select'">{{subreddit}}</option>
-        </select>
-</div>
+    <h1>Add new post</h1>
+    
+    <div *ngIf="urlExists">
+        <div>
+            <label>Title: </label>
+            <input type="text"
+            name="title"
+            required
+            [(ngModel)]="newPost.title"
+            ><br>
+            <label>url:</label>
+            <input type="text"
+            required
+            [(ngModel)]="newPost.posted_url"
+            name="url"
+            ><br>
+
+            <label>Subreddit: </label>
+            <select  [(ngModel)]="newPost.subreddit" name="subredditName"
+                    >
+                <option *ngFor="let subreddit of namesOfSubreddits" [disabled]="subreddit==='Select'">{{subreddit}}</option>
+            </select>
+        </div>
+    </div>
+    <div *ngIf="!urlExists">
+        <label>Title: </label>
+            <input type="text"
+            name="title"
+            [(ngModel)]="newPost.title"
+            required
+            ><br>
+            <label>Description</label>
+                <textarea type="text"
+                cols="30" 
+                rows="5"
+                name="description"
+                [(ngModel)]="newPost.description"
+                required></textarea><br>
+        
+            <label>Subreddit: </label>
+            <select  [(ngModel)]="newPost.subreddit" name="subredditName">
+                <option *ngFor="let subreddit of namesOfSubreddits" [disabled]="subreddit==='Select'">{{subreddit}}</option>
+            </select>
+    </div>
 
     <button type="submit">Create post</button>
 

@@ -5,3 +5,10 @@
     background-color:lightblue;
 }
 
+@import '../../../../colors.scss';
+@import '../../../../mixins.scss';
+
+form {
+    @include form;
+}
+

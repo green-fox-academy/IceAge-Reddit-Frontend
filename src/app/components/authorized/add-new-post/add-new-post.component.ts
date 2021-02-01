@@ -40,7 +40,7 @@ export class AddNewPostComponent {
     createNewPost() {
         this._gatewayService.postNewPost(this.newPost).subscribe(
             () => {
-                this._router.navigate(['/feed']);
+                this._router.navigate(['auth/feed']);
             },
             (err: Error) => (this.error = err),
         );
