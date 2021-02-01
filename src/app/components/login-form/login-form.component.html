@@ -19,6 +19,8 @@
 			>
 			<button type="submit" [disabled]="!loginform.form.valid">login</button>
 	</form>
-<div *ngIf="errorMessage$ !== undefined" class="form-error">
+</div>
+<div *ngIf="error !== undefined" class="form-error">
 
-<p class="red-text">{{ errorMessage$.error }}</p>
+<p class="red-text">{{ error.message }}</p>
+</div>

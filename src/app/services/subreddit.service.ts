@@ -8,6 +8,8 @@ import { Subreddit } from 'src/types/subreddits';
 export class SubredditService {
     subreddits$: BehaviorSubject<Subreddit[]> = new BehaviorSubject(null);
 
+    constructor() {}
+
     setSubreddits(subreddits: Subreddit[]): void {
         this.subreddits$.next(subreddits);
     }
