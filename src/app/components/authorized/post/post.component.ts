@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { GatewayService } from 'src/app/services/gateway.service';
 import { PostService } from 'src/app/services/post.service';
 import { Post } from 'src/types/posts';
+import { FeedComponent } from '../feed/feed.component';
 
 @Component({
     selector: 'app-post',
@@ -9,6 +11,8 @@ import { Post } from 'src/types/posts';
 })
 export class PostComponent implements OnInit {
     @Input() postId: number;
+
+    posts$: Post[];
 
     post: Post;
     postTitle: string;

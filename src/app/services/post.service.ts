@@ -6,12 +6,12 @@ import { Post } from 'src/types/posts';
     providedIn: 'root',
 })
 export class PostService {
-    private _posts: Post[];
+    posts: Post[];
 
     posts$: BehaviorSubject<Post[]> = new BehaviorSubject(null);
 
     setPosts(posts: Post[]): void {
-        this._posts = posts;
+        this.posts = posts;
         this.posts$.next(posts);
     }
 
@@ -20,7 +20,7 @@ export class PostService {
     }
 
     getPost(postId: number): Post {
-        const result = this._posts.find((post) => post.id === postId);
+        const result = this.posts.find((post) => post.id === postId);
         return result;
     }
 }
