@@ -53,7 +53,6 @@ describe('GatewayService', () => {
     });
 
     it('should retrieve posts from the API via HttpClient.get method', () => {
-
         service.getAllPosts().subscribe((posts) => {
             expect(posts).toEqual(testPosts);
             expect(posts.length).toBe(2);
