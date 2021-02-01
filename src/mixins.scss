@@ -82,4 +82,10 @@
     .ng-invalid:not(form).ng-touched {
         border-bottom: 1px solid red;
     }
+
+    .buttons {
+        > button {
+           margin-right: 1rem; 
+        }
+    }
 }

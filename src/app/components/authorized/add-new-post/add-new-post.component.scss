@@ -1,10 +1,3 @@
-.typeButton:focus{
-    color: blue;
-}
-.typeButton{
-    background-color:lightblue;
-}
-
 @import '../../../../colors.scss';
 @import '../../../../mixins.scss';
 
@@ -12,3 +5,9 @@ form {
     @include form;
 }
 
+.typeButton:focus{
+    color: $orange;
+}
+.typeButton{
+    background-color:lightblue;
+}

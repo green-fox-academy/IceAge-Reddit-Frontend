@@ -1,10 +1,12 @@
 <form #addNewPostForm="ngForm" (ngSubmit)='createNewPost()'>
-   
-    <button class='typeButton' (click)='onTextClick()'>Text</button>
-    <button class='typeButton' (click)="onUrlClick()" >URL</button>
     
     <h1>Add new post</h1>
     
+    <div class="buttons">
+        <button class='typeButton' (click)='onTextClick()'>Text</button>
+        <button class='typeButton' (click)="onUrlClick()" >URL</button>
+    </div>
+ 
     <div *ngIf="urlExists">
         <div>
             <label>Title: </label>
@@ -54,4 +56,3 @@
         <p class="red-text">{{ error.message }}</p>
     </div>
 </form>
-
