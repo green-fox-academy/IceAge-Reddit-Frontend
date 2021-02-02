@@ -34,7 +34,7 @@
         </textarea>
         <br>
         <button class='typeButton' type="submit">Create</button>
-        <div *ngIf="errorMessage !== undefined">
-            <p class="red-text">{{ errorMessage.error }}</p></div>
+        <div *ngIf="errorObject !== undefined">
+            <p class="red-text">{{ errorObject.error }}</p></div>
     </form>
 </div>

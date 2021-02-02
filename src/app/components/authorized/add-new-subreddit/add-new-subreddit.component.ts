@@ -17,16 +17,16 @@ export class AddNewSubredditComponent {
         description: '',
     };
 
-    errorMessage?: Error;
+    errorObject?: Error;
 
     constructor(private _gatewayService: GatewayService, private _router: Router) {}
 
     createNewSubreddit() {
         this._gatewayService.createSubreddit(this.subreddit).subscribe(
             () => {
-                this._router.navigate(['land-page']);
+                this._router.navigate(['add-new-post']);
             },
-            (error: Error) => (this.errorMessage = error),
+            (error: Error) => (this.errorObject = error),
         );
     }
 }

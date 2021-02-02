@@ -10,7 +10,7 @@ import { Observable, of } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FeedComponent } from '../feed/feed.component';
 
-class MockService {
+class MockGatewayService {
     createSubreddit(subreddit: SubredditCreation): Observable<SubredditCreation> {
         return of(mockedSubreddit);
     }
@@ -34,7 +34,7 @@ describe('AddNewSubredditComponent', () => {
                 FormsModule,
                 RouterTestingModule.withRoutes([
                     {
-                        path: 'land-page',
+                        path: 'add-new-post',
                         component: FeedComponent,
                     },
                 ]),
@@ -42,7 +42,7 @@ describe('AddNewSubredditComponent', () => {
             declarations: [AddNewSubredditComponent, FeedComponent],
             providers: [
                 HttpClient,
-                { provide: GatewayService, useClass: MockService },
+                { provide: GatewayService, useClass: MockGatewayService },
                 { provide: Router, useClass: RouterTestingModule },
             ],
         }).compileComponents();
