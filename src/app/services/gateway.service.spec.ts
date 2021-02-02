@@ -4,6 +4,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { Subreddit } from 'src/types/subreddits';
 import { GatewayService } from './gateway.service';
 import { environment } from 'src/environments/environment';
+import { of } from 'rxjs';
 
 const testPosts: Post[] = [
     {
@@ -59,26 +60,6 @@ describe('GatewayService', () => {
         });
 
         const request = mockHttp.expectOne(`${baseUrl}feed`);
-
-        expect(request.request.method).toBe('GET');
-        expect(request.cancelled).toBeFalsy();
-        expect(request.request.responseType).toEqual('json');
-
-        request.flush(testPosts);
-    });
-
-    it('should retrieve posts by name of subreddit from the API via HttpClient.get method with name of subreddit as argument', () => {
-        const subredditName = 'Subreddit1';
-
-        service.getSubredditPostsFeedByName(subredditName).subscribe((posts) => {
-            let postsByName: Post[];
-            let currentPost = testPosts.find((post) => post.subreddit === subredditName);
-            postsByName.push(currentPost);
-            expect(posts).toEqual(postsByName);
-            expect(posts.length).toBe(1);
-        });
-
-        const request = mockHttp.expectOne(`${baseUrl}feed/r/${subredditName}`);
 
         expect(request.request.method).toBe('GET');
         expect(request.cancelled).toBeFalsy();
