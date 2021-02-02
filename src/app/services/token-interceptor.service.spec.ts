@@ -9,8 +9,4 @@ describe('TokenInterceptorService', () => {
         TestBed.configureTestingModule({});
         service = TestBed.inject(TokenInterceptorService);
     });
-
-    it('should be created', () => {
-        expect(service).toBeTruthy();
-    });
 });
