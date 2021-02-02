@@ -34,7 +34,7 @@ describe('AddNewSubredditComponent', () => {
                 FormsModule,
                 RouterTestingModule.withRoutes([
                     {
-                        path: 'land-page',
+                        path: 'add-new-post',
                         component: FeedComponent,
                     },
                 ]),

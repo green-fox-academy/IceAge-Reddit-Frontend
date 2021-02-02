@@ -24,7 +24,7 @@ export class AddNewSubredditComponent {
     createNewSubreddit() {
         this._gatewayService.createSubreddit(this.subreddit).subscribe(
             () => {
-                this._router.navigate(['land-page']);
+                this._router.navigate(['add-new-post']);
             },
             (error: Error) => (this.errorObject = error),
         );
