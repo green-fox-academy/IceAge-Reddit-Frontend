@@ -9,3 +9,9 @@ export interface Subreddit {
     author: string;
     posts: Post[];
 }
+
+export interface SubredditCreation {
+    name: string;
+    title: string;
+    description: string;
+}

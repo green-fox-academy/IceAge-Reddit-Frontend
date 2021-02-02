@@ -4,3 +4,10 @@
 form {
     @include form;
 }
+
+.typeButton:focus{
+    color: $orange;
+}
+.typeButton{
+    background-color:lightblue;
+}

@@ -4,6 +4,31 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { Subreddit } from 'src/types/subreddits';
 import { GatewayService } from './gateway.service';
 import { environment } from 'src/environments/environment';
+import { of } from 'rxjs';
+
+const testPosts: Post[] = [
+    {
+        id: 1,
+        title: 'First post',
+        date_created: new Date('2014-01-01T23:28:56.782Z'),
+        subreddit: 'Subreddit1',
+        author: 'Author1',
+        commentCount: 2,
+        post_type: 'text',
+        description: 'Post about something',
+    },
+    {
+        id: 2,
+        title: 'Second post',
+        date_created: new Date('2020-11-30T17:10:56.782Z'),
+        subreddit: 'Subreddit2',
+        author: 'Author2',
+        commentCount: 3,
+        post_type: 'url',
+        posted_url: 'https://seznam.cz',
+        description: 'Post about anything',
+    },
+];
 
 describe('GatewayService', () => {
     let service: GatewayService;
@@ -29,30 +54,6 @@ describe('GatewayService', () => {
     });
 
     it('should retrieve posts from the API via HttpClient.get method', () => {
-        const testPosts: Post[] = [
-            {
-                id: 1,
-                title: 'First post',
-                date_created: new Date('2014-01-01T23:28:56.782Z'),
-                subreddit: 'Subreddit1',
-                author: 'Author1',
-                commentCount: 2,
-                post_type: 'text',
-                description: 'Post about something',
-            },
-            {
-                id: 2,
-                title: 'Second post',
-                date_created: new Date('2020-11-30T17:10:56.782Z'),
-                subreddit: 'Subreddit2',
-                author: 'Author2',
-                commentCount: 3,
-                post_type: 'url',
-                posted_url: 'https://seznam.cz',
-                description: 'Post about anything',
-            },
-        ];
-
         service.getAllPosts().subscribe((posts) => {
             expect(posts).toEqual(testPosts);
             expect(posts.length).toBe(2);

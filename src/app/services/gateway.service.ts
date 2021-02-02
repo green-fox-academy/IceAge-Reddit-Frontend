@@ -2,12 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Token } from 'src/types/token';
-import { Subreddit } from 'src/types/subreddits';
-import { Comment, NewComment, Post, PostDetails } from 'src/types/posts';
+import { Comment, NewComment, Post, PostDetails, NewPost } from 'src/types/posts';
+import { Subreddit, SubredditCreation } from 'src/types/subreddits';
 import { User } from 'src/types/user';
 import { Error } from 'src/types/error';
 import { environment } from 'src/environments/environment';
-
 @Injectable({
     providedIn: 'root',
 })
@@ -44,8 +43,17 @@ export class GatewayService {
         return this._httpClient.post(`${this._baseUrl}auth/log-in`, user) as Observable<Token>;
     }
 
-    postNewPost(post: Post) {
-        this._httpClient.post(`${this._baseUrl}subreddits/posts/create`, post);
+    postNewPost(aNewPost: NewPost): Observable<Post | Error> {
+        return this._httpClient.post(
+            `${this._baseUrl}subreddits/posts/create`,
+            aNewPost,
+        ) as Observable<Post>;
+    }
+
+    createSubreddit(subreddit: SubredditCreation): Observable<SubredditCreation> {
+        return this._httpClient.post(`${this._baseUrl}subreddits/create`, subreddit) as Observable<
+            SubredditCreation
+        >;
     }
 
     getSubredditPostsFeedByName(subredditName: string): Observable<Post[]> {
