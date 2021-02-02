@@ -12,7 +12,12 @@ describe('AppComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-            declarations: [AppComponent, AuthorizedComponent, WelcomePageComponent, NavigationComponent],
+            declarations: [
+                AppComponent,
+                AuthorizedComponent,
+                WelcomePageComponent,
+                NavigationComponent,
+            ],
             providers: [GatewayService],
         }).compileComponents();
     });
