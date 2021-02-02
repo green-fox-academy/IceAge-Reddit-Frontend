@@ -1,6 +1,4 @@
-export interface SubredditResponse {
-    subreddits: Subreddit[];
-}
+import { Post } from './posts';
 
 export interface Subreddit {
     name: string;
@@ -9,6 +7,7 @@ export interface Subreddit {
     description: string;
     userCount: number;
     author: string;
+    posts: Post[];
 }
 
 export interface SubredditCreation {

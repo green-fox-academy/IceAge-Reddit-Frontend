@@ -6,12 +6,13 @@ import { Post } from 'src/types/posts';
     providedIn: 'root',
 })
 export class PostService {
-    posts: Post[];
+    private _posts: Post[];
+    private _currentSubredditPosts: Post[];
 
     posts$: BehaviorSubject<Post[]> = new BehaviorSubject(null);
 
     setPosts(posts: Post[]): void {
-        this.posts = posts;
+        this._posts = posts;
         this.posts$.next(posts);
     }
 
@@ -20,7 +21,15 @@ export class PostService {
     }
 
     getPost(postId: number): Post {
-        const result = this.posts.find((post) => post.id === postId);
+        const result = this._posts.find((post) => post.id === postId);
         return result;
+    }
+
+    setCurrentSubredditPosts(postsList: Post[]): void {
+        this._currentSubredditPosts = postsList;
+    }
+
+    getCurrentSubredditPosts(): Post[] {
+        return this._currentSubredditPosts;
     }
 }

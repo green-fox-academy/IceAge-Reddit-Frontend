@@ -1,6 +1,6 @@
-.ng-invalid:not(form).ng-touched {
-    border: 1px solid red;
-} 
-.form-error{
-    border: 1px solid red;
+@import '../../../../colors.scss';
+@import '../../../../mixins.scss';
+
+form {
+    @include form;
 }

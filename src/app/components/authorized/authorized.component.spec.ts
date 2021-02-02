@@ -6,9 +6,11 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { GatewayService } from 'src/app/services/gateway.service';
 import { PostService } from 'src/app/services/post.service';
 import { Post } from 'src/types/posts';
+import { Subreddit } from 'src/types/subreddits';
 import { NavigationComponent } from '../navigation/navigation.component';
 import { WelcomePageComponent } from '../welcome-page/welcome-page.component';
 import { AuthorizedComponent } from './authorized.component';
+import { SubredditsComponent } from './subreddits/subreddits.component';
 
 class MockGatewayService {
     mockPosts: Post[] = [
@@ -24,8 +26,14 @@ class MockGatewayService {
         },
     ];
 
+    mockSubreddits: Subreddit[] = [];
+
     getAllPosts(): Observable<Post[]> {
         return of(this.mockPosts);
+    }
+
+    getAllSubreddits(): Observable<Subreddit[]> {
+        return of(this.mockSubreddits);
     }
 }
 class MockPostService {
@@ -39,7 +47,12 @@ describe('AuthorizedComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-            declarations: [AuthorizedComponent, WelcomePageComponent, NavigationComponent],
+            declarations: [
+                AuthorizedComponent,
+                WelcomePageComponent,
+                NavigationComponent,
+                SubredditsComponent,
+            ],
             providers: [
                 HttpClient,
                 { provide: GatewayService, useClass: MockGatewayService },
