@@ -30,8 +30,7 @@
 
 </form>
 
-<div *ngIf="errorMessage$ !== undefined" class="form-error">
+<div *ngIf="error !== undefined" class="form-error">
 
-	<p class="red-text">{{ errorMessage$.error }}</p> 
-
-</div>>
+	<p class="red-text">{{ error.message }}</p>
+</div>

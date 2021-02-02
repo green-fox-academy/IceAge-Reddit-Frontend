@@ -5,13 +5,16 @@ import { SubredditComponent } from './components/authorized/subreddit/subreddit.
 import { RegistrationFormComponent } from './components/login-registration/registration-form/registration-form.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { SubredditsComponent } from './components/authorized/subreddits/subreddits.component';
+import { AddNewPostComponent } from './components/authorized/add-new-post/add-new-post.component';
 import { AuthGuard } from './guards/auth.guard';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 import { AuthorizedComponent } from './components/authorized/authorized.component';
 import { PostDetailsComponent } from './components/authorized/post-details/post-details.component';
+import { AddNewSubredditComponent } from './components/authorized/add-new-subreddit/add-new-subreddit.component';
 
-const routes: Routes = [
+export const routes: Routes = [
     { path: '', redirectTo: '/auth/feed', pathMatch: 'full' },
+    { path: 'create-subreddit', component: AddNewSubredditComponent },
 
     {
         path: 'auth',
@@ -35,6 +38,7 @@ const routes: Routes = [
     { path: 'land-page', component: WelcomePageComponent },
     { path: 'register', component: RegistrationFormComponent },
     { path: 'login', component: LoginFormComponent },
+    { path: 'add-new-post', component: AddNewPostComponent, canActivate: [AuthGuard] },
     { path: 'subreddits', component: SubredditsComponent, canActivate: [AuthGuard] },
 ];
 

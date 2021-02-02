@@ -11,6 +11,8 @@ import { Post } from 'src/types/posts';
 export class PostComponent implements OnInit {
     @Input() postId: number;
 
+    posts$: Post[];
+
     post: Post;
     postTitle: string;
     postDateCreated: Date;
