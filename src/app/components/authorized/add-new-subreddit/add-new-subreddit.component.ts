@@ -17,7 +17,7 @@ export class AddNewSubredditComponent {
         description: '',
     };
 
-    errorObject?: Error;
+    error: Error;
 
     constructor(private _gatewayService: GatewayService, private _router: Router) {}
 
@@ -26,7 +26,7 @@ export class AddNewSubredditComponent {
             () => {
                 this._router.navigate(['add-new-post']);
             },
-            (error: Error) => (this.errorObject = error),
+            (err: Error) => (this.error = err),
         );
     }
 }
