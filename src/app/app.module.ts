@@ -27,6 +27,7 @@ import { RegistrationFormComponent } from './components/login-registration/regis
 import { PostDetailsComponent } from './components/authorized/post-details/post-details.component';
 import { AddNewPostComponent } from './components/authorized/add-new-post/add-new-post.component';
 import { AddNewSubredditComponent } from './components/authorized/add-new-subreddit/add-new-subreddit.component';
+import { SearchBarComponent } from './components/authorized/search-bar/search-bar.component';
 
 @NgModule({
     declarations: [
@@ -51,6 +52,7 @@ import { AddNewSubredditComponent } from './components/authorized/add-new-subred
         PostDetailsComponent,
         AddNewPostComponent,
         AddNewSubredditComponent,
+        SearchBarComponent,
     ],
     imports: [BrowserModule, CommonModule, AppRoutingModule, FormsModule, HttpClientModule],
     providers: [
