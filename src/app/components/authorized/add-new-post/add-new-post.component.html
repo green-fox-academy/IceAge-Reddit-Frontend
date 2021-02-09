@@ -1,4 +1,4 @@
-<form #addNewPostForm="ngForm" (ngSubmit)='createNewPost()'>
+<form #addNewPostForm="ngForm">
     
     <h1>Add new post</h1>
     
@@ -52,7 +52,7 @@
         </select>
     </div>
 
-    <button type="submit">Create post</button>
+    <button type="submit" (click)='createNewPost()'>Create post</button>
 
     <div *ngIf="error !== undefined" class="form-error">
         <p class="red-text">
