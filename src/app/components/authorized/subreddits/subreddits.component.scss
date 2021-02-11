@@ -2,22 +2,22 @@
 @import '../../../../mixins.scss';
 
 .subredditsWrapper {
-    background-color: $secondaryColor;
-    color: $darkBlue;
-    align-self: center;
-    @include boxshadow;
-    border-radius: 0.3em;
+    @include whiteBackground;
+    padding: 1rem;
     
     > h2 {
-        background-color: $darkBlue;
-        color: $lightTextColor;
+        font-family: 'Hind Siliguri', sans-serif;
+        letter-spacing: 0.1rem;
+        font-weight: lighter;
+        background: -webkit-linear-gradient($darkBlue, #1555a3);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         text-align: center;
-        padding: 1rem;
-        border-top-left-radius: 0.3em;
-        border-top-right-radius: 0.3em;
+        border-bottom: 1px solid rgb(21, 85, 163, 0.4);
     }
 
     > div {
+        color: $darkBlue;
         padding: 1rem;
         font-weight: bold;
         display: grid;
@@ -28,7 +28,7 @@
         }
         :hover {
             cursor: pointer;
-            font-weight: 400;
+            color: #00152e;
         }
     }
 

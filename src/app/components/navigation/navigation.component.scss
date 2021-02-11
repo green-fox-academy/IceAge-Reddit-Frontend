@@ -3,24 +3,28 @@
 
 .navigationBar {
     grid-area: navigationBar;
-    display: grid;
-    grid-template-columns: auto 10fr 3fr;
+    display: inline-grid;
     grid-template-areas: 
-        "logo subreddits addPost";
-    color: $lightTextColor;
-    border-bottom: solid 1px $secondaryColor;
+        "logo addPost";
+    color: rgb(255, 255, 255, 0.4);
     margin: 0 2rem;
     align-items: center;
 
     > div {
         padding: 1em;
     };
+
+}
+
+button {
+    @include button;
+    box-shadow: none;
+    background-color: transparent;
 }
 
 .text-logo {
     grid-area: logo;
     font-size: 3rem;
-    // font-weight: 900;
     font-family: 'Hind Siliguri', sans-serif;
     letter-spacing: 0.2rem;
     background: -webkit-linear-gradient(#3a77c2, white);
@@ -37,5 +41,5 @@
 .add-new-post {
     color: $primaryColor;
     grid-area: addPost;
-    text-align: right;
+    text-align: left;
 }

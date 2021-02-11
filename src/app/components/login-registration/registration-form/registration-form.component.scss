@@ -5,8 +5,11 @@ form {
     @include form;
 }
 
-.content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.gridWrapper {
+    display: grid;
+}
+
+.wrapper {
+    display: grid;
+    margin: 9% auto;
 }

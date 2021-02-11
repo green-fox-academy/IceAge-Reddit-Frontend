@@ -13,6 +13,7 @@
     &:hover {
         background-color:$orange;
         color: $darkBlue;
+        cursor: pointer;
     };
 };
 
@@ -20,17 +21,27 @@
     box-shadow: 0px 0px 4px $shadow;
 };
 
+@mixin whiteBackground {
+    background-color: rgb(255, 255, 255, 0.7);
+    backdrop-filter: blur(0.8rem);
+    border-radius: 0.3em;
+}
+
 @mixin form {
-    color: black;
     display: grid;
-    row-gap: 2rem;
-    max-width: 700px;
-    justify-self: center;
-    margin: auto;
-    margin-top: 1em;
+    row-gap: 2.5rem;
+    padding: 5rem 6rem;
+    color: $darkBlue;
+    
+    @include whiteBackground;
+    border-radius: 2rem;
 
     h1 {
-        color: $darkBlue;
+        font-family: 'Hind Siliguri', sans-serif;
+        letter-spacing: 0.2rem;
+          background: -webkit-linear-gradient($darkBlue, #659de0);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
     }
 
     label {
@@ -38,19 +49,20 @@
         grid-template-columns: max-content auto;
         column-gap: 1rem;
         letter-spacing: 0.1rem;
+    }
 
-        span {
-            align-self: flex-end;
-        }
+    span {
+        align-self: flex-end;
+    }
 
-        input {
-            padding: 0.3rem;
-            outline: none;
-            border: none;
-            border-bottom: 1px solid $darkBlue;
-            &:focus {
-                background-color: $secondaryColor;
-            }
+    input, textarea {
+        padding: 0.3rem;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid $darkBlue;
+        background-color: rgb(255, 255, 255, 0.5);
+        &:focus {
+            background-color: rgb(51, 143, 255, 0.2);
         }
     }
 

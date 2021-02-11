@@ -4,3 +4,12 @@
 form {
     @include form;
 }
+
+.gridWrapper {
+    display: grid;
+}
+
+.wrapper {
+    display: grid;
+    margin: 9% auto;
+}

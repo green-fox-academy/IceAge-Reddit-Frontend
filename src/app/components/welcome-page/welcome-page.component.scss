@@ -1,17 +1,7 @@
 @import '../../../colors.scss';
 @import '../../../mixins.scss';
 
-
-.something {
-  // display: grid;
-  // margin: auto;
-}
-
 .gridWrapper {
-  // display: flex;
-  // align-items: center;
-  // // justify-content: center;  
-  // margin: 10% auto;
   display: grid;
 }
 
@@ -25,7 +15,6 @@
   grid-template-areas: 
     "headerPanel"
     "sidePanel";
-  // @include boxshadow;
   padding: 6rem;
 }
 
@@ -37,34 +26,19 @@
   grid-template-rows: 1fr;
   grid-template-areas: 
     "welcomeSign";
-  // background-color: rgb(255, 255, 255, 0.9);
-  // backdrop-filter: blur(1rem);
   color: $lightTextColor;
   text-transform: uppercase;
   text-align: center;
-  // align-self: stretch;
-  // padding: 6rem;
-  // border-left: 1rem solid $orange;
 }
 
 .welcomeSign {
   grid-area: welcomeSign;
-  // font-size: 2,5em;
-  // letter-spacing: 0.5rem;
-  // color: $darkBlue;
-  // font-weight: 1000;
-  // padding-bottom: 4rem;
-  // strong {
-  //   color: $orange;
-  // };
-  // text-shadow: 1px 1px 4px black;
   font-family: 'Hind Siliguri', sans-serif;
   letter-spacing: 0.2rem;
     background: -webkit-linear-gradient($darkBlue, #659de0);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   font-size: 3rem;
-  // border-bottom: 2px solid $orange;
   margin: 0 4rem;
 }
 
@@ -73,9 +47,7 @@
   padding-top: 2rem;
   border-bottom-left-radius: 2rem;
   border-bottom-right-radius: 2rem;
-  // border-top: 1px solid $orange;
   color: $darkBlue;
-  // padding: 2.5rem;
   display: grid;
   row-gap: 3rem;
   > div {
