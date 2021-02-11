@@ -18,6 +18,11 @@
 
 .logo {
     grid-area: logo;
+
+    > img:focus,:hover{
+        cursor: pointer;
+        outline: none;
+    }
 }
 
 .subreddits {
