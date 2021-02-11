@@ -14,10 +14,6 @@ export class PostDetailsComponent implements OnInit {
     constructor(private _route: ActivatedRoute, private _gatewayService: GatewayService) {}
 
     ngOnInit(): void {
-        this.getPostDetails();
-    }
-
-    getPostDetails(): void {
         const id = +this._route.snapshot.paramMap.get('id');
         this._gatewayService.getPostDetails(id).subscribe((post) => (this.post = post));
     }
