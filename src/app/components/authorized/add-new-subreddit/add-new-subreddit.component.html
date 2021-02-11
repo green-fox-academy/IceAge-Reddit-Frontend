@@ -1,19 +1,21 @@
 <div>
-    <h1>Create Topic</h1>
-    <form #subredditForm="ngForm" (ngSubmit)="onSubmit(subredditForm)">
-        <label for="name">Topic name</label>
+    <form #subredditForm="ngForm" (ngSubmit)='createNewSubreddit()'>
+
+        <h1>Create Topic</h1>
+
+        <label for="name">Subreddit tag</label>
         <br>
         <input type="text"
-                placeholder="Your topic name"
+                placeholder="subreddit tag"
                 name="name"
                 required
                 #name="ngModel"
-            [(ngModel)] ="subreddit.name">
+            [(ngModel)] ="subreddit.name">    
         <br>
-        <label for="title">Title</label>
+        <label for="title">Topic Title</label>
         <br>
         <input type="text"
-                placeholder="Your title"
+                placeholder="Your topic title"
                 name="title"
                 #title="ngModel"
                 required
@@ -31,6 +33,8 @@
                 [(ngModel)] ="subreddit.description">
         </textarea>
         <br>
-        <button>Create</button>
+        <button class='typeButton' type="submit">Create</button>
+        <div *ngIf="error !== undefined">
+            <p class="red-text">{{ error.error }}</p></div>
     </form>
 </div>

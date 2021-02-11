@@ -28,6 +28,7 @@ export interface Comment {
     postId: number;
     author: string;
     date_created: Date;
+    description: string;
 }
 
 export interface NewPost {
