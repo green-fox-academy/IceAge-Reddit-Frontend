@@ -37,6 +37,7 @@ export const routes: Routes = [
 
     { path: 'land-page', component: WelcomePageComponent },
     { path: 'login', component: LoginFormComponent },
+    { path: 'register', component: RegistrationFormComponent },
     { path: 'add-new-post', component: AddNewPostComponent, canActivate: [AuthGuard] },
     { path: 'subreddits', component: SubredditsComponent, canActivate: [AuthGuard] },
 ];
