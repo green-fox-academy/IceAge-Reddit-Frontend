@@ -14,7 +14,7 @@ import { AddNewSubredditComponent } from './components/authorized/add-new-subred
 
 export const routes: Routes = [
     { path: '', redirectTo: '/auth/feed', pathMatch: 'full' },
-    { path: 'create-subreddit', component: AddNewSubredditComponent },
+    { path: 'create-subreddit', component: AddNewSubredditComponent, canActivate: [AuthGuard] },
 
     {
         path: 'auth',
@@ -36,7 +36,6 @@ export const routes: Routes = [
     },
 
     { path: 'land-page', component: WelcomePageComponent },
-    { path: 'register', component: RegistrationFormComponent },
     { path: 'login', component: LoginFormComponent },
     { path: 'add-new-post', component: AddNewPostComponent, canActivate: [AuthGuard] },
     { path: 'subreddits', component: SubredditsComponent, canActivate: [AuthGuard] },
