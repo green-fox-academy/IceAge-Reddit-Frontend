@@ -4,3 +4,9 @@
 form {
     @include form;
 }
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

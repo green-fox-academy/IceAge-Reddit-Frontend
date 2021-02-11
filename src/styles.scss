@@ -15,7 +15,27 @@ html {
 
 body {
     color: $secondaryColor;
+    background-image: linear-gradient(to left, #e6ac00 , #e7bc3a);
 }
+
+.background {
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to right, #011733 , #104a90);
+    // clip-path: polygon(100% 0, 100% 36%, 0 100%, 0 0);
+    clip-path: polygon(0 0, 100% 0, 100% 22%, 0 75%);
+    position: absolute;
+    z-index: -2;
+}
+
+// .background2 {
+//     height: 100%;
+//     width: 100%;
+//     background-color: white;
+//     clip-path: polygon(0 20%, 100% 71%, 100% 79%, 0 46%);
+//     position: absolute;
+//     z-index: -1;
+// }
 
 .red-text {
     color: red;

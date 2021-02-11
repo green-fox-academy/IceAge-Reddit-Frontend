@@ -4,11 +4,12 @@
 .navigationBar {
     grid-area: navigationBar;
     display: grid;
-    grid-template-columns: 1fr 10fr 3fr;
+    grid-template-columns: auto 10fr 3fr;
     grid-template-areas: 
-        "logo subreddits .";
+        "logo subreddits addPost";
     color: $lightTextColor;
-    background: $darkBlue;
+    border-bottom: solid 1px $secondaryColor;
+    margin: 0 2rem;
     align-items: center;
 
     > div {
@@ -16,8 +17,15 @@
     };
 }
 
-.logo {
+.text-logo {
     grid-area: logo;
+    font-size: 3rem;
+    // font-weight: 900;
+    font-family: 'Hind Siliguri', sans-serif;
+    letter-spacing: 0.2rem;
+    background: -webkit-linear-gradient(#3a77c2, white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .subreddits {
@@ -28,4 +36,6 @@
 }
 .add-new-post {
     color: $primaryColor;
+    grid-area: addPost;
+    text-align: right;
 }
