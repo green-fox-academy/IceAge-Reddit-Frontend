@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Token } from 'src/types/token';
-import { Post, NewPost } from 'src/types/posts';
+import { NewPost, Post, PostDetails } from 'src/types/posts';
 import { Subreddit, SubredditCreation } from 'src/types/subreddits';
 import { User } from 'src/types/user';
 import { Error } from 'src/types/error';
@@ -17,6 +17,10 @@ export class GatewayService {
 
     getAllPosts(): Observable<Post[]> {
         return this._httpClient.get<Post[]>(`${this._baseUrl}feed`);
+    }
+
+    getPostDetails(postId: number): Observable<PostDetails> {
+        return this._httpClient.get<PostDetails>(`${this._baseUrl}subreddits/posts/${postId}`);
     }
 
     getAllSubreddits(): Observable<Subreddit[]> {

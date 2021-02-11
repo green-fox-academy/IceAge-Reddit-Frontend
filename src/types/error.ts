@@ -1,5 +1,5 @@
 export interface Error {
-    message: string;
+    error: string;
 }
 /*     headers: string;
     message: string;
