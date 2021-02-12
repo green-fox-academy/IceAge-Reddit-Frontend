@@ -10,6 +10,7 @@
     border: none;
     text-transform: uppercase;
     @include boxshadow();
+    outline: none;
     &:hover {
         background-color:$orange;
         color: $darkBlue;
@@ -50,7 +51,6 @@
         grid-template-columns: max-content auto;
         column-gap: 1rem;
         letter-spacing: 0.1rem;
-        // margin-bottom: 1.5rem;
     }
 
     span {
