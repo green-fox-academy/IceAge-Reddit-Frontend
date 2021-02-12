@@ -21,6 +21,10 @@ let mockedSubreddit: SubredditCreation = {
     description: '',
 };
 
+const mockRouter = {
+    navigate: jasmine.createSpy('navigate'),
+};
+
 describe('AddNewSubredditComponent', () => {
     let component: AddNewSubredditComponent;
     let fixture: ComponentFixture<AddNewSubredditComponent>;
@@ -42,7 +46,7 @@ describe('AddNewSubredditComponent', () => {
             providers: [
                 HttpClient,
                 { provide: GatewayService, useClass: MockGatewayService },
-                { provide: Router, useClass: RouterTestingModule },
+                { provide: Router, useValue: mockRouter },
             ],
         }).compileComponents();
     });
