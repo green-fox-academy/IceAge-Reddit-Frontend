@@ -3,7 +3,9 @@ import { Router } from '@angular/router';
 import { NavigationComponent } from '../navigation/navigation.component';
 import { WelcomePageComponent } from './welcome-page.component';
 
-class RouterTestingModule {}
+const mockRouter = {
+    navigate: jasmine.createSpy('navigate'),
+};
 
 describe('WelcomePageComponent', () => {
     let component: WelcomePageComponent;
@@ -12,7 +14,7 @@ describe('WelcomePageComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [WelcomePageComponent, NavigationComponent],
-            providers: [{ provide: Router, useClass: RouterTestingModule }],
+            providers: [{ provide: Router, useValue: mockRouter }],
         }).compileComponents();
     });
 
