@@ -22,6 +22,15 @@
     box-shadow: 0px 0px 4px $shadow;
 };
 
+@mixin title ($topColor, $bottomColor, $letterSpacing) {
+    font-family: 'Hind Siliguri', sans-serif;
+    letter-spacing: $letterSpacing;
+    background: 
+        -webkit-linear-gradient($topColor, $bottomColor);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+}
+
 @mixin whiteBackground {
     background-color: rgb(255, 255, 255, 0.7);
     backdrop-filter: blur(0.8rem);
@@ -39,11 +48,7 @@
     border-radius: 2rem;
 
     h1 {
-        font-family: 'Hind Siliguri', sans-serif;
-        letter-spacing: 0.2rem;
-          background: -webkit-linear-gradient($darkBlue, #659de0);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+        @include title($darkBlue, #659de0, 0.2rem);
     }
 
     label {

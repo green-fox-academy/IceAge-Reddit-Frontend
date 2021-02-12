@@ -33,11 +33,7 @@
 
 .welcomeSign {
   grid-area: welcomeSign;
-  font-family: 'Hind Siliguri', sans-serif;
-  letter-spacing: 0.2rem;
-    background: -webkit-linear-gradient($darkBlue, #659de0);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  @include title($darkBlue, #659de0, 0.2rem);
   font-size: 3rem;
   margin: 0 4rem;
 }

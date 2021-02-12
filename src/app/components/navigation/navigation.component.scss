@@ -26,11 +26,7 @@ button {
     grid-area: logo;
     font-size: 3rem;
     outline: none;
-    font-family: 'Hind Siliguri', sans-serif;
-    letter-spacing: 0.2rem;
-    background: -webkit-linear-gradient(#3a77c2, white);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    @include title(#3a77c2, white, 0.2rem);
 }
 
 .subreddits {

@@ -7,11 +7,7 @@
     color: $darkBlue;
 
     h2 {
-        font-family: 'Hind Siliguri', sans-serif;
-        letter-spacing: 0.1rem;
+        @include title($darkBlue, #1555a3, 0.1rem);
         font-weight: lighter;
-        background: -webkit-linear-gradient($darkBlue, #1555a3);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
     }
 }
