@@ -4,32 +4,46 @@
     
             <h1>Create Topic</h1>
 
-            <div>
+            <div class="labelWrapper">
                 
-                <label for="name">Subreddit tag</label>
-                <input type="text"
-                        placeholder="subreddit tag"
-                        name="name"
-                        required
-                        #name="ngModel"
-                    [(ngModel)] ="subreddit.name">    
-                <label for="title">Topic Title</label>
-                <input type="text"
-                        placeholder="Your topic title"
-                        name="title"
-                        #title="ngModel"
-                        required
-                        [(ngModel)] ="subreddit.title">
-                <label for="description">Description</label>
-                <textarea type="text"
-                        cols="40" 
-                        rows="10"
-                        placeholder="Your description"
-                        #description="ngModel"
-                        name="description"
-                        required
-                        [(ngModel)] ="subreddit.description">
-                </textarea>
+                <label for="name">
+                    <span class="label-text">
+                        Subreddit tag:
+                    </span>
+                    <input type="text"
+                            placeholder="subreddit tag"
+                            name="name"
+                            required
+                            #name="ngModel"
+                        [(ngModel)] ="subreddit.name">    
+                </label>
+
+                <label for="title">
+                    <span class="label-text">
+                        Topic Title:
+                    </span>
+                    <input type="text"
+                            placeholder="Your topic title"
+                            name="title"
+                            #title="ngModel"
+                            required
+                            [(ngModel)] ="subreddit.title">
+                </label>
+
+                <label for="description">
+                    <span class="label-text">
+                        Description:
+                    </span>
+                    <textarea type="text"
+                            cols="40" 
+                            rows="10"
+                            placeholder="Your description"
+                            #description="ngModel"
+                            name="description"
+                            required
+                            [(ngModel)] ="subreddit.description">
+                    </textarea>
+                </label>
 
             </div>
     

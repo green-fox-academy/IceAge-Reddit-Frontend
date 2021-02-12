@@ -1,14 +1,24 @@
 @import '../../../../mixins.scss';
+@import '../../../../colors.scss';
 
 .postDetailsWrapper {
     display: grid;
     row-gap: 2rem;
-    color: black;
+    color: $orange;
 
     > div {
-        @include boxshadow;
-        border-radius: 0.5em;
-        padding: 1em;
+        padding: 1rem;
+        color: $darkBlue;
+        @include whiteBackground;
+
+        h2 {
+            font-family: 'Hind Siliguri', sans-serif;
+            letter-spacing: 0.1rem;
+            font-weight: lighter;
+            background: -webkit-linear-gradient($darkBlue, #1555a3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     }
 }
 
@@ -22,7 +32,7 @@
 .commentsWrapper {
     display: grid;
     row-gap: 1.5em;
-    background-color: rgb(243, 243, 243);
+    @include whiteBackground;
 
     span {
        font-weight: bold;

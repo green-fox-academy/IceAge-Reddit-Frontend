@@ -32,6 +32,7 @@
     row-gap: 2.5rem;
     padding: 5rem 6rem;
     color: $darkBlue;
+    min-width: 700px;
     
     @include whiteBackground;
     border-radius: 2rem;
@@ -49,6 +50,7 @@
         grid-template-columns: max-content auto;
         column-gap: 1rem;
         letter-spacing: 0.1rem;
+        // margin-bottom: 1.5rem;
     }
 
     span {
@@ -79,6 +81,11 @@
             background-color: $orange;
             color: $darkBlue;
         }
+    }
+
+    .labelWrapper {
+        display: grid;
+        row-gap: 1rem;
     }
 
     .form-error {

@@ -9,8 +9,7 @@
                 <button class='typeButton' (click)="onUrlClick()" >URL</button>
             </div>
          
-            <div *ngIf="urlExists">
-                <!-- <div> -->
+            <div class="labelWrapper" *ngIf="urlExists">
                     <label> 
                         <span class="label-text">
                             Title:
@@ -18,7 +17,7 @@
                         <input type="text"
                         name="title"
                         required
-                        [(ngModel)]="newPost.title"><br>
+                        [(ngModel)]="newPost.title">
                     </label>
 
                     <label>
@@ -28,7 +27,7 @@
                         <input type="text"
                         required
                         [(ngModel)]="newPost.posted_url"
-                        name="url"><br>
+                        name="url">
                     </label>
         
                     <label>
@@ -41,10 +40,9 @@
                             </option>
                         </select>
                     </label>
-                <!-- </div> -->
             </div>
         
-            <div *ngIf="!urlExists">
+            <div class="labelWrapper" *ngIf="!urlExists">
                 <label> 
                     <span class="label-text">
                         Title:
@@ -52,7 +50,7 @@
                     <input type="text"
                     name="title"
                     [(ngModel)]="newPost.title"
-                    required><br>
+                    required>
                 </label>
         
                 <label> 
@@ -64,7 +62,7 @@
                     rows="5"
                     name="description"
                     [(ngModel)]="newPost.description"
-                    required></textarea><br>
+                    required></textarea>
                 </label>
                 
                 <label> 
