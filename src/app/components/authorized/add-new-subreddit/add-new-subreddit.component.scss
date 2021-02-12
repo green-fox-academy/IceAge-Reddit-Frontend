@@ -1,6 +1,24 @@
-.typeButton:focus{
-    color: blue;
+@import '../../../../colors.scss';
+@import '../../../../mixins.scss';
+
+form {
+    @include form;
 }
-.typeButton{
-    background-color:lightblue;
+
+.gridWrapper {
+    display: grid;
 }
+
+.wrapper {
+    display: grid;
+    margin: 9% auto;
+}
+
+
+
+// .typeButton:focus{
+//     color: blue;
+// }
+// .typeButton{
+//     background-color:lightblue;
+// }

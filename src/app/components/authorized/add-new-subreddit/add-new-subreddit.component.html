@@ -1,40 +1,43 @@
-<div>
-    <form #subredditForm="ngForm" (ngSubmit)='createNewSubreddit()'>
+<div class="gridWrapper">
+    <div class="wrapper">
+        <form #subredditForm="ngForm" (ngSubmit)='createNewSubreddit()'>
+    
+            <h1>Create Topic</h1>
 
-        <h1>Create Topic</h1>
+            <div>
+                
+                <label for="name">Subreddit tag</label>
+                <input type="text"
+                        placeholder="subreddit tag"
+                        name="name"
+                        required
+                        #name="ngModel"
+                    [(ngModel)] ="subreddit.name">    
+                <label for="title">Topic Title</label>
+                <input type="text"
+                        placeholder="Your topic title"
+                        name="title"
+                        #title="ngModel"
+                        required
+                        [(ngModel)] ="subreddit.title">
+                <label for="description">Description</label>
+                <textarea type="text"
+                        cols="40" 
+                        rows="10"
+                        placeholder="Your description"
+                        #description="ngModel"
+                        name="description"
+                        required
+                        [(ngModel)] ="subreddit.description">
+                </textarea>
 
-        <label for="name">Subreddit tag</label>
-        <br>
-        <input type="text"
-                placeholder="subreddit tag"
-                name="name"
-                required
-                #name="ngModel"
-            [(ngModel)] ="subreddit.name">    
-        <br>
-        <label for="title">Topic Title</label>
-        <br>
-        <input type="text"
-                placeholder="Your topic title"
-                name="title"
-                #title="ngModel"
-                required
-                [(ngModel)] ="subreddit.title">
-        <br>
-        <label for="description">Description</label>
-        <br>
-        <textarea type="text"
-                cols="30" 
-                rows="10"
-                placeholder="Your description"
-                #description="ngModel"
-                name="description"
-                required
-                [(ngModel)] ="subreddit.description">
-        </textarea>
-        <br>
-        <button class='typeButton' type="submit">Create</button>
-        <div *ngIf="error !== undefined">
-            <p class="red-text">{{ error.error }}</p></div>
-    </form>
+            </div>
+    
+            <button type="submit">Create</button>
+        </form>
+    </div>
+</div>
+
+<div *ngIf="error !== undefined">
+    <p class="red-text">{{ error.error }}</p>
 </div>
