@@ -9,6 +9,7 @@ import { AddNewPostComponent } from './components/authorized/add-new-post/add-ne
 import { AuthGuard } from './guards/auth.guard';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 import { AuthorizedComponent } from './components/authorized/authorized.component';
+import { PostDetailsComponent } from './components/authorized/post-details/post-details.component';
 import { AddNewSubredditComponent } from './components/authorized/add-new-subreddit/add-new-subreddit.component';
 
 export const routes: Routes = [
@@ -21,7 +22,7 @@ export const routes: Routes = [
             {
                 path: 'feed',
                 children: [
-                    { path: '', component: FeedComponent, canActivate: [AuthGuard] },
+                    { path: '', component: FeedComponent },
                     { path: ':name', component: SubredditComponent },
                 ],
             },
@@ -31,6 +32,10 @@ export const routes: Routes = [
                 path: 'create-subreddit',
                 component: AddNewSubredditComponent,
                 canActivate: [AuthGuard],
+            },
+            {
+                path: 'post-details/:id',
+                component: PostDetailsComponent,
             },
         ],
     },

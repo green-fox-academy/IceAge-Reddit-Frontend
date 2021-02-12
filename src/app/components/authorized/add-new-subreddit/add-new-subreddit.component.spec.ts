@@ -1,11 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { ExtraOptions, Router, Routes } from '@angular/router';
+import { Router } from '@angular/router';
 import { AddNewSubredditComponent } from './add-new-subreddit.component';
 import { GatewayService } from 'src/app/services/gateway.service';
 import { SubredditCreation } from 'src/types/subreddits';
-import { ModuleWithProviders } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FeedComponent } from '../feed/feed.component';
@@ -34,7 +33,7 @@ describe('AddNewSubredditComponent', () => {
                 FormsModule,
                 RouterTestingModule.withRoutes([
                     {
-                        path: 'add-new-post',
+                        path: '/add-new-post',
                         component: FeedComponent,
                     },
                 ]),

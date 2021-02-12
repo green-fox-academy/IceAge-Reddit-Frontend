@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { DateAgoPipe } from 'src/app/pipes/date-ago.pipe';
 import { SubredditFormatPipe } from 'src/app/pipes/subreddit-format.pipe';
@@ -28,6 +29,8 @@ class MockPostService {
     }
 }
 
+class RouterTestingModule {}
+
 const mockedPost: Post = {
     id: 1,
     title: 'First Post',
@@ -47,7 +50,10 @@ describe('PostComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [PostComponent, DateAgoPipe, SubredditFormatPipe],
-            providers: [{ provide: PostService, useClass: MockPostService }],
+            providers: [
+                { provide: PostService, useClass: MockPostService },
+                { provide: Router, useClass: RouterTestingModule },
+            ],
         }).compileComponents();
     });
 
