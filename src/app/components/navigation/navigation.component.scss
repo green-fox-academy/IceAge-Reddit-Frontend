@@ -26,6 +26,7 @@ button {
     grid-area: logo;
     font-size: 3rem;
     outline: none;
+    cursor: pointer;
     @include title(#3a77c2, white, 0.2rem);
 }
 
