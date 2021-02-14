@@ -8,9 +8,9 @@ import { SearchableUser } from 'src/types/user';
     styleUrls: ['./search-bar.component.scss'],
 })
 export class SearchBarComponent implements OnInit {
-    @Input() users: SearchableUser[] = [];
+    users: SearchableUser[] = [];
     searchText = '';
-    @Output() searchResults: SearchableUser[] = [];
+    searchResults: SearchableUser[] = [];
 
     constructor(private _gatewayService: GatewayService) {}
 
@@ -19,7 +19,6 @@ export class SearchBarComponent implements OnInit {
     }
 
     onSearching(): void {
-        console.log(this.searchText);
         if (!this.searchText.length) {
             this.searchResults = [];
             return;
@@ -28,6 +27,5 @@ export class SearchBarComponent implements OnInit {
         this.searchResults = this.users.filter((user) =>
             user.username.toLowerCase().includes(this.searchText.toLowerCase()),
         );
-        console.log(this.searchResults);
     }
 }
