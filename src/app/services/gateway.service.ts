@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Token } from 'src/types/token';
 import { Comment, NewComment, Post, PostDetails, NewPost } from 'src/types/posts';
 import { Subreddit, SubredditCreation } from 'src/types/subreddits';
-import { User } from 'src/types/user';
+import { SearchableUser, User } from 'src/types/user';
 import { Error } from 'src/types/error';
 import { environment } from 'src/environments/environment';
 @Injectable({
@@ -58,5 +58,9 @@ export class GatewayService {
 
     getSubredditPostsFeedByName(subredditName: string): Observable<Post[]> {
         return this._httpClient.get<Post[]>(`${this._baseUrl}feed/r/${subredditName}`);
+    }
+
+    getAllUsers(): Observable<SearchableUser[]> {
+        return this._httpClient.get<SearchableUser[]>(`${this._baseUrl}users`);
     }
 }
