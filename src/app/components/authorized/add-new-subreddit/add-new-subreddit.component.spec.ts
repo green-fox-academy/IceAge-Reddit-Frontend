@@ -4,28 +4,51 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AddNewSubredditComponent } from './add-new-subreddit.component';
 import { GatewayService } from 'src/app/services/gateway.service';
+import { SubredditCreation } from 'src/types/subreddits';
+import { Observable, of } from 'rxjs';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FeedComponent } from '../feed/feed.component';
 
-class MockDataService {}
+class MockGatewayService {
+    createSubreddit(subreddit: SubredditCreation): Observable<SubredditCreation> {
+        return of(mockedSubreddit);
+    }
+}
 
-class RouterTestingModule {}
+let mockedSubreddit: SubredditCreation = {
+    name: '',
+    title: '',
+    description: '',
+};
 
 describe('AddNewSubredditComponent', () => {
     let component: AddNewSubredditComponent;
     let fixture: ComponentFixture<AddNewSubredditComponent>;
+    let gatewayService: GatewayService;
+    let router: RouterTestingModule;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [FormsModule],
-            declarations: [AddNewSubredditComponent],
+            imports: [
+                FormsModule,
+                RouterTestingModule.withRoutes([
+                    {
+                        path: '/add-new-post',
+                        component: FeedComponent,
+                    },
+                ]),
+            ],
+            declarations: [AddNewSubredditComponent, FeedComponent],
             providers: [
                 HttpClient,
-                { provide: GatewayService, useClass: MockDataService },
+                { provide: GatewayService, useClass: MockGatewayService },
                 { provide: Router, useClass: RouterTestingModule },
             ],
         }).compileComponents();
     });
 
     beforeEach(() => {
+        gatewayService = TestBed.inject(GatewayService);
         fixture = TestBed.createComponent(AddNewSubredditComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
@@ -33,5 +56,15 @@ describe('AddNewSubredditComponent', () => {
 
     it('should create', () => {
         expect(component).toBeTruthy();
+    });
+
+    it('createNewSubreddit() should be called and reroute to feed', () => {
+        let getSpyForCreateSubreddit = spyOn(gatewayService, 'createSubreddit').and.callThrough();
+        component.createNewSubreddit();
+        expect(getSpyForCreateSubreddit).toHaveBeenCalled();
+    });
+
+    it('subreddit in component should be equal to mockedSubreddit', () => {
+        expect(component.subreddit).toEqual(mockedSubreddit);
     });
 });
