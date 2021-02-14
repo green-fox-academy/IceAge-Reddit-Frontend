@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { GatewayService } from 'src/app/services/gateway.service';
 import { SearchableUser } from 'src/types/user';
 
@@ -12,20 +13,27 @@ export class SearchBarComponent implements OnInit {
     searchText = '';
     searchResults: SearchableUser[] = [];
 
-    constructor(private _gatewayService: GatewayService) {}
+    constructor(private _gatewayService: GatewayService, private _router: Router) {}
 
     ngOnInit(): void {
-        this._gatewayService.getAllUsers().subscribe((users) => (this.users = users));
+        this._gatewayService.getAllUsers().subscribe((users) => {
+            this.users = users;
+            this.searchResults = users;
+        });
     }
 
-    onSearching(): void {
-        if (!this.searchText.length) {
-            this.searchResults = [];
-            return;
-        }
-
+    onTyping(): void {
         this.searchResults = this.users.filter((user) =>
             user.username.toLowerCase().includes(this.searchText.toLowerCase()),
         );
+    }
+
+    onSearch(term: string): void {
+        const user = this.users.find((user) => user.username === term);
+        if (user) {
+            console.log(`UserId: ${user.id}`);
+            // Implement when user details is done
+            // this._router.navigate(['/user', user.id]);
+        }
     }
 }
