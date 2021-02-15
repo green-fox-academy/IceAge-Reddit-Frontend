@@ -19,10 +19,41 @@
     }
 }
 
+.createComment {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+
+    > textarea {
+        width: 100%;
+        height: 5em;
+        margin-bottom: 1em;
+        resize: none;
+    }
+
+    > textarea:focus {
+        outline: none !important;
+        border-color: $darkBlue;
+        box-shadow: 0 0 10px $darkBluHover;
+    }
+
+    > button {
+        @include button;
+        outline: none !important;
+
+        &:active {
+            background-color: $secondaryColor;
+        }
+    }
+}
+
 .commentsWrapper {
-    display: grid;
+    display: flex;
+    flex-direction: column-reverse;
     row-gap: 1.5em;
     background-color: rgb(243, 243, 243);
+    margin-bottom: 3em;
 
     span {
        font-weight: bold;

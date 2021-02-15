@@ -39,3 +39,8 @@ export interface NewPost {
     posted_url: string;
     description: string;
 }
+
+export interface NewComment {
+    postId: number;
+    description: string;
+}
