@@ -3,7 +3,7 @@
 
 .mainContent {
   display: grid;
-  background-color: rgb(255, 255, 255, 0.7);
+  background-color: $white07;
   backdrop-filter: blur(0.8rem);
   border-radius: 2rem;
   grid-template-rows: 1fr 1fr;
