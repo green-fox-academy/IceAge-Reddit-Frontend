@@ -7,13 +7,13 @@
     color: $darkBlue;
 
     h2 {
-        @include title($darkBlue, #1555a3, 0.1rem);
+        @include title($darkBlue, $lightBlue, 0.1rem);
         font-weight: lighter;
     }
 
     &:hover {
         @include whiteBackground;
-        background-color: rgb(255, 255, 255, 0.8);
+        background-color: $white07;
         cursor: pointer;
     }
 }
