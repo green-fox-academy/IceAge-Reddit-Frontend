@@ -12,10 +12,14 @@
     @include boxshadow();
     outline: none;
     &:hover {
-        background-color:$orange;
+        background-color: $orange;
         color: $darkBlue;
         cursor: pointer;
     };
+    &:active {
+        background-color: $lightOrange; 
+        cursor: pointer;
+    }
 };
 
 @mixin boxshadow {
@@ -63,14 +67,19 @@
     }
 
     input, textarea {
-        padding: 0.3rem;
+        padding: 0.3rem 0.5rem;
         outline: none;
         border: none;
         border-bottom: 1px solid $darkBlue;
         background-color: $white04;
+        resize: none;
         &:focus {
-            background-color: $white02;
+            background-color: $white07;
         }
+    }
+
+    textarea {
+        padding: 0.5rem;
     }
 
     button {
@@ -82,10 +91,14 @@
         border: none;
         color: $white07;
         letter-spacing: 0.3rem;
-        &:hover {
+        &:hover{
             background-color: $orange;
             color: $darkBlue;
             cursor: pointer;
+        }
+        &:active {
+            background-color: $lightOrange;
+            cursor: pointer; 
         }
     }
 
@@ -97,7 +110,7 @@
     .form-error {
         color: $error;
         letter-spacing: 0.1rem;
-        max-width: 540px;
+        max-width: 508px;
     }
 
     .link {

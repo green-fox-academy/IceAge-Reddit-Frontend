@@ -1,4 +1,5 @@
 import {
+    HttpErrorResponse,
     HttpEvent,
     HttpHandler,
     HttpInterceptor,
@@ -6,6 +7,7 @@ import {
     HttpResponse,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
@@ -13,6 +15,8 @@ import { tap } from 'rxjs/operators';
     providedIn: 'root',
 })
 export class TokenInterceptorService implements HttpInterceptor {
+    constructor(private _router: Router) {}
+
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const token = localStorage.getItem('token');
         const tokenizedReq = req.clone({
@@ -22,14 +26,25 @@ export class TokenInterceptorService implements HttpInterceptor {
         });
 
         return next.handle(tokenizedReq).pipe(
-            tap((event) => {
-                if (event instanceof HttpResponse) {
-                    const prolongedToken = event.headers.get('Prolonged-Token');
-                    if (prolongedToken) {
-                        localStorage.setItem('token', prolongedToken);
+            tap(
+                (event) => {
+                    if (event instanceof HttpResponse) {
+                        const prolongedToken = event.headers.get('Prolonged-Token');
+                        if (prolongedToken) {
+                            localStorage.setItem('token', prolongedToken);
+                        }
                     }
-                }
-            }),
+                },
+                (error) => {
+                    if (
+                        error instanceof HttpErrorResponse &&
+                        error.status == 401 &&
+                        error.error === 'Token expired!'
+                    ) {
+                        this._router.navigate(['/login']);
+                    }
+                },
+            ),
         );
     }
 }
