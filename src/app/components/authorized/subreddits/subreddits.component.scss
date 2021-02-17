@@ -6,10 +6,10 @@
     padding: 1rem;
     
     > h2 {
-        @include title ($darkBlue, #1555a3, 0.1rem);
+        @include title ($darkBlue, $lightBlue, 0.1rem);
         font-weight: lighter;
         text-align: center;
-        border-bottom: 1px solid rgb(21, 85, 163, 0.4);
+        border-bottom: 1px solid $lightBlue;
     }
 
     > div {
@@ -18,13 +18,15 @@
         font-weight: bold;
         display: grid;
         justify-content: center;
+        text-align: center;
         > div {
             padding-bottom: 0.5rem;
             letter-spacing: 0.2rem;
         }
         :hover {
             cursor: pointer;
-            color: #00152e;
+            color: $orange;
+            text-shadow: 2px 0px $shadow;
         }
     }
 

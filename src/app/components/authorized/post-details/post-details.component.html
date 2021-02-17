@@ -1,6 +1,8 @@
 <div class="postDetailsWrapper" *ngIf="post">
     <div class="postDetails">
+        
         <h2>{{post.title}}</h2>
+
         <div class="details">
             <div *ngIf="post.posted_url; else elseBlock">
                 <a href="{{post.posted_url}}" target="_blank">{{post.posted_url}}</a>
@@ -9,6 +11,7 @@
                 <p #elseBlock>{{post.description}}</p>
             </ng-template>
         </div>
+
         <div class="postDateCreated">
             Posted  {{post.date_created | dateAgo}} by
             <a class="postAuthor" href="">
@@ -19,16 +22,17 @@
             {{post.subreddit | subredditFormat}}
             </a>
         </div>
+
         <div class="postCommentCount">
-            {{post.commentCount}} Comments - 
-        <a href="">
-            share
-        </a>
+            {{post.commentCount}} Comments
         </div>
     </div>
+
     <div class="commentsWrapper" *ngIf="post.comments.length > 0; else noComments">
         <div class="comment" *ngFor="let comment of post.comments">
-            <span>{{comment.author}}</span>
+            <span>
+                {{comment.author}}
+            </span>
             {{comment.date_created | dateAgo}}
             <p>
                 {{comment.description}}

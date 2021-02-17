@@ -1,4 +1,5 @@
 @import 'colors.scss';
+@import 'mixins.scss';
 
 * {
     box-sizing: border-box;
@@ -14,29 +15,56 @@ html {
 };
 
 body {
-    color: $secondaryColor;
-    background-image: linear-gradient(to left, #e6ac00 , #e7bc3a);
+    background-color: $orange;
+    display: grid;
+    justify-items: center;
 }
 
 .background {
     height: 100%;
     width: 100%;
-    background-image: linear-gradient(to right, #011733 , #104a90);
-    // clip-path: polygon(100% 0, 100% 36%, 0 100%, 0 0);
+    background-image: linear-gradient(to right, $theDarkestBlue , $blue);
     clip-path: polygon(0 0, 100% 0, 100% 22%, 0 75%);
     position: absolute;
     z-index: -2;
 }
 
-// .background2 {
-//     height: 100%;
-//     width: 100%;
-//     background-color: white;
-//     clip-path: polygon(0 20%, 100% 71%, 100% 79%, 0 46%);
-//     position: absolute;
-//     z-index: -1;
-// }
+form {
+    @include form;
+}
+
+.formWrapper {
+    display: grid;
+    justify-items: center;
+}
+
+.contentWrapper {
+    margin-top: 15%;
+}
+
+.postsWrapper {
+    display: grid;
+    row-gap: 1rem;
+    color: $darkBlue;
+    margin-bottom: 1rem;
+
+    > h1 {
+        @include title(white, $orange, 0.2rem);
+    }
+   
+}
 
 .red-text {
-    color: red;
+    color: $error;
+    text-align: center;
+    padding: 1rem;
+    letter-spacing: 0.1rem;
+}
+
+a {
+    color: $blue;
+    &:hover {
+        color: $orange;
+        text-shadow: 1px 0px $shadow;
+    }
 }

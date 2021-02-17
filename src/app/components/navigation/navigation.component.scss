@@ -26,8 +26,8 @@ button {
     grid-area: logo;
     font-size: 3rem;
     outline: none;
+    @include title(white, $darkBlue, 0.2rem);
     cursor: pointer;
-    @include title(#3a77c2, white, 0.2rem);
 }
 
 .subreddits {

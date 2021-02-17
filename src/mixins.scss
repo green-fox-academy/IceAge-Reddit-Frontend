@@ -32,7 +32,7 @@
 }
 
 @mixin whiteBackground {
-    background-color: rgb(255, 255, 255, 0.7);
+    background-color: $white07;
     backdrop-filter: blur(0.8rem);
     border-radius: 0.3em;
 }
@@ -48,7 +48,7 @@
     border-radius: 2rem;
 
     h1 {
-        @include title($darkBlue, #659de0, 0.2rem);
+        @include title($darkBlue, $lightBlue, 0.2rem);
     }
 
     label {
@@ -67,20 +67,20 @@
         outline: none;
         border: none;
         border-bottom: 1px solid $darkBlue;
-        background-color: rgb(255, 255, 255, 0.5);
+        background-color: $white04;
         &:focus {
-            background-color: rgb(51, 143, 255, 0.2);
+            background-color: $white02;
         }
     }
 
     button {
         background-color: $darkBlue;
-        color: $lightTextColor;
         font-size: 1rem;
         padding: 0.5rem;
         border-radius: 0.3rem;
         outline: none;
         border: none;
+        color: $white07;
         letter-spacing: 0.3rem;
         &:hover {
             background-color: $orange;
@@ -95,8 +95,9 @@
     }
 
     .form-error {
-        color: red;
-        font-style: italic;
+        color: $error;
+        letter-spacing: 0.1rem;
+        max-width: 540px;
     }
 
     .link {
@@ -105,7 +106,7 @@
     }
 
     .ng-invalid:not(form).ng-touched {
-        border-bottom: 1px solid red;
+        border-bottom: 1px solid $error;
     }
 
     .buttons {

@@ -1,15 +1,10 @@
 @import '../../../colors.scss';
 @import '../../../mixins.scss';
 
-.gridWrapper {
-  display: grid;
-}
-
 .mainContent {
   display: grid;
   background-color: rgb(255, 255, 255, 0.7);
   backdrop-filter: blur(0.8rem);
-  margin: 9% auto;
   border-radius: 2rem;
   grid-template-rows: 1fr 1fr;
   grid-template-areas: 
@@ -26,14 +21,13 @@
   grid-template-rows: 1fr;
   grid-template-areas: 
     "welcomeSign";
-  color: $lightTextColor;
   text-transform: uppercase;
   text-align: center;
 }
 
 .welcomeSign {
   grid-area: welcomeSign;
-  @include title($darkBlue, #659de0, 0.2rem);
+  @include title($darkBlue, $lightBlue, 0.2rem);
   font-size: 3rem;
   margin: 0 4rem;
 }
