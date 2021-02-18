@@ -1,0 +1,11 @@
+<div class="search-bar">
+    <input list="search-results" type="search" [(ngModel)]="searchText" (ngModelChange)="onTyping()" placeholder="Search users..."> 
+    <button (click)="onSearch(searchText)">Search</button>
+</div>
+
+
+<datalist id="search-results">
+    <option *ngFor="let user of searchResults">
+        {{user.username}}
+    </option>
+</datalist>

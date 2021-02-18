@@ -3,3 +3,9 @@ export interface User {
     email: string;
     password: string;
 }
+
+export interface SearchableUser {
+    id: number;
+    username: string;
+    date_created: Date;
+}

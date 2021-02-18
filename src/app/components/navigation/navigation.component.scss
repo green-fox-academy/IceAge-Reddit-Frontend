@@ -6,7 +6,7 @@
     display: grid;
     grid-template-columns: 1fr 10fr 3fr;
     grid-template-areas: 
-        "logo subreddits .";
+        "logo search-bar .";
     color: $lightTextColor;
     background: $darkBlue;
     align-items: center;
@@ -25,8 +25,8 @@
     }
 }
 
-.subreddits {
-    grid-area: subreddits;
+.search-bar {
+    grid-area: search-bar;
 }
 .logopic {
     max-width: 200px;
