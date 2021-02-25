@@ -6,7 +6,7 @@
 		
 			<label for="email">
 				<span class="label-text">
-						YourEmail
+						Your Email
 				</span>
 				<input type="text"
 					id="email"
@@ -44,6 +44,8 @@
             </div>
 			
 			<button type="submit" [disabled]="!loginform.form.valid">Login</button>
+
+            <a class="link" [routerLink]="['/register']">Create new account</a>
 		
 		</form>
 	</div>
