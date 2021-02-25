@@ -4,11 +4,11 @@
         <h2>{{postTitle}}</h2><br>
         <div class="postDateCreated">
              Posted  {{postDateCreated | dateAgo}} by
-            <p class="postAuthor" >
+            <span class="postAuthor" >
                 {{postAuthor}}
-            </p> 
+            </span> 
             to 
-            <a class="postSubreddit" href="">
+            <a class="postSubreddit" [routerLink]="['/auth/feed', postSubreddit]">
                 {{postSubreddit | subredditFormat}}
             </a>
         </div>

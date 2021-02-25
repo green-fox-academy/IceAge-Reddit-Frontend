@@ -14,12 +14,12 @@
 
         <div class="postDateCreated">
             Posted  {{post.date_created | dateAgo}} by
-            <p class="postAuthor">
-            {{post.author}}
-            </p> 
+            <span class="postAuthor" >
+                {{post.author}}
+            </span> 
             to 
-            <a class="postSubreddit" href="">
-            {{post.subreddit | subredditFormat}}
+            <a class="postSubreddit" [routerLink]="['/auth/feed', post.subreddit]">
+                {{post.subreddit | subredditFormat}}
             </a>
         </div>
 
