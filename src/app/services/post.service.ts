@@ -12,6 +12,12 @@ export class PostService {
     posts$: BehaviorSubject<Post[]> = new BehaviorSubject(null);
 
     setPosts(posts: Post[]): void {
+        posts.sort((a, b) => {
+            const dateA: Date = new Date(a.date_created);
+            const dateB: Date = new Date(b.date_created);
+            const number: number = dateB.getTime() - dateA.getTime();
+            return number;
+        });
         this._posts = posts;
         this.posts$.next(posts);
     }
