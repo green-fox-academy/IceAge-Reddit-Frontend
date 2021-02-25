@@ -76,14 +76,16 @@
             </label>
         </div>
     
+        <div *ngIf="error !== undefined" class="form-error">
+            <p class="red-text">
+                {{ error.error }}
+            </p>
+        </div>
+        
         <button type="submit" (click)='createNewPost()'>Create post</button>
 
     </form>
 </div>
 
-<div *ngIf="error !== undefined" class="form-error">
-    <p class="red-text">
-        {{ error.error }}
-    </p>
-</div>
+
 

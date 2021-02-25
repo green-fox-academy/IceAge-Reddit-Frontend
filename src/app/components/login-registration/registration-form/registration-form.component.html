@@ -56,16 +56,16 @@
                         <div [hidden]="password.untouched || password.valid" class="form-error">
                                 Your password must have upper case, lower case and number and must be 6-20 characters long
                         </div>
+
+                        <div *ngIf="error !== undefined">
+        
+                            <p class="red-text">{{ error.error }}</p>
+                        </div>
         
                         <button>Register</button>
         
                         <a class="link" [routerLink]="['/login']">Already registered?</a>
                 </form>
-        
-                <div *ngIf="error !== undefined">
-        
-                        <p class="red-text">{{ error.error }}</p>
-                </div>
             
         </div>
 </div>
