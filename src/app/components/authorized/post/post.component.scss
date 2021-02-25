@@ -1,15 +1,19 @@
 @import '../../../../colors.scss';
+@import '../../../../mixins.scss';
 
 .singlePostWrapper {
-    display: grid;
-    grid-gap: 1em;
-    grid-template-columns: 1fr 4fr;
-    grid-template-areas: 
-        "image info";
-    .image {
-        grid-area: image;
-    };
-    .info {
-        grid-area: info;
-    };
+    @include whiteBackground;
+    padding: 1rem;
+    color: $darkBlue;
+
+    h2 {
+        @include title($darkBlue, $lightBlue, 0.1rem);
+        font-weight: lighter;
+    }
+
+    &:hover {
+        @include whiteBackground;
+        background-color: $white08;
+        cursor: pointer;
+    }
 }

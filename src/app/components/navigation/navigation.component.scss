@@ -3,34 +3,29 @@
 
 .navigationBar {
     grid-area: navigationBar;
-    display: grid;
-    grid-template-columns: 1fr 10fr 3fr;
+    display: inline-grid;
     grid-template-areas: 
-        "logo subreddits .";
-    color: $lightTextColor;
-    background: $darkBlue;
+        "logo addPost";
+    color: $white04;
+    margin: 0 2rem;
     align-items: center;
 
     > div {
         padding: 1em;
     };
+
 }
 
-.logo {
+button {
+    @include button;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.text-logo {
     grid-area: logo;
-
-    > img:focus,:hover{
-        cursor: pointer;
-        outline: none;
-    }
-}
-
-.subreddits {
-    grid-area: subreddits;
-}
-.logopic {
-    max-width: 200px;
-}
-.add-new-post {
-    color: $primaryColor;
+    font-size: 3rem;
+    outline: none;
+    @include title(white, $darkBlue, 0.2rem);
+    cursor: pointer;
 }

@@ -1,63 +1,91 @@
-<form #addNewPostForm="ngForm" (ngSubmit)='createNewPost()'>
-    
-    <h1>Add new post</h1>
-    
-    <div class="buttons">
-        <button class='typeButton' (click)='onTextClick()'>Text</button>
-        <button class='typeButton' (click)="onUrlClick()" >URL</button>
-    </div>
- 
-    <div *ngIf="urlExists">
-        <div>
-            <label>Title: </label>
-            <input type="text"
-            name="title"
-            required
-            [(ngModel)]="newPost.title"><br>
-            <label>url:</label>
-            <input type="text"
-            required
-            [(ngModel)]="newPost.posted_url"
-            name="url"><br>
+<div class="formWrapper">
+    <form #addNewPostForm="ngForm">
 
-            <label>Subreddit: </label>
-            <select [(ngModel)]="newPost.subreddit" name="subredditName">
-                <option *ngFor="let subreddit of namesOfSubreddits" [disabled]="subreddit==='Select'">
-                    {{subreddit}}
-                </option>
-            </select>
-        </div>
-    </div>
-
-    <div *ngIf="!urlExists">
-        <label>Title: </label>
-        <input type="text"
-        name="title"
-        [(ngModel)]="newPost.title"
-        required><br>
-
-        <label>Description: </label>
-        <textarea type="text"
-        cols="30" 
-        rows="5"
-        name="description"
-        [(ngModel)]="newPost.description"
-        required></textarea><br>
+        <h1>Add new post</h1>
         
-        <label>Subreddit: </label>
-        <select  [(ngModel)]="newPost.subreddit" name="subredditName">
-            <option *ngFor="let subreddit of namesOfSubreddits" [disabled]="subreddit==='Select'">
-                {{subreddit}}
-            </option>
-        </select>
-    </div>
+        <div class="buttons">
+            <button class='typeButton' (click)='onTextClick()'>Text</button>
+            <button class='typeButton' (click)="onUrlClick()" >URL</button>
+        </div>
+     
+        <div class="labelWrapper" *ngIf="urlExists">
+                <label> 
+                    <span class="label-text">
+                        Title:
+                    </span>
+                    <input type="text"
+                    name="title"
+                    required
+                    [(ngModel)]="newPost.title">
+                </label>
 
-    <button type="submit">Create post</button>
-
-    <div *ngIf="error !== undefined" class="form-error">
-        <p class="red-text">
-            {{ error.error }}
-        </p>
-    </div>
+                <label>
+                    <span class="label-text">
+                        URL:
+                    </span>
+                    <input type="text"
+                    required
+                    [(ngModel)]="newPost.posted_url"
+                    name="url">
+                </label>
     
-</form>
+                <label>
+                    <span class="label-text">
+                        Subreddit:
+                    </span>
+                    <select [(ngModel)]="newPost.subreddit" name="subredditName">
+                        <option *ngFor="let subreddit of namesOfSubreddits" [disabled]="subreddit==='Select'">
+                            {{subreddit}}
+                        </option>
+                    </select>
+                </label>
+        </div>
+    
+        <div class="labelWrapper" *ngIf="!urlExists">
+            <label> 
+                <span class="label-text">
+                    Title:
+                </span>
+                <input type="text"
+                name="title"
+                [(ngModel)]="newPost.title"
+                required>
+            </label>
+    
+            <label> 
+                <span class="label-text">
+                    Description:
+                </span>
+                <textarea type="text"
+                cols="40" 
+                rows="5"
+                name="description"
+                [(ngModel)]="newPost.description"
+                required></textarea>
+            </label>
+            
+            <label> 
+                <span class="label-text">
+                    Subreddit:
+                </span>
+                <select class="custom-select" [(ngModel)]="newPost.subreddit" name="subredditName">
+                    <option *ngFor="let subreddit of namesOfSubreddits" [disabled]="subreddit==='Select'">
+                        {{subreddit}}
+                    </option>
+                </select>
+            </label>
+        </div>
+    
+        <div *ngIf="error !== undefined" class="form-error">
+            <p class="red-text">
+                {{ error.error }}
+            </p>
+        </div>
+        
+        <button type="submit" (click)='createNewPost()'>Create post</button>
+
+    </form>
+</div>
+
+
+

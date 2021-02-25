@@ -1,66 +1,71 @@
-<form #registrationform="ngForm" (ngSubmit)="onSubmit(registrationform)">
-
-        <h1>Register for Iced Reddit</h1>
-
-        <label for="username">
-                <span class="label-text">
-                        Your Username
-                </span>
-                <input type="text"
-                id="username"
-                name="username"
-                required
-                #username="ngModel"
-                appForbiddenUsername=" "
-                [(ngModel)] ="user.username">
-        </label>
-
-        <div [hidden]="username.untouched || username.valid" class="form-error">
-                Username must be filled in and can't have whitespace
-        </div>
-
-        <label for="email">
-                <span class="label-text">
-                        Your Email
-                </span>
-                <input type="email"
-                id="email"
-                name="email"
-                #email="ngModel"
-                appValidateEmail="^[^\s@]+@[^\s@]+\.[^\s@]+$"
-                required
-                [(ngModel)] ="user.email">
-        </label>
+<div class="contentWrapper">
+        <div class="formWrapper">
+                <form #registrationform="ngForm" (ngSubmit)="onSubmit(registrationform)">
         
-        <div [hidden]="email.untouched || email.valid" class="form-error">
-                Please enter valid email
+                        <h1>Register for Iced Reddit</h1>
+        
+                        <label for="username">
+                                <span class="label-text">
+                                        Your Username
+                                </span>
+                                <input type="text"
+                                id="username"
+                                name="username"
+                                required
+                                #username="ngModel"
+                                appForbiddenUsername=" "
+                                [(ngModel)] ="user.username">
+                        </label>
+        
+                        <div [hidden]="username.untouched || username.valid" class="form-error">
+                                Username must be filled in and can't have whitespace
+                        </div>
+        
+                        <label for="email">
+                                <span class="label-text">
+                                        Your Email
+                                </span>
+                                <input type="email"
+                                id="email"
+                                name="email"
+                                #email="ngModel"
+                                appValidateEmail="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+                                required
+                                [(ngModel)] ="user.email">
+                        </label>
+                        
+                        <div [hidden]="email.untouched || email.valid" class="form-error">
+                                Please enter valid email
+                        </div>
+        
+                        <label for="password">
+                                <span class="label-text">
+                                        Your Password
+                                </span>
+                                <input type="password"
+                                id="password"
+                                #password="ngModel"
+                                minlength="6"
+                                maxlength="20"
+                                name="password"
+                                required
+                                appValidatePassword="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$"
+                                [(ngModel)] ="user.password">
+                        </label>
+        
+                        <div [hidden]="password.untouched || password.valid" class="form-error">
+                                Your password must have upper case, lower case and number and must be 6-20 characters long
+                        </div>
+
+                        <div *ngIf="error !== undefined">
+        
+                            <p class="red-text">{{ error.error }}</p>
+                        </div>
+        
+                        <button>Register</button>
+        
+                        <a class="link" [routerLink]="['/login']">Already registered?</a>
+                </form>
+            
         </div>
-
-        <label for="password">
-                <span class="label-text">
-                        Your Password
-                </span>
-                <input type="password"
-                id="password"
-                #password="ngModel"
-                minlength="6"
-                maxlength="20"
-                name="password"
-                required
-                appValidatePassword="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$"
-                [(ngModel)] ="user.password">
-        </label>
-
-        <div [hidden]="password.untouched || password.valid" class="form-error">
-                Your password must have upper case, lower case and number and must be 6-20 characters long
-        </div>
-
-        <button>Register</button>
-
-        <a class="link" [routerLink]="['/login']">Already registered?</a>
-</form>
-
-<div *ngIf="error !== undefined">
-
-        <p class="red-text">{{ error.error }}</p>
 </div>

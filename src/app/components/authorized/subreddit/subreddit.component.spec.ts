@@ -162,7 +162,6 @@ describe('SubredditComponent', () => {
 
     it('should call subredditService.getAllSubreddits and assign received data to component.subreddits property in constructor', () => {
         let getAllSubredditsSpy = spyOn(subredditService, 'getAllSubreddits').and.callThrough();
-        fixture = TestBed.createComponent(SubredditComponent);
         createComponent();
         expect(getAllSubredditsSpy).toHaveBeenCalled();
         expect(component.subreddits).toEqual(testSubreddits);

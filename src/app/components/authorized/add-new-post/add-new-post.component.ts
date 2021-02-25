@@ -38,6 +38,10 @@ export class AddNewPostComponent {
     }
 
     createNewPost() {
+        if (this.newPost.subreddit === 'Select') {
+            delete this.newPost.subreddit;
+        }
+
         this._gatewayService.postNewPost(this.newPost).subscribe(
             () => {
                 this._router.navigate(['auth/feed']);

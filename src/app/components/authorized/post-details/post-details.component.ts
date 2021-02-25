@@ -16,7 +16,15 @@ export class PostDetailsComponent implements OnInit {
 
     ngOnInit(): void {
         const id = +this._route.snapshot.paramMap.get('id');
-        this._gatewayService.getPostDetails(id).subscribe((post) => (this.post = post));
+        this._gatewayService.getPostDetails(id).subscribe((post) => {
+            this.post = post;
+            this.post.comments.sort((a, b) => {
+                const dateA: Date = new Date(a.date_created);
+                const dateB: Date = new Date(b.date_created);
+                const number: number = dateA.getTime() - dateB.getTime();
+                return number;
+            });
+        });
     }
 
     addComment(): void {

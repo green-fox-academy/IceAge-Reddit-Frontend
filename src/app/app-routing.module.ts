@@ -14,8 +14,9 @@ import { AddNewSubredditComponent } from './components/authorized/add-new-subred
 
 export const routes: Routes = [
     { path: '', redirectTo: '/auth/feed', pathMatch: 'full' },
-    { path: 'create-subreddit', component: AddNewSubredditComponent, canActivate: [AuthGuard] },
-
+    { path: 'land-page', component: WelcomePageComponent },
+    { path: 'login', component: LoginFormComponent },
+    { path: 'register', component: RegistrationFormComponent },
     {
         path: 'auth',
         component: AuthorizedComponent,
@@ -28,18 +29,12 @@ export const routes: Routes = [
                     { path: ':name', component: SubredditComponent },
                 ],
             },
-            {
-                path: 'post-details/:id',
-                component: PostDetailsComponent,
-            },
+            { path: 'add-new-post', component: AddNewPostComponent },
+            { path: 'subreddits', component: SubredditsComponent },
+            { path: 'create-subreddit', component: AddNewSubredditComponent },
+            { path: 'post-details/:id', component: PostDetailsComponent },
         ],
     },
-
-    { path: 'land-page', component: WelcomePageComponent },
-    { path: 'login', component: LoginFormComponent },
-    { path: 'register', component: RegistrationFormComponent },
-    { path: 'add-new-post', component: AddNewPostComponent, canActivate: [AuthGuard] },
-    { path: 'subreddits', component: SubredditsComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

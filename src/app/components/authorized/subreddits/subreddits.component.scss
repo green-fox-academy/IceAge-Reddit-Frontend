@@ -2,33 +2,31 @@
 @import '../../../../mixins.scss';
 
 .subredditsWrapper {
-    background-color: $secondaryColor;
-    color: $darkBlue;
-    align-self: center;
-    @include boxshadow;
-    border-radius: 0.3em;
+    @include whiteBackground;
+    padding: 1rem;
     
     > h2 {
-        background-color: $darkBlue;
-        color: $lightTextColor;
+        @include title ($darkBlue, $lightBlue, 0.1rem);
+        font-weight: lighter;
         text-align: center;
-        padding: 1rem;
-        border-top-left-radius: 0.3em;
-        border-top-right-radius: 0.3em;
+        border-bottom: 1px solid $lightBlue;
     }
 
     > div {
+        color: $darkBlue;
         padding: 1rem;
         font-weight: bold;
         display: grid;
         justify-content: center;
+        text-align: center;
         > div {
             padding-bottom: 0.5rem;
             letter-spacing: 0.2rem;
         }
         :hover {
             cursor: pointer;
-            font-weight: 400;
+            color: $orange;
+            text-shadow: 2px 0px $shadow;
         }
     }
 

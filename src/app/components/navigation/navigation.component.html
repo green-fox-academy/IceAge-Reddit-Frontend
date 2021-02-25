@@ -1,15 +1,11 @@
 <nav class="navigationBar">
     <div class="logo">
-        <img class="logopic" src="assets/Iced_Reddit2.png" [routerLink]="['/auth/feed']">
-    </div>
-    
-    <div class="subreddits">
-        <p>SubredditName</p>
+        <h1 class="text-logo" [routerLink]="['/auth/feed']">ICED REDDIT</h1> 
     </div>
 
     <div>
-        <a class="add-new-subreddit" [routerLink]="['/create-subreddit']"><p>New Subreddit</p></a>
-        <a class="add-new-post" [routerLink]="['/add-new-post']"><p>New Post</p></a>
+        <a class="add-new-post" [routerLink]="['/auth/add-new-post']"><button>New Post</button></a>
+        <a class="add-new-subreddit" [routerLink]="['/auth/create-subreddit']"><button>New Subreddit</button></a>
     </div>
 
 </nav>

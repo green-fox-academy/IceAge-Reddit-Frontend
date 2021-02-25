@@ -107,6 +107,11 @@ describe('FeedComponent', () => {
         }).compileComponents();
     });
 
+    function createComponent(): void {
+        fixture = TestBed.createComponent(FeedComponent);
+        component = fixture.componentInstance;
+    }
+
     beforeEach(() => {
         gatewayService = TestBed.inject(GatewayService);
         postService = TestBed.inject(PostService);
@@ -114,44 +119,38 @@ describe('FeedComponent', () => {
     });
 
     it('should create', () => {
-        fixture = TestBed.createComponent(FeedComponent);
-        component = fixture.componentInstance;
+        createComponent();
         expect(component).toBeTruthy();
     });
 
     it('should call gatewayService.getAllPosts() in constructor)', () => {
         let getAllPostsSpy = spyOn(gatewayService, 'getAllPosts').and.callThrough();
-        fixture = TestBed.createComponent(FeedComponent);
-        component = fixture.componentInstance;
+        createComponent();
         expect(getAllPostsSpy).toHaveBeenCalled();
     });
 
     it('should call postService.setPosts with received data from gatewayService.getAllPosts method in constructor', () => {
         spyOn(gatewayService, 'getAllPosts').and.returnValue(of(mockPosts));
         let setPostsSpy = spyOn(postService, 'setPosts').and.callThrough();
-        fixture = TestBed.createComponent(FeedComponent);
-        component = fixture.componentInstance;
+        createComponent();
         expect(setPostsSpy).toHaveBeenCalledWith(mockPosts);
     });
 
     it('mocked data received from postService.posts$ subscribtion should be assigned to component._posts property in constructor', () => {
-        fixture = TestBed.createComponent(FeedComponent);
-        component = fixture.componentInstance;
+        createComponent();
         expect(component._posts).toEqual(mockPosts);
     });
 
     it('should call gatewayService.getAllSubreddits() in constructor)', () => {
         let getAllSubredditsSpy = spyOn(gatewayService, 'getAllSubreddits').and.callThrough();
-        fixture = TestBed.createComponent(FeedComponent);
-        component = fixture.componentInstance;
+        createComponent();
         expect(getAllSubredditsSpy).toHaveBeenCalled();
     });
 
     it('should call subredditService.setSubreddits with received data from gatewayService.getAllSubreddits method in constructor', () => {
         spyOn(gatewayService, 'getAllSubreddits').and.returnValue(of(mockSubreddits));
         let setSubredditsSpy = spyOn(subredditService, 'setSubreddits').and.callThrough();
-        fixture = TestBed.createComponent(FeedComponent);
-        component = fixture.componentInstance;
+        createComponent();
         expect(setSubredditsSpy).toHaveBeenCalledWith(mockSubreddits);
     });
 });

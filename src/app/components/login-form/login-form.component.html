@@ -1,36 +1,52 @@
-<form #loginform="ngForm" (ngSubmit)="onSubmit(loginform)">
-
-	<h1>Login</h1>
-
-	<label for="email">
-		<span class="label-text">
-				YourEmail
-		</span>
-		<input type="text"
-			id="email"
-			required
-			name="email"
-			[(ngModel)]="user.email"
-			appValidateEmail="^[^\s@]+@[^\s@]+\.[^\s@]+$">
-	</label>
-
-	<label for="password">
-		<span class="label-text">
-				Your Password
-		</span>
-		<input type="password"
-			id="password"
-			required
-			name="password"
-			[(ngModel)]="user.password"
-			appValidatePassword="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$">
-	</label>
+<div class="contentWrapper">
+	<div class="formWrapper">
+		<form #loginform="ngForm" (ngSubmit)="onSubmit(loginform)">
 	
-	<button type="submit" [disabled]="!loginform.form.valid">Login</button>
+			<h1>Login</h1>
+		
+			<label for="email">
+				<span class="label-text">
+						Your Email
+				</span>
+				<input type="text"
+					id="email"
+					required
+					name="email"
+					#email="ngModel"
+					[(ngModel)]="user.email"
+					appValidateEmail="^[^\s@]+@[^\s@]+\.[^\s@]+$">
+			</label>
 
-</form>
+			<div [hidden]="email.untouched || email.valid" class="form-error">
+				Please enter valid email
+			</div>
+		
+			<label for="password">
+				<span class="label-text">
+						Your Password
+				</span>
+				<input type="password"
+					id="password"
+					required
+					name="password"
+					#password="ngModel"
+					[(ngModel)]="user.password"
+					appValidatePassword="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$">
+			</label>
 
-<div *ngIf="error !== undefined" class="form-error">
+			<div [hidden]="password.untouched || password.valid" class="form-error">
+				Your password must have upper case, lower case and number and must be 6-20 characters long
+			</div>
 
-	<p class="red-text">{{ error.error }}</p>
+            <div *ngIf="error !== undefined" class="form-error">
+
+                <p class="red-text">{{ error.error }}</p>
+            </div>
+			
+			<button type="submit" [disabled]="!loginform.form.valid">Login</button>
+
+            <a class="link" [routerLink]="['/register']">Create new account</a>
+		
+		</form>
+	</div>
 </div>

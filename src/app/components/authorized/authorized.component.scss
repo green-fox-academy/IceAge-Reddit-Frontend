@@ -3,14 +3,14 @@
 
 .gridWrapper {
   display: grid;
-  grid-template-columns: 2fr 6fr 2fr 2fr;
+  grid-template-columns: 2fr 7fr 2fr 2fr;
   grid-template-rows: 1fr auto;
   row-gap: 3em;
-  column-gap: 3em;
+  column-gap: 6em;
   grid-template-areas: 
     "navigationBar navigationBar navigationBar navigationBar"
     ". mainContent subreddits .";
-  align-items: start;
+  align-items: flex-start;
 }
 
 .router-outlet {
