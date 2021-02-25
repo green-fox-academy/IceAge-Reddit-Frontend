@@ -1,5 +1,5 @@
 <div class="formWrapper">
-    <form #addNewPostForm="ngForm" (ngSubmit)='createNewPost()'>
+    <form #addNewPostForm="ngForm">
 
         <h1>Add new post</h1>
         
@@ -76,7 +76,7 @@
             </label>
         </div>
     
-        <button type="submit">Create post</button>
+        <button type="submit" (click)='createNewPost()'>Create post</button>
 
     </form>
 </div>
