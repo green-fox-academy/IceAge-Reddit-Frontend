@@ -12,9 +12,14 @@
 					id="email"
 					required
 					name="email"
+					#email="ngModel"
 					[(ngModel)]="user.email"
 					appValidateEmail="^[^\s@]+@[^\s@]+\.[^\s@]+$">
 			</label>
+
+			<div [hidden]="email.untouched || email.valid" class="form-error">
+				Please enter valid email
+			</div>
 		
 			<label for="password">
 				<span class="label-text">
@@ -24,9 +29,14 @@
 					id="password"
 					required
 					name="password"
+					#password="ngModel"
 					[(ngModel)]="user.password"
 					appValidatePassword="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$">
 			</label>
+
+			<div [hidden]="password.untouched || password.valid" class="form-error">
+				Your password must have upper case, lower case and number and must be 6-20 characters long
+			</div>
 			
 			<button type="submit" [disabled]="!loginform.form.valid">Login</button>
 		

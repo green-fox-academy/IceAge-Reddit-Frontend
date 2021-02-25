@@ -31,14 +31,8 @@ export const routes: Routes = [
             },
             { path: 'add-new-post', component: AddNewPostComponent },
             { path: 'subreddits', component: SubredditsComponent },
-            {
-                path: 'create-subreddit',
-                component: AddNewSubredditComponent,
-            },
-            {
-                path: 'post-details/:id',
-                component: PostDetailsComponent,
-            },
+            { path: 'create-subreddit', component: AddNewSubredditComponent },
+            { path: 'post-details/:id', component: PostDetailsComponent },
         ],
     },
 ];
